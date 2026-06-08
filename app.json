@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mood/mood",
+    "pages/detail/detail",
+    "pages/diy/diy",
+    "pages/ranking/ranking",
+    "pages/library/library",
+    "pages/test/test",
+    "pages/achievements/achievements",
+    "pages/profile/profile",
+    "pages/record/record"
+  ],
+  "window": {
+    "navigationBarTitleText": "Drink One",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F8FC",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#9CA3AF",
+    "selectedColor": "#6B4CFF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/icon-home.png",
+        "selectedIconPath": "assets/tabbar/icon-home-active.png"
+      },
+      {
+        "pagePath": "pages/library/library",
+        "text": "酒库",
+        "iconPath": "assets/tabbar/icon-library.png",
+        "selectedIconPath": "assets/tabbar/icon-library-active.png"
+      },
+      {
+        "pagePath": "pages/diy/diy",
+        "text": "DIY酒谱",
+        "iconPath": "assets/tabbar/icon-diy.png",
+        "selectedIconPath": "assets/tabbar/icon-diy-active.png"
+      },
+      {
+        "pagePath": "pages/ranking/ranking",
+        "text": "榜单",
+        "iconPath": "assets/tabbar/icon-ranking.png",
+        "selectedIconPath": "assets/tabbar/icon-ranking-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tabbar/icon-profile.png",
+        "selectedIconPath": "assets/tabbar/icon-profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

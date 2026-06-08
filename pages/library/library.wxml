@@ -1,0 +1,27 @@
+<view class="page library-page page-with-tab">
+  <view class="between">
+    <view class="search">⌕ 搜索酒品</view>
+    <text class="filter">⌯</text>
+  </view>
+  <view class="category-grid">
+    <view class="category" wx:for="{{categories}}" wx:key="*this">
+      <text class="category-icon">□</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+  <view class="between sort-line">
+    <text class="section-title">全部酒品</text>
+    <text class="muted">默认　酒精度⌄　热度</text>
+  </view>
+  <view class="drink-list">
+    <view class="soft-card drink-row" wx:for="{{drinks}}" wx:key="name">
+      <image class="library-bottle" src="{{item.image}}" mode="aspectFit"></image>
+      <view class="drink-info">
+        <text class="drink-name">{{item.name}}</text>
+        <text class="drink-en">{{item.englishName}}</text>
+        <text class="drink-abv">{{item.abv}}</text>
+      </view>
+      <text class="heart {{item.liked ? 'active' : ''}}">♡</text>
+    </view>
+  </view>
+</view>

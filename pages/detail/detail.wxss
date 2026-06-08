@@ -1,0 +1,114 @@
+.detail-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8fc 54%, #ffffff 100%);
+}
+
+.detail-hero {
+  align-items: flex-start;
+  margin-top: 18rpx;
+}
+
+.big-bottle-wrap {
+  width: 230rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 44rpx;
+  border-radius: 28rpx;
+  background: radial-gradient(circle at 50% 58%, rgba(246, 178, 58, 0.2), transparent 58%);
+}
+
+.big-bottle {
+  width: 190rpx;
+  height: 292rpx;
+}
+
+.detail-copy {
+  flex: 1;
+  padding-top: 32rpx;
+}
+
+.drink-title {
+  display: block;
+  font-size: 38rpx;
+  font-weight: 800;
+}
+
+.drink-en {
+  display: block;
+  margin-top: 8rpx;
+  color: #6b7280;
+  font-size: 26rpx;
+}
+
+.tag-line,
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.abv-row {
+  display: flex;
+  align-items: baseline;
+  margin-top: 30rpx;
+}
+
+.abv {
+  color: #111827;
+  font-size: 64rpx;
+  font-weight: 900;
+}
+
+.abv-unit {
+  margin-left: 6rpx;
+  font-size: 24rpx;
+}
+
+.section {
+  margin-top: 34rpx;
+}
+
+.scene-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14rpx;
+  margin-top: 18rpx;
+}
+
+.scene-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+  padding: 20rpx 6rpx;
+  color: #6b7280;
+  font-size: 22rpx;
+  box-shadow: 0 10rpx 24rpx rgba(31, 41, 55, 0.045);
+}
+
+.scene-icon {
+  color: #6b4cff;
+  font-size: 30rpx;
+}
+
+.notice {
+  margin: 34rpx 0 26rpx;
+  padding: 20rpx 24rpx;
+  border: 1rpx solid #f3b052;
+  border-radius: 16rpx;
+  background: #fff8ec;
+}
+
+.notice-title {
+  display: block;
+  color: #d97706;
+  font-weight: 800;
+}
+
+.notice-text {
+  display: block;
+  margin-top: 8rpx;
+  color: #7c4a03;
+  font-size: 24rpx;
+  line-height: 1.45;
+}

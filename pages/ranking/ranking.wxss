@@ -1,0 +1,118 @@
+.ranking-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fd 100%);
+}
+
+.page-title {
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.rank-tabs {
+  display: flex;
+  gap: 20rpx;
+  margin: 34rpx 0 28rpx;
+}
+
+.rank-tab {
+  padding: 14rpx 20rpx;
+  border-radius: 999rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+}
+
+.rank-tab.active {
+  background: #fff3e9;
+  color: #f97316;
+}
+
+.podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 14rpx;
+  min-height: 350rpx;
+}
+
+.podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 8rpx;
+  border-radius: 110rpx 110rpx 28rpx 28rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf2 100%);
+  box-shadow: 0 18rpx 42rpx rgba(31, 41, 55, 0.08);
+}
+
+.rank-1 {
+  min-height: 300rpx;
+  border: 2rpx solid #f6bd16;
+}
+
+.rank-2 {
+  min-height: 250rpx;
+  border: 2rpx solid #9ab6ff;
+}
+
+.rank-3 {
+  min-height: 238rpx;
+  border: 2rpx solid #ffb86c;
+}
+
+.crown {
+  color: #f6bd16;
+  font-size: 28rpx;
+}
+
+.podium-bottle {
+  width: 82rpx;
+  height: 132rpx;
+}
+
+.podium-name,
+.likes {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 22rpx;
+}
+
+.likes {
+  color: #ff6f73;
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+
+.rank-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  min-height: 78rpx;
+  padding: 14rpx 22rpx;
+  box-shadow: 0 12rpx 30rpx rgba(31, 41, 55, 0.055);
+}
+
+.rank-num {
+  width: 34rpx;
+  font-weight: 700;
+}
+
+.rank-bottle {
+  width: 40rpx;
+  height: 62rpx;
+}
+
+.rank-name {
+  flex: 1;
+  font-size: 25rpx;
+}
+
+.rank-like {
+  color: #6b7280;
+  font-size: 23rpx;
+}

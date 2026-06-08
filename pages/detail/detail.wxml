@@ -1,0 +1,37 @@
+<view class="page detail-page">
+  <view class="between detail-hero">
+    <view class="big-bottle-wrap">
+      <image class="big-bottle" src="{{drink.image}}" mode="aspectFit"></image>
+    </view>
+    <view class="detail-copy">
+      <text class="drink-title">{{drink.name}}</text>
+      <text class="drink-en">{{drink.englishName}}</text>
+      <view class="tag-line">
+        <text class="tag">{{drink.category}}</text>
+        <text class="tag">{{drink.country}}</text>
+      </view>
+      <view class="abv-row"><text class="abv">{{drink.abv}}</text><text class="abv-unit">%vol</text></view>
+      <text class="muted">酒精度</text>
+    </view>
+  </view>
+  <view class="section">
+    <text class="section-title">口感标签</text>
+    <view class="chip-row">
+      <text class="tag" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+  <view class="section">
+    <text class="section-title">适合场景</text>
+    <view class="scene-grid">
+      <view class="soft-card scene-cell" wx:for="{{drink.scenes}}" wx:key="*this">
+        <text class="scene-icon">◎</text>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="notice">
+    <text class="notice-title">酒精度提示</text>
+    <text class="notice-text">40%vol 属于中高度酒，建议酌量饮用，可静置 2-3 杯后出现明显醉意。</text>
+  </view>
+  <view class="primary-button" bindtap="goRecord">记录这款酒</view>
+</view>

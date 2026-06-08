@@ -1,0 +1,24 @@
+<view class="page record-page">
+  <text class="page-title">记录这款酒</text>
+  <view class="drink-summary">
+    <view class="bottle small"></view>
+    <view>
+      <text class="drink-name">角瓶威士忌</text>
+      <text class="drink-en">Suntory Kakubin</text>
+      <text class="drink-abv">40%vol</text>
+    </view>
+  </view>
+  <view class="card form">
+    <text class="label">我的评分</text>
+    <view class="stars">
+      <text wx:for="{{stars}}" wx:key="*this" class="star {{index < 4 ? 'active' : ''}}">★</text>
+    </view>
+    <text class="label">饮用感受（可选）</text>
+    <view class="textarea">口感顺滑，带有淡淡的蜂蜜香气，适合小酌。</view>
+    <text class="label">饮用场景</text>
+    <view class="scene-row">
+      <text class="pill {{index === 0 ? 'active' : ''}}" wx:for="{{scenes}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+  <view class="primary-button">保存记录</view>
+</view>

@@ -1,0 +1,28 @@
+<view class="page mood-page">
+  <view class="between">
+    <view>
+      <text class="page-title">{{mode}}</text>
+      <text class="page-subtitle">适合放松心情，享受温暖时刻</text>
+    </view>
+    <text class="hero-emoji">😌</text>
+  </view>
+  <view class="scene-row">
+    <text class="muted">适合：</text>
+    <text class="pill">独处</text>
+    <text class="pill">电影</text>
+    <text class="pill">音乐</text>
+    <text class="pill">放松</text>
+  </view>
+  <text class="section-title">为你推荐</text>
+  <view class="recommend-list">
+    <view class="soft-card recommend-item" wx:for="{{drinks}}" wx:key="name">
+      <view class="bottle mini {{item.tone}}"></view>
+      <view class="recommend-info">
+        <text class="drink-name">{{item.name}}</text>
+        <text class="drink-en">{{item.abv}}</text>
+      </view>
+      <text class="heart {{item.liked ? 'active' : ''}}">♡</text>
+    </view>
+  </view>
+  <view class="primary-button">查看更多推荐</view>
+</view>

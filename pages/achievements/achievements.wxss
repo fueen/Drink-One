@@ -1,0 +1,84 @@
+.page-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.page-subtitle {
+  display: block;
+  margin-top: 8rpx;
+  color: #8a94a6;
+  font-size: 24rpx;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+
+.achievement-card {
+  min-height: 188rpx;
+  box-sizing: border-box;
+  padding: 18rpx 10rpx;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 16rpx;
+  background: #ffffff;
+  text-align: center;
+  opacity: 0.62;
+}
+
+.achievement-card.active {
+  border-color: #f6bd41;
+  background: #fffaf1;
+  opacity: 1;
+}
+
+.medal {
+  display: block;
+  color: #f59e0b;
+  font-size: 54rpx;
+}
+
+.ach-name {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.ach-desc {
+  display: block;
+  margin-top: 6rpx;
+  color: #6b7280;
+  font-size: 18rpx;
+}
+
+.progress-card {
+  margin-top: 28rpx;
+  padding: 26rpx;
+}
+
+.progress-line {
+  margin-top: 20rpx;
+}
+
+.count {
+  font-size: 40rpx;
+  font-weight: 900;
+}
+
+.track {
+  height: 12rpx;
+  margin-top: 20rpx;
+  border-radius: 999rpx;
+  background: #e9e7ff;
+}
+
+.bar {
+  width: 76%;
+  height: 100%;
+  border-radius: inherit;
+  background: #6b4cff;
+}

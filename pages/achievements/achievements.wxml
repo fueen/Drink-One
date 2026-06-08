@@ -1,0 +1,19 @@
+<view class="page achievements-page">
+  <text class="page-title">我的成就</text>
+  <text class="page-subtitle">已解锁 {{unlocked}}</text>
+  <view class="achievement-grid">
+    <view class="achievement-card {{item.active ? 'active' : ''}}" wx:for="{{achievements}}" wx:key="name">
+      <text class="medal">{{item.active ? '★' : '◇'}}</text>
+      <text class="ach-name">{{item.name}}</text>
+      <text class="ach-desc">{{item.desc}}</text>
+    </view>
+  </view>
+  <view class="card progress-card">
+    <text class="section-title">累计记录酒品</text>
+    <view class="between progress-line">
+      <text class="count">23 种</text>
+      <text class="muted">23/30</text>
+    </view>
+    <view class="track"><view class="bar"></view></view>
+  </view>
+</view>

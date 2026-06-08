@@ -1,0 +1,101 @@
+.page-title {
+  display: block;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.drink-summary {
+  display: flex;
+  align-items: center;
+  gap: 26rpx;
+  margin: 42rpx 0 28rpx;
+}
+
+.small {
+  width: 54rpx;
+  height: 100rpx;
+}
+
+.small::before {
+  left: 16rpx;
+  top: -24rpx;
+  width: 22rpx;
+  height: 32rpx;
+}
+
+.small::after {
+  top: 38rpx;
+  height: 26rpx;
+}
+
+.drink-name,
+.drink-en,
+.drink-abv,
+.label {
+  display: block;
+}
+
+.drink-name {
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.drink-en,
+.drink-abv {
+  margin-top: 6rpx;
+  color: #6b7280;
+  font-size: 23rpx;
+}
+
+.form {
+  padding: 28rpx;
+}
+
+.label {
+  margin-top: 26rpx;
+  color: #111827;
+  font-weight: 800;
+}
+
+.label:first-child {
+  margin-top: 0;
+}
+
+.stars {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 18rpx;
+}
+
+.star {
+  color: #e5e7eb;
+  font-size: 46rpx;
+}
+
+.star.active {
+  color: #f6bd16;
+}
+
+.textarea {
+  min-height: 138rpx;
+  margin-top: 18rpx;
+  box-sizing: border-box;
+  padding: 22rpx;
+  border-radius: 16rpx;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.scene-row {
+  display: flex;
+  gap: 14rpx;
+  margin: 18rpx 0 32rpx;
+}
+
+.pill.active {
+  background: #fff3e9;
+  color: #d97706;
+}

@@ -1,0 +1,46 @@
+.page-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 800;
+}
+
+.page-subtitle {
+  display: block;
+  margin-top: 8rpx;
+  color: #8a94a6;
+  font-size: 24rpx;
+}
+
+.hero-mark {
+  color: #d8ccff;
+  font-size: 96rpx;
+}
+
+.form-card {
+  margin: 42rpx 0 36rpx;
+  padding: 10rpx 28rpx;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 94rpx;
+  border-bottom: 1rpx solid #edf0f5;
+}
+
+.form-row:last-child {
+  border-bottom: 0;
+}
+
+.value {
+  color: #6b7280;
+}
+
+.hint {
+  display: block;
+  margin-top: 28rpx;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 22rpx;
+}

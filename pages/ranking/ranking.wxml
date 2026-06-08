@@ -1,0 +1,22 @@
+<view class="page ranking-page page-with-tab">
+  <text class="page-title">排行榜</text>
+  <view class="rank-tabs">
+    <text class="rank-tab {{index === 0 ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="*this">{{item}}</text>
+  </view>
+  <view class="podium">
+    <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name">
+      <text class="crown">♕</text>
+      <image class="podium-bottle" src="{{item.image}}" mode="aspectFit"></image>
+      <text class="podium-name">{{item.name}}</text>
+      <text class="likes">♥ {{item.likes}}</text>
+    </view>
+  </view>
+  <view class="rank-list">
+    <view class="soft-card rank-row" wx:for="{{list}}" wx:key="name">
+      <text class="rank-num">{{item.rank}}</text>
+      <image class="rank-bottle" src="{{item.image}}" mode="aspectFit"></image>
+      <text class="rank-name">{{item.name}}</text>
+      <text class="rank-like">♡ {{item.likes}}</text>
+    </view>
+  </view>
+</view>
