@@ -5,7 +5,7 @@
     <text class="next">下一步</text>
   </view>
   <view class="step-row">
-    <view class="step" wx:for="{{steps}}" wx:key="*this">
+    <view class="step" wx:for="{{steps}}" wx:key="*this" data-index="{{index}}" bindtap="selectStep">
       <text class="step-dot {{index === activeStep ? 'active' : ''}}">{{index + 1}}</text>
       <text class="step-text {{index === activeStep ? 'active-text' : ''}}">{{item}}</text>
     </view>
@@ -13,22 +13,35 @@
   <text class="section-title">选择基酒</text>
   <scroll-view class="category-scroll" scroll-x="true">
     <view class="category-row">
-      <text class="pill active-pill" wx:for="{{categories}}" wx:key="*this">{{item}}</text>
+      <text
+        class="pill {{item === activeCategory ? 'active-pill' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="*this"
+        data-category="{{item}}"
+        bindtap="selectCategory"
+      >{{item}}</text>
     </view>
   </scroll-view>
   <scroll-view class="base-scroll" scroll-x="true">
     <view class="base-row">
-      <view class="base-card {{index === 0 ? 'selected' : ''}}" wx:for="{{baseDrinks}}" wx:key="name">
+      <view
+        class="base-card {{item.id === baseDrinkId ? 'selected' : ''}}"
+        wx:for="{{baseDrinks}}"
+        wx:key="name"
+        data-index="{{index}}"
+        bindtap="selectBaseDrink"
+      >
         <image class="base-bottle" src="{{item.image}}" mode="aspectFit"></image>
         <text class="base-name">{{item.name}}</text>
       </view>
     </view>
   </scroll-view>
   <view class="card picked-card">
-    <text class="picked">已选：角瓶威士忌</text>
-    <text class="info-title">基酒信息</text>
-    <text class="info-text">酒精度：40%vol</text>
-    <text class="info-text">类型：威士忌</text>
+    <text class="picked">已选：{{baseDrinkId ? '已选择基酒' : '请选择基酒'}}</text>
+    <text class="info-title">酒谱名称</text>
+    <input class="info-input" placeholder="为你的酒谱起个名字（最多20字）" value="{{recipeName}}" bindinput="onNameInput" maxlength="20"></input>
+    <text class="info-title">描述（可选）</text>
+    <textarea class="info-textarea" placeholder="描述这杯酒的风味和故事..." value="{{description}}" bindinput="onDescInput"></textarea>
   </view>
-  <view class="primary-button">下一步</view>
+  <view class="primary-button" bindtap="submitRecipe">提交酒谱</view>
 </view>

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "微醺新人",
+    "icon": "starter",
+    "description": "记录第一种酒",
+    "conditionType": "drink_record",
+    "conditionValue": 1,
+    "sort": 1
+  },
+  {
+    "name": "酒馆学徒",
+    "icon": "apprentice",
+    "description": "记录10种酒",
+    "conditionType": "drink_record",
+    "conditionValue": 10,
+    "sort": 2
+  },
+  {
+    "name": "品鉴收藏家",
+    "icon": "collector",
+    "description": "记录30种酒",
+    "conditionType": "drink_record",
+    "conditionValue": 30,
+    "sort": 3
+  },
+  {
+    "name": "酒类鉴赏家",
+    "icon": "expert",
+    "description": "记录50种酒",
+    "conditionType": "drink_record",
+    "conditionValue": 50,
+    "sort": 4
+  },
+  {
+    "name": "微醺大师",
+    "icon": "master",
+    "description": "记录100种酒",
+    "conditionType": "drink_record",
+    "conditionValue": 100,
+    "sort": 5
+  },
+  {
+    "name": "调酒新人",
+    "icon": "recipe",
+    "description": "发布第一份酒谱",
+    "conditionType": "recipe_publish",
+    "conditionValue": 1,
+    "sort": 6
+  },
+  {
+    "name": "人气调酒师",
+    "icon": "popular",
+    "description": "获得100点赞",
+    "conditionType": "recipe_like",
+    "conditionValue": 100,
+    "sort": 7
+  }
+]

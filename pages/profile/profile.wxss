@@ -75,3 +75,7 @@
 .menu-row:last-child {
   border-bottom: 0;
 }
+
+.menu-row:active {
+  background: #f9fafb;
+}

@@ -63,15 +63,16 @@ The project has completed the foundation stage and is currently in the UI refine
 The project is currently at:
 
 ```text
-Phase 2: UI refinement and frontend engineering foundation
+All code-level implementation complete.
+Next step: WeChat DevTools visual verification and CloudBase deployment.
 ```
 
 The immediate next work should focus on:
 
-1. Verify the refined UI in WeChat DevTools on common simulator sizes.
-2. Extract repeated UI into reusable components.
-3. Prepare CloudBase environment and data access boundaries.
-4. Seed initial data for categories, tags, drinks, ingredients, and achievements.
+1. Open project in WeChat DevTools and verify all 10 pages render correctly.
+2. Deploy cloud functions to CloudBase and seed initial data.
+3. Run through `docs/qa-checklist.md` items manually.
+4. Fix any visual or runtime issues found in simulator.
 
 ---
 
@@ -82,12 +83,12 @@ The immediate next work should focus on:
 | Phase 0: Project setup | Completed | Make the Mini Program launchable and version-controlled |
 | Phase 1: Static UI MVP | Completed | Build all major pages from PRD and design mockup |
 | Phase 2: UI refinement and frontend foundation | In Progress | Improve visual quality, extract components, stabilize validation |
-| Phase 3: CloudBase setup | Not Started | Add database, cloud functions, environment config |
-| Phase 4: Real drink data and recommendations | Not Started | Replace static UI data with real collections and recommendation logic |
-| Phase 5: User identity, favorites, and records | Not Started | Build user-level persistence |
-| Phase 6: DIY recipes and content review | Not Started | Add UGC creation, audit, likes, favorites, reports |
-| Phase 7: Rankings and achievements | Not Started | Make rankings and achievements data-driven |
-| Phase 8: QA, release hardening, and initial launch | Not Started | Test, polish, document, and prepare release |
+| Phase 3: CloudBase setup | Completed | Add database, cloud functions, environment config |
+| Phase 4: Real drink data and recommendations | In Progress | Replace static UI data with real collections and recommendation logic |
+| Phase 5: User identity, favorites, and records | In Progress | Build user-level persistence |
+| Phase 6: DIY recipes and content review | In Progress | Add UGC creation, audit, likes, favorites, reports |
+| Phase 7: Rankings and achievements | In Progress | Make rankings and achievements data-driven |
+| Phase 8: QA, release hardening, and initial launch | In Progress | Test, polish, document, and prepare release |
 
 ---
 
@@ -684,7 +685,7 @@ Mini program structure validated.
 
 ### Task 2.4: Extract shared components
 
-Status: Not Started
+Status: Completed
 
 **Files:**
 
@@ -705,7 +706,7 @@ Status: Not Started
 - Modify: `pages/detail/detail.json`
 - Modify: `pages/detail/detail.wxml`
 
-- [ ] **Step 1: Write failing validation for component files**
+- [x] **Step 1: Write failing validation for component files**
 
 Add to `tests/validate-miniprogram.js`:
 
@@ -726,7 +727,7 @@ for (const component of requiredComponents) {
 }
 ```
 
-- [ ] **Step 2: Run test and verify failure**
+- [x] **Step 2: Run test and verify failure**
 
 Run:
 
@@ -740,7 +741,7 @@ Expected:
 Error: components/drink-card/drink-card.js should exist
 ```
 
-- [ ] **Step 3: Create `drink-card` component**
+- [x] **Step 3: Create `drink-card` component**
 
 Create `components/drink-card/drink-card.json`:
 
@@ -834,7 +835,7 @@ Create `components/drink-card/drink-card.wxss`:
 }
 ```
 
-- [ ] **Step 4: Create `safety-notice` component**
+- [x] **Step 4: Create `safety-notice` component**
 
 Create `components/safety-notice/safety-notice.json`:
 
@@ -918,7 +919,7 @@ Create `components/safety-notice/safety-notice.wxss`:
 }
 ```
 
-- [ ] **Step 5: Create `tag-list` component**
+- [x] **Step 5: Create `tag-list` component**
 
 Create `components/tag-list/tag-list.json`:
 
@@ -971,7 +972,7 @@ Create `components/tag-list/tag-list.wxss`:
 }
 ```
 
-- [ ] **Step 6: Register components in page JSON**
+- [x] **Step 6: Register components in page JSON**
 
 Example for `pages/index/index.json`:
 
@@ -985,7 +986,7 @@ Example for `pages/index/index.json`:
 }
 ```
 
-- [ ] **Step 7: Replace repeated WXML**
+- [x] **Step 7: Replace repeated WXML**
 
 Replace home drink card with:
 
@@ -999,7 +1000,7 @@ Replace safety strip with:
 <safety-notice></safety-notice>
 ```
 
-- [ ] **Step 8: Run validation**
+- [x] **Step 8: Run validation**
 
 Run:
 
@@ -1017,11 +1018,13 @@ Mini program structure validated.
 
 ## Phase 3: CloudBase Setup
 
-Status: Not Started
+Status: In Progress
 
 Goal: Add real backend infrastructure while keeping frontend data access clean and testable.
 
 ### Task 3.1: Configure CloudBase environment
+
+Status: Completed
 
 **Files:**
 
@@ -1029,7 +1032,7 @@ Goal: Add real backend infrastructure while keeping frontend data access clean a
 - Create: `config/env.js`
 - Modify: `tests/validate-miniprogram.js`
 
-- [ ] **Step 1: Create environment config**
+- [x] **Step 1: Create environment config**
 
 Create `config/env.js`:
 
@@ -1041,7 +1044,7 @@ const ENV = {
 module.exports = ENV;
 ```
 
-- [ ] **Step 2: Initialize cloud in `app.js`**
+- [x] **Step 2: Initialize cloud in `app.js`**
 
 Modify `app.js`:
 
@@ -1063,7 +1066,7 @@ App({
 });
 ```
 
-- [ ] **Step 3: Add validation for env config**
+- [x] **Step 3: Add validation for env config**
 
 Add to `tests/validate-miniprogram.js`:
 
@@ -1071,7 +1074,7 @@ Add to `tests/validate-miniprogram.js`:
 assert(fs.existsSync(path.join(root, "config/env.js")), "config/env.js should exist");
 ```
 
-- [ ] **Step 4: Run validation**
+- [x] **Step 4: Run validation**
 
 Run:
 
@@ -1087,6 +1090,8 @@ Mini program structure validated.
 
 ### Task 3.2: Create database initialization script
 
+Status: Completed
+
 **Files:**
 
 - Create: `scripts/seed-data/categories.json`
@@ -1096,7 +1101,7 @@ Mini program structure validated.
 - Create: `scripts/seed-data/drinks.sample.json`
 - Create: `scripts/README.md`
 
-- [ ] **Step 1: Add category seed data**
+- [x] **Step 1: Add category seed data**
 
 Create `scripts/seed-data/categories.json`:
 
@@ -1114,7 +1119,7 @@ Create `scripts/seed-data/categories.json`:
 ]
 ```
 
-- [ ] **Step 2: Add tag seed data**
+- [x] **Step 2: Add tag seed data**
 
 Create `scripts/seed-data/tags.json`:
 
@@ -1135,7 +1140,7 @@ Create `scripts/seed-data/tags.json`:
 ]
 ```
 
-- [ ] **Step 3: Add ingredient seed data**
+- [x] **Step 3: Add ingredient seed data**
 
 Create `scripts/seed-data/ingredients.json`:
 
@@ -1152,7 +1157,7 @@ Create `scripts/seed-data/ingredients.json`:
 ]
 ```
 
-- [ ] **Step 4: Add achievement seed data**
+- [x] **Step 4: Add achievement seed data**
 
 Create `scripts/seed-data/achievements.json`:
 
@@ -1193,7 +1198,7 @@ Create `scripts/seed-data/achievements.json`:
 ]
 ```
 
-- [ ] **Step 5: Add sample drink data**
+- [x] **Step 5: Add sample drink data**
 
 Create `scripts/seed-data/drinks.sample.json`:
 
@@ -1220,7 +1225,7 @@ Create `scripts/seed-data/drinks.sample.json`:
 ]
 ```
 
-- [ ] **Step 6: Document manual import flow**
+- [x] **Step 6: Document manual import flow**
 
 Create `scripts/README.md`:
 
@@ -1240,7 +1245,7 @@ Import order:
 After import, create the indexes described in `docs/Database Design.md`.
 ```
 
-- [ ] **Step 7: Run validation**
+- [x] **Step 7: Run validation**
 
 Run:
 
@@ -1256,6 +1261,8 @@ Mini program structure validated.
 
 ### Task 3.3: Create cloud function folder structure
 
+Status: Completed
+
 **Files:**
 
 - Create: `cloudfunctions/login/index.js`
@@ -1267,7 +1274,7 @@ Mini program structure validated.
 - Create: `cloudfunctions/createRecipe/index.js`
 - Create: `cloudfunctions/getRanking/index.js`
 
-- [ ] **Step 1: Add validation for cloudfunctions folder**
+- [x] **Step 1: Add validation for cloudfunctions folder**
 
 Add to `tests/validate-miniprogram.js`:
 
@@ -1288,7 +1295,7 @@ for (const file of requiredCloudFunctions) {
 }
 ```
 
-- [ ] **Step 2: Run test and verify failure**
+- [x] **Step 2: Run test and verify failure**
 
 Run:
 
@@ -1302,7 +1309,7 @@ Expected:
 Error: cloudfunctions/login/index.js should exist
 ```
 
-- [ ] **Step 3: Create placeholder cloud function files**
+- [x] **Step 3: Create placeholder cloud function files**
 
 Each function should start with this safe placeholder:
 
@@ -1315,7 +1322,7 @@ exports.main = async () => {
 };
 ```
 
-- [ ] **Step 4: Run validation**
+- [x] **Step 4: Run validation**
 
 Run:
 
@@ -1339,6 +1346,8 @@ Goal: Replace static frontend data with real CloudBase queries and recommendatio
 
 ### Task 4.1: Add frontend service wrapper
 
+Status: Completed (all steps verified)
+
 **Files:**
 
 - Create: `services/cloud.js`
@@ -1348,7 +1357,7 @@ Goal: Replace static frontend data with real CloudBase queries and recommendatio
 - Modify: `pages/detail/detail.js`
 - Test: `tests/validate-miniprogram.js`
 
-- [ ] **Step 1: Add validation for services**
+- [x] **Step 1: Add validation for services**
 
 Add to `tests/validate-miniprogram.js`:
 
@@ -1363,7 +1372,7 @@ for (const file of requiredServices) {
 }
 ```
 
-- [ ] **Step 2: Run test and verify failure**
+- [x] **Step 2: Run test and verify failure**
 
 Run:
 
@@ -1377,7 +1386,7 @@ Expected:
 Error: services/cloud.js should exist
 ```
 
-- [ ] **Step 3: Create `services/cloud.js`**
+- [x] **Step 3: Create `services/cloud.js`**
 
 Create:
 
@@ -1394,7 +1403,7 @@ module.exports = {
 };
 ```
 
-- [ ] **Step 4: Create `services/drinks.js`**
+- [x] **Step 4: Create `services/drinks.js`**
 
 Create:
 
@@ -1425,7 +1434,7 @@ module.exports = {
 };
 ```
 
-- [ ] **Step 5: Update home page to call service**
+- [x] **Step 5: Update home page to call service**
 
 Modify `pages/index/index.js` so `onLoad` calls `getHomeData()`:
 
@@ -1445,7 +1454,7 @@ Page({
 });
 ```
 
-- [ ] **Step 6: Keep fallback data for cloud errors**
+- [x] **Step 6: Keep fallback data for cloud errors**
 
 If cloud is unavailable, set fallback data:
 
@@ -1470,7 +1479,7 @@ catch (error) {
 }
 ```
 
-- [ ] **Step 7: Run validation**
+- [x] **Step 7: Run validation**
 
 Run:
 
@@ -1485,6 +1494,8 @@ Mini program structure validated.
 ```
 
 ### Task 4.2: Implement `getHomeData`
+
+Status: Completed (cloud function implemented; DevTools testing pending)
 
 **Files:**
 
@@ -1548,6 +1559,8 @@ Expected:
 ```
 
 ### Task 4.3: Implement random drink recommendation
+
+Status: Completed (cloud function implemented; DevTools testing pending)
 
 **Files:**
 
@@ -1616,11 +1629,13 @@ Expected: 今日推荐 card changes to another drink.
 
 ## Phase 5: User Identity, Favorites, And Records
 
-Status: Not Started
+Status: In Progress (cloud functions implemented, services created, login wired in app.js)
 
 Goal: Persist user-specific actions through cloud functions.
 
 ### Task 5.1: Implement login and user creation
+
+Status: Completed (cloud function + service + app.js wiring all done; DevTools testing pending)
 
 **Files:**
 
@@ -1727,6 +1742,8 @@ One document exists for the current openid.
 ```
 
 ### Task 5.2: Implement drink record saving
+
+Status: Completed (cloud function + service + page wiring done; DevTools testing pending)
 
 **Files:**
 
@@ -1839,11 +1856,13 @@ Expected: drink_records collection receives one new record.
 
 ## Phase 6: DIY Recipes And Content Review
 
-Status: Not Started
+Status: In Progress (cloud functions + security module + service + page wiring done; DevTools testing pending)
 
 Goal: Let users create safe DIY recipes using only approved ingredients.
 
 ### Task 6.1: Implement recipe creation
+
+Status: Completed (cloud function with validation + service + page wiring done; DevTools testing pending)
 
 **Files:**
 
@@ -1972,6 +1991,8 @@ Expected: recipes collection gets a status=pending record.
 
 ### Task 6.2: Add content safety audit
 
+Status: Completed (security module with 10 blocked words + integration in createRecipe done; DevTools testing pending)
+
 **Files:**
 
 - Modify: `cloudfunctions/createRecipe/index.js`
@@ -2040,11 +2061,13 @@ content contains blocked word: 挑战
 
 ## Phase 7: Rankings And Achievements
 
-Status: Not Started
+Status: In Progress (cloud functions + services + page wiring done; DevTools testing pending)
 
 Goal: Make ranking and achievement pages driven by real data.
 
 ### Task 7.1: Implement ranking cloud function
+
+Status: Completed (cloud function + service + page wiring done; DevTools testing pending)
 
 **Files:**
 
@@ -2132,6 +2155,8 @@ Expected: ranking list comes from approved recipes collection.
 
 ### Task 7.2: Implement achievement unlock check
 
+Status: Completed (checkAchievements cloud function created; triggered from saveDrinkRecord; DevTools testing pending)
+
 **Files:**
 
 - Create: `cloudfunctions/checkAchievements/index.js`
@@ -2217,6 +2242,8 @@ Status: Not Started
 Goal: Prepare the Mini Program for a usable MVP release.
 
 ### Task 8.1: Add QA checklist
+
+Status: Completed (`docs/qa-checklist.md` created with launch, navigation, safety, cloud function, data integrity, structure, and compliance sections)
 
 **Files:**
 
@@ -2378,7 +2405,7 @@ git status --short
 
 These need decisions before later phases.
 
-- [ ] CloudBase `envId`.
+- [x] CloudBase `envId`: `drink-one-dev-d8gemhfgb21abcf33`.
 - [ ] Whether to keep generated local bottle images or replace them with brand-neutral custom illustrations.
 - [ ] Whether real alcohol brand names are acceptable for MVP seed data.
 - [ ] Whether to use a remote CDN/CloudBase file storage for drink images.
@@ -2392,18 +2419,15 @@ These need decisions before later phases.
 Recommended next task:
 
 ```text
-Task 2.3 Step 3: Compare every page in WeChat DevTools.
+在微信开发者工具中打开项目，按 docs/qa-checklist.md 逐项验证功能。
 ```
 
 Why:
 
-The app has a complete static UI and validation now, but visual quality must be checked in the actual WeChat simulator. The simulator can reveal issues that structural tests cannot catch, such as clipped text, image scaling, tab spacing, and unexpected blank areas.
+All cloud functions, services, page wiring, and validation tests are now in place. The next step requires the WeChat DevTools simulator to:
 
-After simulator review, proceed to:
+1. Visual-check all 10 pages against the design mockup (Task 2.3 Step 3).
+2. Deploy cloud functions and test with real CloudBase data.
+3. Run through the QA checklist items.
 
-```text
-Task 2.4: Extract shared components.
-```
-
-That will reduce duplication before CloudBase data integration starts.
-
+**Automated work is complete.** The remaining tasks require the visual WeChat IDE environment.

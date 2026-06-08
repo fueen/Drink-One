@@ -1,0 +1,14 @@
+<view class="drink-card {{variant}}" bindtap="handleTap">
+  <view class="image-stage">
+    <image class="drink-image" src="{{drink.image}}" mode="aspectFit"></image>
+  </view>
+  <view class="drink-copy">
+    <text class="drink-name">{{drink.name}}</text>
+    <text class="drink-en">{{drink.englishName}}</text>
+    <text class="drink-meta">{{metaPrefix}}{{drink.abv}}</text>
+    <view class="tag-row" wx:if="{{drink.tags && drink.tags.length}}">
+      <text class="tag" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="drink-note" wx:if="{{showNote && drink.note}}">{{drink.note}}</text>
+  </view>
+</view>

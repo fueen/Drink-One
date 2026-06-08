@@ -29,6 +29,10 @@
   border-bottom: 1rpx solid #edf0f5;
 }
 
+.form-row:active {
+  background: #f9fafb;
+}
+
 .form-row:last-child {
   border-bottom: 0;
 }

@@ -1,0 +1,10 @@
+config/secrets.local.js
+*.local.js
+
+# Design mockups and reference images
+ui*.png
+*.html
+
+# Generated/transient files
+memory.md
+

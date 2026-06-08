@@ -15,14 +15,24 @@
   </view>
   <text class="section-title">为你推荐</text>
   <view class="recommend-list">
-    <view class="soft-card recommend-item" wx:for="{{drinks}}" wx:key="name">
+    <view
+      class="soft-card recommend-item"
+      wx:for="{{drinks}}"
+      wx:key="name"
+      data-index="{{index}}"
+      bindtap="goDetail"
+    >
       <view class="bottle mini {{item.tone}}"></view>
       <view class="recommend-info">
         <text class="drink-name">{{item.name}}</text>
         <text class="drink-en">{{item.abv}}</text>
       </view>
-      <text class="heart {{item.liked ? 'active' : ''}}">♡</text>
+      <text
+        class="heart {{item.liked ? 'active' : ''}}"
+        data-index="{{index}}"
+        catchtap="toggleLike"
+      >♡</text>
     </view>
   </view>
-  <view class="primary-button">查看更多推荐</view>
+  <view class="primary-button" bindtap="loadMore">查看更多推荐</view>
 </view>

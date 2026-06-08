@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "酒品详情"
+  "navigationBarTitleText": "酒品详情",
+  "usingComponents": {
+    "tag-list": "/components/tag-list/tag-list"
+  }
 }

@@ -1,0 +1,11 @@
+[
+  { "name": "啤酒", "icon": "beer", "sort": 1 },
+  { "name": "白酒", "icon": "baijiu", "sort": 2 },
+  { "name": "红酒", "icon": "wine", "sort": 3 },
+  { "name": "威士忌", "icon": "whisky", "sort": 4 },
+  { "name": "金酒", "icon": "gin", "sort": 5 },
+  { "name": "伏特加", "icon": "vodka", "sort": 6 },
+  { "name": "龙舌兰", "icon": "tequila", "sort": 7 },
+  { "name": "梅酒", "icon": "umeshu", "sort": 8 },
+  { "name": "鸡尾酒", "icon": "cocktail", "sort": 9 }
+]

@@ -1,8 +1,8 @@
 <view class="page profile-page page-with-tab">
   <view class="profile-head">
-    <view class="avatar">猫</view>
+    <view class="avatar">{{user ? '🐱' : '猫'}}</view>
     <view>
-      <text class="nickname">微醺的猫</text>
+      <text class="nickname">{{user ? user.nickname || '微醺的猫' : '微醺的猫'}}</text>
       <text class="bio">爱生活，爱微醺</text>
     </view>
   </view>
@@ -13,8 +13,14 @@
     </view>
   </view>
   <view class="menu-list">
-    <view class="menu-row" wx:for="{{menus}}" wx:key="*this">
-      <text>{{item}}</text>
+    <view
+      class="menu-row"
+      wx:for="{{menus}}"
+      wx:key="name"
+      data-index="{{index}}"
+      bindtap="goMenu"
+    >
+      <text>{{item.name}}</text>
       <text>›</text>
     </view>
   </view>

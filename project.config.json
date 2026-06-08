@@ -17,9 +17,39 @@
   "compileType": "miniprogram",
   "simulatorPluginLibVersion": {},
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "docs"
+      },
+      {
+        "type": "folder",
+        "value": "scripts"
+      },
+      {
+        "type": "folder",
+        "value": "tests"
+      },
+      {
+        "type": "file",
+        "value": "memory.md"
+      },
+      {
+        "type": "file",
+        "value": ".gitignore"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "glob",
+        "value": "*.html"
+      }
+    ],
     "include": []
   },
   "appid": "wxeb7db2df8013fe3d",
+  "cloudfunctionRoot": "cloudfunctions/",
   "editorSetting": {}
 }

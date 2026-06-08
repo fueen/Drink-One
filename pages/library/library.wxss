@@ -39,6 +39,16 @@
   color: #f97316;
 }
 
+.category.active .category-icon {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.category.active {
+  color: #f97316;
+  font-weight: 700;
+}
+
 .sort-line {
   margin: 34rpx 0 18rpx;
 }

@@ -7,11 +7,17 @@
     <text class="hero-mark">◒</text>
   </view>
   <view class="form-card card">
-    <view class="form-row" wx:for="{{fields}}" wx:key="label">
+    <view
+      class="form-row"
+      wx:for="{{fields}}"
+      wx:key="label"
+      data-index="{{index}}"
+      bindtap="selectField"
+    >
       <text>{{item.label}}</text>
       <text class="value">{{item.value}} ›</text>
     </view>
   </view>
-  <view class="primary-button">开始测试</view>
+  <view class="primary-button" bindtap="startTest">开始测试</view>
   <text class="hint">测试结果仅供参考</text>
 </view>

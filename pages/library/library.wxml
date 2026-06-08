@@ -1,10 +1,16 @@
 <view class="page library-page page-with-tab">
   <view class="between">
-    <view class="search">⌕ 搜索酒品</view>
+    <input class="search" placeholder="⌕ 搜索酒品" value="{{searchKeyword}}" bindinput="onSearchInput" bindconfirm="onSearch"></input>
     <text class="filter">⌯</text>
   </view>
   <view class="category-grid">
-    <view class="category" wx:for="{{categories}}" wx:key="*this">
+    <view
+      class="category {{item === activeCategory ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="*this"
+      data-category="{{item}}"
+      bindtap="selectCategory"
+    >
       <text class="category-icon">□</text>
       <text>{{item}}</text>
     </view>
@@ -14,14 +20,24 @@
     <text class="muted">默认　酒精度⌄　热度</text>
   </view>
   <view class="drink-list">
-    <view class="soft-card drink-row" wx:for="{{drinks}}" wx:key="name">
+    <view
+      class="soft-card drink-row"
+      wx:for="{{drinks}}"
+      wx:key="name"
+      data-index="{{index}}"
+      bindtap="goDetail"
+    >
       <image class="library-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <view class="drink-info">
         <text class="drink-name">{{item.name}}</text>
         <text class="drink-en">{{item.englishName}}</text>
         <text class="drink-abv">{{item.abv}}</text>
       </view>
-      <text class="heart {{item.liked ? 'active' : ''}}">♡</text>
+      <text
+        class="heart {{item.liked ? 'active' : ''}}"
+        data-index="{{index}}"
+        catchtap="toggleLike"
+      >♡</text>
     </view>
   </view>
 </view>

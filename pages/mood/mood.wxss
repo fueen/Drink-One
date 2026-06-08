@@ -83,3 +83,11 @@
 .heart.active {
   color: #ff6f73;
 }
+
+.recommend-item:active {
+  background: #f9fafb;
+}
+
+.primary-button {
+  margin-top: 0;
+}

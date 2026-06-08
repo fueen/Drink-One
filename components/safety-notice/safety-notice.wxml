@@ -1,0 +1,7 @@
+<view class="safety-notice">
+  <text class="safety-dot">!</text>
+  <view class="safety-copy">
+    <text class="safety-title">{{title}}</text>
+    <text class="safety-content">{{content}}</text>
+  </view>
+</view>

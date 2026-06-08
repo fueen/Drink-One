@@ -1,0 +1,45 @@
+.safety-notice {
+  display: flex;
+  gap: 18rpx;
+  box-sizing: border-box;
+  padding: 20rpx 24rpx;
+  border: 1rpx solid #f2bc6a;
+  border-radius: 16rpx;
+  background: #fff8ec;
+}
+
+.safety-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 4rpx;
+  border: 2rpx solid #f59e0b;
+  border-radius: 50%;
+  color: #d97706;
+  font-size: 20rpx;
+  font-weight: 900;
+}
+
+.safety-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.safety-title,
+.safety-content {
+  display: block;
+}
+
+.safety-title {
+  color: #d97706;
+  font-weight: 800;
+}
+
+.safety-content {
+  margin-top: 6rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+  line-height: 1.45;
+}

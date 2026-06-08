@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "喝一杯"
+  "navigationBarTitleText": "喝一杯",
+  "usingComponents": {
+    "drink-card": "/components/drink-card/drink-card",
+    "safety-notice": "/components/safety-notice/safety-notice"
+  }
 }

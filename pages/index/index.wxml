@@ -15,14 +15,14 @@
     <text class="panel-title">今晚想要什么状态？</text>
     <text class="panel-subtitle">What kind of mood tonight?</text>
     <view class="mood-grid">
-      <view class="mood-item" wx:for="{{moods}}" wx:key="name" bindtap="goMood">
+      <view class="mood-item" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}">
         <text class="mood-icon">{{item.icon}}</text>
         <text class="mood-name">{{item.name}}</text>
       </view>
     </view>
   </view>
 
-  <view class="random-card" bindtap="goDetail">
+  <view class="random-card" bindtap="drawRandomDrink">
     <view>
       <text class="random-title">随机抽一杯</text>
       <text class="random-subtitle">不知道喝什么？让命运决定</text>
@@ -32,29 +32,19 @@
 
   <view class="between section-head">
     <text class="section-title">今日推荐</text>
-    <text class="refresh">♧ 换一杯</text>
+    <text class="refresh" bindtap="drawRandomDrink">♧ 换一杯</text>
   </view>
 
-  <view class="card drink-card drink-hero-card" bindtap="goDetail">
-    <view class="bottle-stage">
-      <image class="drink-image hero-bottle" src="{{dailyDrink.image}}" mode="aspectFit"></image>
-    </view>
-    <view class="drink-info">
-      <text class="drink-name">{{dailyDrink.name}}</text>
-      <text class="drink-en">{{dailyDrink.englishName}}</text>
-      <text class="drink-meta">酒精度：{{dailyDrink.abv}}</text>
-      <view class="tag-row">
-        <text class="tag" wx:for="{{dailyDrink.tags}}" wx:key="*this">{{item}}</text>
-      </view>
-      <text class="drink-note">{{dailyDrink.note}}</text>
-    </view>
-  </view>
+  <drink-card
+    drink="{{dailyDrink}}"
+    variant="drink-hero-card"
+    bind:tapdrink="goDetail"
+  ></drink-card>
 
-  <view class="safety-strip">
-    <text class="safety-dot">!</text>
-    <view>
-    <text class="safety-title">适量饮酒</text>
-    <text class="safety-text">过度饮酒可能对身体造成伤害，未成年人禁止饮酒，请勿酒后驾驶。</text>
-    </view>
+  <view class="safety-wrap">
+    <safety-notice
+      title="适量饮酒"
+      content="过度饮酒可能对身体造成伤害，未成年人禁止饮酒，请勿酒后驾驶。"
+    ></safety-notice>
   </view>
 </view>

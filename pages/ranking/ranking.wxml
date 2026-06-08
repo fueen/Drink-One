@@ -1,7 +1,13 @@
 <view class="page ranking-page page-with-tab">
   <text class="page-title">排行榜</text>
   <view class="rank-tabs">
-    <text class="rank-tab {{index === 0 ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="*this">{{item}}</text>
+    <text
+      class="rank-tab {{index === activeTab ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="switchTab"
+    >{{item}}</text>
   </view>
   <view class="podium">
     <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name">
