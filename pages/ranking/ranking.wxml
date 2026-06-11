@@ -1,13 +1,15 @@
 <view class="page ranking-page page-with-tab">
-  <text class="page-title">排行榜</text>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="nav-back">‹</text>
+    <text class="top-title">排行榜</text>
+    <text class="nav-action"></text>
+  </view>
   <view class="rank-tabs">
-    <text
-      class="rank-tab {{index === activeTab ? 'active' : ''}}"
-      wx:for="{{tabs}}"
-      wx:key="*this"
-      data-index="{{index}}"
-      bindtap="switchTab"
-    >{{item}}</text>
+    <text class="rank-tab {{activeTab === 0 ? 'active' : ''}}" data-index="0" bindtap="switchTab">热门榜</text>
+    <text class="rank-tab {{activeTab === 1 ? 'active' : ''}}" data-index="1" bindtap="switchTab">收藏榜</text>
+    <text class="rank-tab {{activeTab === 2 ? 'active' : ''}}" data-index="2" bindtap="switchTab">创意榜</text>
+    <text class="rank-tab {{activeTab === 3 ? 'active' : ''}}" data-index="3" bindtap="switchTab">品鉴榜</text>
   </view>
   <view class="podium">
     <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name">

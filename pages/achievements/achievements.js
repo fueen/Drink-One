@@ -1,3 +1,5 @@
+const userService = require("../../services/user");
+
 Page({
   data: {
     unlocked: "12/36",
@@ -9,5 +11,31 @@ Page({
       { name: "品鉴达人", desc: "记录 50 种酒", active: false },
       { name: "微醺大师", desc: "记录 100 种酒", active: false }
     ]
+  },
+  onShow() {
+    this.loadAchievements();
+  },
+  async loadAchievements() {
+    try {
+      const result = await userService.getAchievements();
+      this.setData({
+        unlocked: result.unlocked,
+        achievements: result.achievements
+      });
+    } catch (error) {
+      // Keep fallback achievement data.
+    }
+  },
+  goHome() {
+    wx.switchTab({ url: "/pages/index/index" });
+  },
+  goLibrary() {
+    wx.switchTab({ url: "/pages/library/library" });
+  },
+  goDiy() {
+    wx.switchTab({ url: "/pages/diy/diy" });
+  },
+  goProfile() {
+    wx.switchTab({ url: "/pages/profile/profile" });
   }
 });

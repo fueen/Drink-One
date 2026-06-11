@@ -1,50 +1,55 @@
 <view class="page page-with-tab phone-page index-page">
-  <view class="between header">
-    <view>
-      <text class="title">喝一杯</text>
-      <text class="subtitle">今晚，喝一杯</text>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="app-shell">
+    <view class="home-head">
+      <view>
+        <text class="title">喝一杯</text>
+        <text class="subtitle">今晚，喝一杯</text>
+      </view>
+      <text class="bell">♧</text>
     </view>
-    <view class="round-icon">⌕</view>
-  </view>
 
-  <view class="search hero-search">⌕ 搜索酒品、酒谱</view>
+    <view class="search hero-search">⌕　搜索酒品、酒谱、品牌</view>
 
-  <view class="mood-panel">
-    <view class="mood-orb orb-a"></view>
-    <view class="mood-orb orb-b"></view>
-    <text class="panel-title">今晚想要什么状态？</text>
-    <text class="panel-subtitle">What kind of mood tonight?</text>
+    <view class="safety-card">
+      <view>
+        <text class="safety-title">适量饮酒 · 理性饮酒</text>
+        <text class="safety-text">过度饮酒可能伤身体健康</text>
+        <text class="safety-text">未成年人禁止饮酒，酒后请勿驾车</text>
+      </view>
+      <text class="shield">♢</text>
+    </view>
+
     <view class="mood-grid">
       <view class="mood-item" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}">
         <text class="mood-icon">{{item.icon}}</text>
         <text class="mood-name">{{item.name}}</text>
       </view>
     </view>
-  </view>
 
-  <view class="random-card" bindtap="drawRandomDrink">
-    <view>
-      <text class="random-title">随机抽一杯</text>
-      <text class="random-subtitle">不知道喝什么？让命运决定</text>
+    <view class="random-card dice-card" bindtap="drawRandomDrink">
+      <view>
+        <text class="random-title">随机抽一杯</text>
+        <text class="random-subtitle">看看命运今天会给你哪一杯</text>
+      </view>
+      <text class="dice">⚂</text>
     </view>
-    <text class="random-arrow">›</text>
-  </view>
 
-  <view class="between section-head">
-    <text class="section-title">今日推荐</text>
-    <text class="refresh" bindtap="drawRandomDrink">♧ 换一杯</text>
-  </view>
+    <view class="between section-head">
+      <text class="section-title">今日推荐</text>
+      <text class="refresh" bindtap="drawRandomDrink">换一杯</text>
+    </view>
 
-  <drink-card
-    drink="{{dailyDrink}}"
-    variant="drink-hero-card"
-    bind:tapdrink="goDetail"
-  ></drink-card>
-
-  <view class="safety-wrap">
-    <safety-notice
-      title="适量饮酒"
-      content="过度饮酒可能对身体造成伤害，未成年人禁止饮酒，请勿酒后驾驶。"
-    ></safety-notice>
+    <view class="drink-hero-card" bindtap="goDetail">
+      <image class="home-bottle" src="{{dailyDrink.image}}" mode="aspectFit"></image>
+      <view class="home-drink-copy">
+        <text class="home-drink-name">{{dailyDrink.name}}</text>
+        <text class="home-drink-en">{{dailyDrink.englishName}}</text>
+        <text class="home-drink-meta">{{dailyDrink.abv}} · 日本</text>
+        <view class="home-tags">
+          <text class="tag" wx:for="{{dailyDrink.tags}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

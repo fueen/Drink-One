@@ -1,8 +1,10 @@
 <view class="page library-page page-with-tab">
-  <view class="between">
-    <input class="search" placeholder="⌕ 搜索酒品" value="{{searchKeyword}}" bindinput="onSearchInput" bindconfirm="onSearch"></input>
-    <text class="filter">⌯</text>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="top-title align-left">酒库</text>
+    <text class="nav-action">⌯</text>
   </view>
+  <input class="search" placeholder="⌕　搜索酒品、品牌、类型" value="{{searchKeyword}}" bindinput="onSearchInput" bindconfirm="onSearch"></input>
   <view class="category-grid">
     <view
       class="category {{item === activeCategory ? 'active' : ''}}"
@@ -11,17 +13,17 @@
       data-category="{{item}}"
       bindtap="selectCategory"
     >
-      <text class="category-icon">□</text>
+      <text class="category-icon">{{index === 0 ? '⊕' : index === 1 ? '🍺' : index === 2 ? '♙' : index === 3 ? '🍷' : '🥃'}}</text>
       <text>{{item}}</text>
     </view>
   </view>
   <view class="between sort-line">
-    <text class="section-title">全部酒品</text>
-    <text class="muted">默认　酒精度⌄　热度</text>
+    <text class="section-title">为你推荐</text>
+    <text class="muted">查看全部</text>
   </view>
   <view class="drink-list">
     <view
-      class="soft-card drink-row"
+      class="glass-card drink-row"
       wx:for="{{drinks}}"
       wx:key="name"
       data-index="{{index}}"

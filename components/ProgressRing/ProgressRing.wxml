@@ -1,0 +1,6 @@
+<view class="progress-ring">
+  <view class="ring-inner">
+    <text class="ring-value">{{value}}</text>
+    <text class="ring-label">已解锁</text>
+  </view>
+</view>

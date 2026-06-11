@@ -59,5 +59,17 @@ Page({
     if (kw) {
       wx.showToast({ title: `搜索: ${kw}`, icon: "none" });
     }
+  },
+  goHome() {
+    wx.switchTab({ url: "/pages/index/index" });
+  },
+  goDiy() {
+    wx.switchTab({ url: "/pages/diy/diy" });
+  },
+  goAchievements() {
+    wx.switchTab({ url: "/pages/achievements/achievements" });
+  },
+  goProfile() {
+    wx.switchTab({ url: "/pages/profile/profile" });
   }
 });

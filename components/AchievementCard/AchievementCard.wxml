@@ -1,0 +1,5 @@
+<view class="achievement-card {{achievement.active ? 'active' : ''}}">
+  <text class="achievement-icon">{{achievement.icon || (achievement.active ? '★' : '◇')}}</text>
+  <text class="achievement-name">{{achievement.name}}</text>
+  <text class="achievement-desc">{{achievement.desc}}</text>
+</view>

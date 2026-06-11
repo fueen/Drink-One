@@ -77,6 +77,21 @@ exports.main = async (event) => {
     }
   });
 
+  await db
+    .collection("users")
+    .doc(users.data[0]._id)
+    .update({
+      data: {
+        totalRecipeCount: db.command.inc(1),
+        updatedAt: now
+      }
+    });
+
+  await cloud.callFunction({
+    name: "checkAchievements",
+    data: { userId: users.data[0]._id }
+  }).catch(() => {});
+
   return {
     recipeId: result._id,
     status: "pending"

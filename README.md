@@ -6,19 +6,35 @@ Drink One 是一个微信小程序项目，定位为“酒类推荐 + 酒文化�
 
 ---
 
+## 最新进展（2026-06-11）
+
+- CloudBase 种子数据初始化已跑通，`initSeedData` 云端测试返回 `ok: true`。
+- 已初始化 `drink_categories`、`drink_tags`、`ingredients`、`achievement_definitions`、`drinks`、`recipes`、`system_configs` 等基础集合。
+- 所有云函数目录已补齐 `package.json`，通过“云端安装依赖（不上传 node_modules）”部署时可安装 `wx-server-sdk`。
+- `initSeedData` 已改为批量并发写入，并通过 `config.json` 将超时提高到 20 秒。
+- 客户端云初始化改为默认云环境模式：`config/env.js` 中 `cloudEnvId: null`，避免把控制台显示名误当作真实 envId。
+- 首页“随机抽一杯”已接入 `getRandomDrink`，支持 loading、防重复点击、成功/失败反馈，并尽量避免抽到当前同一杯。
+- 已修复页面内手写底栏导致的双 tabBar 问题；当前只保留微信原生 `app.json` tabBar。
+- tabBar 图标已统一重生成 81x81 PNG。
+- `tests/validate-miniprogram.js` 已扩展 CloudBase、种子数据、云函数依赖、tabBar 图标尺寸和随机抽酒反馈等校验。
+
+---
+
 ## 当前状态
 
-当前项目已经完成微信小程序基础骨架和静态 UI MVP。
+当前项目已经完成微信小程序基础骨架、CloudBase 基础联调、种子数据初始化和首页核心交互修复。
 
 已完成：
 
 - 微信小程序根目录配置。
 - `app.json` 页面路由与 tabBar 配置。
-- 首页、酒库、DIY 酒谱、排行榜、我的五个主 tab 页面。
-- 状态推荐、酒品详情、酒量测试、成就、品鉴记录等二级页面。
-- 本地 tabBar 图标资源。
+- 首页、酒库、DIY、成就、我的五个主 tab 页面。
+- 状态推荐、酒品详情、酒谱详情、酒量测试、排行榜、品鉴记录等二级页面。
+- 本地 tabBar 图标资源，已统一为 81x81 PNG。
 - 本地酒瓶占位图片资源。
-- UI 初步还原设计稿风格。
+- UI 初步还原设计稿风格，并修复双 tabBar 问题。
+- CloudBase 云函数基础实现与服务层封装。
+- CloudBase 种子数据初始化函数 `initSeedData`。
 - Node.js 结构校验脚本。
 - 技术架构文档。
 - 全局执行计划文档。
@@ -26,15 +42,15 @@ Drink One 是一个微信小程序项目，定位为“酒类推荐 + 酒文化�
 当前阶段：
 
 ```text
-Phase 2: UI refinement and frontend engineering foundation
+CloudBase integration and page-by-page QA
 ```
 
 下一步建议：
 
-1. 在微信开发者工具中逐页对照设计稿检查 UI。
-2. 抽取公共组件，如酒品卡片、安全提示、标签列表。
-3. 配置微信云开发 CloudBase 环境。
-4. 初始化分类、标签、原料、成就和酒品种子数据。
+1. 在微信开发者工具中重新编译并确认默认云环境可调用当前 CloudBase 函数。
+2. 部署并验证 `getRandomDrink`、`getHomeData`、`getDrinkDetail` 等页面依赖云函数。
+3. 逐页联调酒库、详情、DIY、成就、个人中心和品鉴记录的数据读取/写入。
+4. 继续清理静态 mock 数据，让页面优先使用云端真实数据。
 
 ---
 
@@ -66,6 +82,15 @@ Phase 2: UI refinement and frontend engineering foundation
 ├── assets/
 │   ├── drinks/
 │   └── tabbar/
+├── cloudfunctions/
+│   ├── initSeedData/
+│   ├── getHomeData/
+│   ├── getRandomDrink/
+│   ├── getDrinkDetail/
+│   └── ...
+├── components/
+├── config/
+├── constants/
 ├── docs/
 │   ├── PRD v1.0.md
 │   ├── Database Design.md
@@ -82,7 +107,12 @@ Phase 2: UI refinement and frontend engineering foundation
 │   ├── test/
 │   ├── achievements/
 │   ├── profile/
-│   └── record/
+│   ├── record/
+│   └── recipe-detail/
+├── services/
+├── store/
+├── types/
+├── utils/
 └── tests/
     └── validate-miniprogram.js
 ```
@@ -96,6 +126,7 @@ Phase 2: UI refinement and frontend engineering foundation
 | 首页 | `pages/index/index` | 今日推荐、状态入口、随机抽酒、安全提示 |
 | 状态推荐 | `pages/mood/mood` | 按微醺、小醉、品鉴、聚会等状态推荐 |
 | 酒品详情 | `pages/detail/detail` | 酒品信息、口感标签、饮用场景、风险提示 |
+| 酒谱详情 | `pages/recipe-detail/recipe-detail` | 酒谱内容、配料、点赞、收藏和举报 |
 | DIY 酒谱 | `pages/diy/diy` | 创建酒谱流程入口 |
 | 排行榜 | `pages/ranking/ranking` | 热门榜、微醺榜、创意榜、收藏榜 |
 | 酒库 | `pages/library/library` | 酒品分类、搜索、列表浏览 |

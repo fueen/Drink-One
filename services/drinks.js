@@ -4,8 +4,8 @@ function getHomeData() {
   return callFunction("getHomeData");
 }
 
-function getRandomDrink() {
-  return callFunction("getRandomDrink");
+function getRandomDrink(excludeId) {
+  return callFunction("getRandomDrink", { excludeId });
 }
 
 function getMoodRecommendations(mood) {
@@ -16,9 +16,14 @@ function getDrinkDetail(drinkId) {
   return callFunction("getDrinkDetail", { drinkId });
 }
 
+function toggleDrinkFavorite(drinkId) {
+  return callFunction("toggleDrinkFavorite", { drinkId });
+}
+
 module.exports = {
   getHomeData,
   getRandomDrink,
   getMoodRecommendations,
-  getDrinkDetail
+  getDrinkDetail,
+  toggleDrinkFavorite
 };

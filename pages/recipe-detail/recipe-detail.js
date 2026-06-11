@@ -1,0 +1,57 @@
+const recipeService = require("../../services/recipes");
+
+Page({
+  data: {
+    recipeId: "recipe_mojito_programmer",
+    recipe: {
+      id: "recipe_mojito_programmer",
+      name: "周五快乐水",
+      author: "Drink One",
+      cover: "/assets/drinks/beer-yellow.png",
+      baseDrink: "角瓶威士忌",
+      ingredients: ["苏打水", "青柠", "冰块"],
+      description: "清爽明亮的轻饮配方，适合慢慢品尝。",
+      likes: 128,
+      favorites: 42
+    }
+  },
+  onLoad(options) {
+    const recipeId = (options && options.id) || this.data.recipeId;
+    this.setData({ recipeId });
+    this.loadRecipe(recipeId);
+  },
+  async loadRecipe(recipeId) {
+    try {
+      const result = await recipeService.getRecipeDetail(recipeId);
+      if (result.recipe) {
+        this.setData({ recipe: result.recipe });
+      }
+    } catch (error) {
+      // Keep fallback recipe.
+    }
+  },
+  async likeRecipe() {
+    try {
+      const result = await recipeService.toggleRecipeLike(this.data.recipeId);
+      wx.showToast({ title: result.liked ? "已点赞" : "已取消", icon: "success" });
+    } catch (error) {
+      wx.showToast({ title: error.message || "点赞失败", icon: "none" });
+    }
+  },
+  async favoriteRecipe() {
+    try {
+      const result = await recipeService.toggleRecipeFavorite(this.data.recipeId);
+      wx.showToast({ title: result.favorited ? "已收藏" : "已取消", icon: "success" });
+    } catch (error) {
+      wx.showToast({ title: error.message || "收藏失败", icon: "none" });
+    }
+  },
+  async reportRecipe() {
+    try {
+      await recipeService.reportContent("recipe", this.data.recipeId, "用户举报");
+      wx.showToast({ title: "已收到举报", icon: "none" });
+    } catch (error) {
+      wx.showToast({ title: error.message || "举报失败", icon: "none" });
+    }
+  }
+});

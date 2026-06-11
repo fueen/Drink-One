@@ -1,0 +1,34 @@
+<view class="page recipe-detail-page">
+  <view class="recipe-cover-hero">
+    <image class="recipe-cover-image" src="{{recipe.cover}}" mode="aspectFit"></image>
+  </view>
+
+  <view class="glass-card recipe-info">
+    <text class="recipe-title">{{recipe.name}}</text>
+    <text class="recipe-author">作者：{{recipe.author}}</text>
+    <text class="recipe-desc">{{recipe.description}}</text>
+  </view>
+
+  <view class="glass-card">
+    <text class="section-title">配方原料</text>
+    <text class="base-drink">基酒：{{recipe.baseDrink}}</text>
+    <view class="ingredient-tags">
+      <text class="tag" wx:for="{{recipe.ingredients}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="glass-card action-bar">
+    <view class="action-item" bindtap="likeRecipe">
+      <text class="action-icon">♥</text>
+      <text>点赞 {{recipe.likes}}</text>
+    </view>
+    <view class="action-item" bindtap="favoriteRecipe">
+      <text class="action-icon">☆</text>
+      <text>收藏 {{recipe.favorites}}</text>
+    </view>
+    <view class="action-item report" bindtap="reportRecipe">
+      <text class="action-icon">!</text>
+      <text>举报</text>
+    </view>
+  </view>
+</view>

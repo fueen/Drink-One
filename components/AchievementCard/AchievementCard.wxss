@@ -1,0 +1,41 @@
+.achievement-card {
+  min-height: 160rpx;
+  box-sizing: border-box;
+  padding: 28rpx 18rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.8);
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  opacity: 0.66;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(24px);
+}
+
+.active {
+  opacity: 1;
+}
+
+.achievement-icon,
+.achievement-name,
+.achievement-desc {
+  display: block;
+}
+
+.achievement-icon {
+  color: #FF9966;
+  font-size: 52rpx;
+}
+
+.achievement-name {
+  margin-top: 10rpx;
+  color: #1C1C1E;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.achievement-desc {
+  margin-top: 8rpx;
+  color: #6B7280;
+  font-size: 22rpx;
+  line-height: 1.4;
+}

@@ -4,6 +4,16 @@ function login() {
   return callFunction("login");
 }
 
+function getUserProfileData() {
+  return callFunction("getUserProfileData");
+}
+
+function getAchievements() {
+  return callFunction("getAchievements");
+}
+
 module.exports = {
-  login
+  login,
+  getUserProfileData,
+  getAchievements
 };

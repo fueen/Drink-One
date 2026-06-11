@@ -1,6 +1,17 @@
-<view class="page achievements-page">
-  <text class="page-title">我的成就</text>
-  <text class="page-subtitle">已解锁 {{unlocked}}</text>
+<view class="page achievements-page page-with-tab">
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="top-title align-left">成就</text>
+    <text class="nav-action"></text>
+  </view>
+  <view class="glass-card hero-progress">
+    <progress-ring value="{{unlocked}}" total="{{achievements.length}}"></progress-ring>
+    <view>
+      <text class="page-title">酒馆学徒</text>
+      <text class="page-subtitle">Lv.3　已解锁 {{unlocked}}</text>
+    </view>
+  </view>
+  <text class="section-title unlock-title">最近解锁</text>
   <view class="achievement-grid">
     <view class="achievement-card {{item.active ? 'active' : ''}}" wx:for="{{achievements}}" wx:key="name">
       <text class="medal">{{item.active ? '★' : '◇'}}</text>
@@ -8,7 +19,7 @@
       <text class="ach-desc">{{item.desc}}</text>
     </view>
   </view>
-  <view class="card progress-card">
+  <view class="glass-card progress-card">
     <text class="section-title">累计记录酒品</text>
     <view class="between progress-line">
       <text class="count">23 种</text>

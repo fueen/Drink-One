@@ -1,0 +1,5 @@
+<view class="status-card" bindtap="handleTap">
+  <text class="status-icon">{{status.icon}}</text>
+  <text class="status-name">{{status.name}}</text>
+  <text class="status-desc">{{status.desc || '找到今晚的节奏'}}</text>
+</view>

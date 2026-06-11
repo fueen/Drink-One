@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/mood/mood",
     "pages/detail/detail",
+    "pages/recipe-detail/recipe-detail",
     "pages/diy/diy",
     "pages/ranking/ranking",
     "pages/library/library",
@@ -20,7 +21,7 @@
   },
   "tabBar": {
     "color": "#9CA3AF",
-    "selectedColor": "#6B4CFF",
+    "selectedColor": "#FFB85C",
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [
@@ -38,13 +39,13 @@
       },
       {
         "pagePath": "pages/diy/diy",
-        "text": "DIY酒谱",
+        "text": "DIY",
         "iconPath": "assets/tabbar/icon-diy.png",
         "selectedIconPath": "assets/tabbar/icon-diy-active.png"
       },
       {
-        "pagePath": "pages/ranking/ranking",
-        "text": "榜单",
+        "pagePath": "pages/achievements/achievements",
+        "text": "成就",
         "iconPath": "assets/tabbar/icon-ranking.png",
         "selectedIconPath": "assets/tabbar/icon-ranking-active.png"
       },

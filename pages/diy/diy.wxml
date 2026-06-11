@@ -1,47 +1,78 @@
 <view class="page diy-page page-with-tab">
-  <view class="between nav-line">
-    <text class="back">‹</text>
-    <text class="nav-title">创建酒谱</text>
-    <text class="next">下一步</text>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="nav-back">‹</text>
+    <text class="top-title">创酿酒谱</text>
+    <text class="nav-action">下一步</text>
   </view>
+
   <view class="step-row">
     <view class="step" wx:for="{{steps}}" wx:key="*this" data-index="{{index}}" bindtap="selectStep">
       <text class="step-dot {{index === activeStep ? 'active' : ''}}">{{index + 1}}</text>
       <text class="step-text {{index === activeStep ? 'active-text' : ''}}">{{item}}</text>
     </view>
   </view>
-  <text class="section-title">选择基酒</text>
-  <scroll-view class="category-scroll" scroll-x="true">
-    <view class="category-row">
-      <text
-        class="pill {{item === activeCategory ? 'active-pill' : ''}}"
-        wx:for="{{categories}}"
-        wx:key="*this"
-        data-category="{{item}}"
-        bindtap="selectCategory"
-      >{{item}}</text>
-    </view>
-  </scroll-view>
-  <scroll-view class="base-scroll" scroll-x="true">
-    <view class="base-row">
-      <view
-        class="base-card {{item.id === baseDrinkId ? 'selected' : ''}}"
-        wx:for="{{baseDrinks}}"
-        wx:key="name"
-        data-index="{{index}}"
-        bindtap="selectBaseDrink"
-      >
-        <image class="base-bottle" src="{{item.image}}" mode="aspectFit"></image>
-        <text class="base-name">{{item.name}}</text>
+
+  <view wx:if="{{activeStep === 0}}">
+    <text class="section-title">选择基酒</text>
+    <scroll-view class="category-scroll" scroll-x="true">
+      <view class="category-row">
+        <text
+          class="pill {{item === activeCategory ? 'active-pill' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="*this"
+          data-category="{{item}}"
+          bindtap="selectCategory"
+        >{{item}}</text>
       </view>
+    </scroll-view>
+
+    <scroll-view class="base-scroll" scroll-x="true">
+      <view class="base-row">
+        <view
+          class="base-card {{item.id === baseDrinkId ? 'selected' : ''}}"
+          wx:for="{{baseDrinks}}"
+          wx:key="name"
+          data-index="{{index}}"
+          bindtap="selectBaseDrink"
+        >
+          <image class="base-bottle" src="{{item.image}}" mode="aspectFit"></image>
+          <text class="base-name">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="glass-card picked-card" wx:if="{{selectedBaseDrink}}">
+    <text class="picked">已选基酒</text>
+    <view class="selected-drink">
+      <image class="selected-bottle" src="{{selectedBaseDrink.image}}" mode="aspectFit"></image>
+      <view>
+        <text class="selected-name">{{selectedBaseDrink.name}}</text>
+        <text class="selected-meta">{{selectedBaseDrink.abv}}</text>
+      </view>
+      <text class="remove">×</text>
     </view>
-  </scroll-view>
-  <view class="card picked-card">
-    <text class="picked">已选：{{baseDrinkId ? '已选择基酒' : '请选择基酒'}}</text>
-    <text class="info-title">酒谱名称</text>
+  </view>
+
+  <view wx:if="{{activeStep === 1}}" class="glass-card ingredient-card">
+    <text class="picked">选择配料</text>
+    <view class="ingredient-grid">
+      <text
+        class="pill ingredient {{item.selected ? 'selected-ingredient' : ''}}"
+        wx:for="{{ingredients}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="selectIngredient"
+      >{{item.name}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{activeStep === 2}}" class="glass-card picked-card">
+    <text class="picked">命名酒谱</text>
     <input class="info-input" placeholder="为你的酒谱起个名字（最多20字）" value="{{recipeName}}" bindinput="onNameInput" maxlength="20"></input>
-    <text class="info-title">描述（可选）</text>
     <textarea class="info-textarea" placeholder="描述这杯酒的风味和故事..." value="{{description}}" bindinput="onDescInput"></textarea>
   </view>
-  <view class="primary-button" bindtap="submitRecipe">提交酒谱</view>
+
+  <view class="primary-button" bindtap="goNextStep">{{activeStep === 0 ? '下一步：选择配料' : activeStep === 1 ? '下一步：命名酒谱' : '提交酒谱'}}</view>
 </view>

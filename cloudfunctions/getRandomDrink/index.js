@@ -11,13 +11,14 @@ function normalizeDrink(drink) {
 
   return {
     ...drink,
+    id: drink._id,
     image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
     tags: drink.tags || drink.tasteTags || [],
     abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv
   };
 }
 
-exports.main = async () => {
+exports.main = async (event = {}) => {
   const countResult = await db.collection("drinks").count();
   const total = countResult.total;
 
@@ -25,8 +26,17 @@ exports.main = async () => {
     return { drink: null };
   }
 
-  const skip = Math.floor(Math.random() * total);
-  const result = await db.collection("drinks").skip(skip).limit(1).get();
+  const excludeId = event.excludeId;
+  let result = { data: [] };
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const skip = Math.floor(Math.random() * total);
+    result = await db.collection("drinks").skip(skip).limit(1).get();
+
+    if (total <= 1 || !excludeId || result.data[0]._id !== excludeId) {
+      break;
+    }
+  }
 
   return {
     drink: normalizeDrink(result.data[0])

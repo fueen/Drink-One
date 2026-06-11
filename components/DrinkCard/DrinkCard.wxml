@@ -1,0 +1,7 @@
+<view class="drink-card" bindtap="handleTap">
+  <image class="drink-image" src="{{drink.image}}" mode="aspectFit"></image>
+  <view class="drink-copy">
+    <text class="drink-name">{{drink.name}}</text>
+    <text class="drink-meta">{{drink.abv || drink.englishName}}</text>
+  </view>
+</view>

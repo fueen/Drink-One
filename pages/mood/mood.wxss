@@ -1,93 +1,103 @@
 .page-title {
   display: block;
   color: #111827;
-  font-size: 44rpx;
-  font-weight: 800;
+  text-align: center;
+  font-size: 42rpx;
+  font-weight: 900;
 }
 
 .page-subtitle {
   display: block;
   margin-top: 10rpx;
   color: #8a94a6;
+  text-align: center;
   font-size: 24rpx;
 }
 
-.hero-emoji {
-  font-size: 104rpx;
+.mood-hero {
+  margin: 34rpx 0 26rpx;
 }
 
-.scene-row {
-  display: flex;
-  align-items: center;
-  gap: 12rpx;
-  margin: 42rpx 0 34rpx;
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
 }
 
-.recommend-list {
+.state-card {
   display: flex;
   flex-direction: column;
-  gap: 18rpx;
-  margin: 18rpx 0 30rpx;
-}
-
-.recommend-item {
-  display: flex;
   align-items: center;
-  min-height: 108rpx;
-  padding: 16rpx 22rpx;
+  justify-content: center;
+  min-height: 270rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-radius: 34rpx;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 20rpx 60rpx rgba(87, 98, 128, 0.09);
+  backdrop-filter: blur(24px);
 }
 
-.mini {
-  width: 42rpx;
-  height: 76rpx;
-  border-radius: 10rpx;
+.mint {
+  background: linear-gradient(145deg, rgba(240, 255, 250, 0.92), rgba(255, 255, 255, 0.74));
 }
 
-.mini::before {
-  left: 12rpx;
-  top: -18rpx;
-  width: 18rpx;
-  height: 24rpx;
+.lavender {
+  background: linear-gradient(145deg, rgba(244, 242, 255, 0.94), rgba(255, 255, 255, 0.74));
 }
 
-.mini::after {
-  left: 7rpx;
-  right: 7rpx;
-  top: 28rpx;
-  height: 20rpx;
+.rose {
+  background: linear-gradient(145deg, rgba(255, 244, 246, 0.94), rgba(255, 255, 255, 0.74));
 }
 
-.recommend-info {
-  flex: 1;
-  margin-left: 26rpx;
+.cream {
+  background: linear-gradient(145deg, rgba(255, 250, 235, 0.94), rgba(255, 255, 255, 0.74));
 }
 
-.drink-name {
+.state-icon {
   display: block;
+  font-size: 64rpx;
+}
+
+.state-title,
+.state-desc,
+.record-title,
+.record-desc {
+  display: block;
+}
+
+.state-title {
+  margin-top: 24rpx;
+  color: #1C1C1E;
   font-size: 28rpx;
-  font-weight: 700;
+  font-weight: 900;
 }
 
-.drink-en {
-  display: block;
-  margin-top: 6rpx;
+.state-desc {
+  margin-top: 8rpx;
   color: #8a94a6;
   font-size: 22rpx;
 }
 
-.heart {
-  color: #9ca3af;
-  font-size: 36rpx;
+.mood-record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 34rpx;
 }
 
-.heart.active {
-  color: #ff6f73;
+.record-title {
+  color: #1C1C1E;
+  font-size: 26rpx;
+  font-weight: 900;
 }
 
-.recommend-item:active {
-  background: #f9fafb;
+.record-desc {
+  margin-top: 8rpx;
+  color: #8a94a6;
+  font-size: 22rpx;
 }
 
-.primary-button {
-  margin-top: 0;
+.record-arrow {
+  font-size: 34rpx;
 }

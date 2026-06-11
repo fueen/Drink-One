@@ -13,16 +13,41 @@ function normalizeDrink(drink) {
     ...drink,
     image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
     tags: drink.tags || drink.tasteTags || [],
-    abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv
+    abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv,
+    id: drink._id
+  };
+}
+
+function normalizeRecipe(recipe) {
+  if (!recipe) {
+    return null;
+  }
+
+  return {
+    ...recipe,
+    id: recipe._id,
+    name: recipe.recipeName || recipe.name,
+    cover: recipe.coverImage || recipe.cover || "/assets/drinks/beer-yellow.png",
+    author: recipe.author || "Drink One",
+    likes: recipe.likeCount || 0
   };
 }
 
 exports.main = async () => {
-  const drinksResult = await db
-    .collection("drinks")
-    .orderBy("favoriteCount", "desc")
-    .limit(1)
-    .get();
+  const [drinksResult, categoriesResult, recipesResult, ingredientsResult] = await Promise.all([
+    db.collection("drinks").orderBy("favoriteCount", "desc").limit(20).get(),
+    db.collection("drink_categories").orderBy("sort", "asc").get(),
+    db.collection("recipes").where({ status: "approved" }).orderBy("likeCount", "desc").limit(10).get(),
+    db.collection("ingredients").where({ enabled: true }).limit(50).get()
+  ]);
+
+  const drinks = drinksResult.data.map(normalizeDrink);
+  const recipes = recipesResult.data.map(normalizeRecipe);
+  const categories = categoriesResult.data.map((item) => item.name);
+  const ingredients = ingredientsResult.data.map((item) => ({
+    ...item,
+    id: item._id
+  }));
 
   return {
     moods: [
@@ -31,7 +56,17 @@ exports.main = async () => {
       { icon: "🥃", name: "品鉴" },
       { icon: "🎉", name: "聚会" }
     ],
-    dailyDrink: normalizeDrink(drinksResult.data[0]),
+    categories: ["全部", ...categories],
+    drinks,
+    ingredients,
+    recipes,
+    achievement: {
+      icon: "🏅",
+      name: "微醺新人",
+      progress: "1/3",
+      desc: "记录第一种酒，开启品鉴旅程。"
+    },
+    dailyDrink: drinks[0] || null,
     safetyNotice: "适量饮酒，未成年人禁止饮酒，请勿酒后驾驶。"
   };
 };

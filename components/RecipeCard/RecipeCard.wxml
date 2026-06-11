@@ -1,0 +1,7 @@
+<view class="recipe-card" bindtap="handleTap">
+  <image class="recipe-cover" src="{{recipe.cover}}" mode="aspectFit"></image>
+  <view class="recipe-body">
+    <text class="recipe-name">{{recipe.name}}</text>
+    <text class="recipe-meta">{{recipe.author}} · ♥ {{recipe.likes}}</text>
+  </view>
+</view>

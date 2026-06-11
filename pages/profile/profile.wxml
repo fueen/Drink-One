@@ -1,9 +1,10 @@
 <view class="page profile-page page-with-tab">
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="profile-head">
-    <view class="avatar">{{user ? '🐱' : '猫'}}</view>
+    <view class="avatar">👦🏻</view>
     <view>
       <text class="nickname">{{user ? user.nickname || '微醺的猫' : '微醺的猫'}}</text>
-      <text class="bio">爱生活，爱微醺</text>
+      <text class="bio">爱生活，爱微醺　♡ VIP</text>
     </view>
   </view>
   <view class="card stat-card">

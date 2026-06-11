@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "recipe_mojito_programmer",
+    "userId": "system",
+    "recipeName": "深夜程序员",
+    "baseDrinkId": "drink_rum_base",
+    "ingredientIds": ["ing_soda", "ing_lime", "ing_mint", "ing_ice"],
+    "description": "白朗姆、青柠、薄荷与苏打水组合，清爽醒神但适合慢饮。",
+    "coverImage": "/assets/drinks/beer-green.png",
+    "status": "approved",
+    "viewCount": 3260,
+    "likeCount": 2800,
+    "favoriteCount": 1200
+  },
+  {
+    "_id": "recipe_summer_ice",
+    "userId": "system",
+    "recipeName": "夏日冰柠薄荷",
+    "baseDrinkId": "drink_gin_tonic_base",
+    "ingredientIds": ["ing_tonic", "ing_lime", "ing_mint", "ing_ice"],
+    "description": "金酒与汤力水做基底，加入青柠和薄荷，适合聚会分享。",
+    "coverImage": "/assets/drinks/beer-yellow.png",
+    "status": "approved",
+    "viewCount": 2480,
+    "likeCount": 1900,
+    "favoriteCount": 856
+  },
+  {
+    "_id": "recipe_sunset_orange",
+    "userId": "system",
+    "recipeName": "落日余晖",
+    "baseDrinkId": "drink_vodka_base",
+    "ingredientIds": ["ing_orange_juice", "ing_grapefruit", "ing_ice"],
+    "description": "伏特加搭配橙汁和西柚汁，果香明显，适合轻松小酌。",
+    "coverImage": "/assets/drinks/beer-yellow.png",
+    "status": "approved",
+    "viewCount": 1920,
+    "likeCount": 1600,
+    "favoriteCount": 723
+  },
+  {
+    "_id": "recipe_cuba_libre",
+    "userId": "system",
+    "recipeName": "自由古巴",
+    "baseDrinkId": "drink_rum_base",
+    "ingredientIds": ["ing_cola", "ing_lime", "ing_ice"],
+    "description": "朗姆、可乐和青柠的经典组合，入口轻快，适合聚会慢饮。",
+    "coverImage": "/assets/drinks/beer-red.png",
+    "status": "approved",
+    "viewCount": 1750,
+    "likeCount": 1300,
+    "favoriteCount": 512
+  }
+]

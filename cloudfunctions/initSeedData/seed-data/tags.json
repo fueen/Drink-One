@@ -1,0 +1,19 @@
+[
+  { "name": "微醺", "type": "status" },
+  { "name": "小醉", "type": "status" },
+  { "name": "品鉴", "type": "status" },
+  { "name": "聚会", "type": "status" },
+  { "name": "香草", "type": "taste" },
+  { "name": "蜂蜜", "type": "taste" },
+  { "name": "柑橘", "type": "taste" },
+  { "name": "顺滑", "type": "taste" },
+  { "name": "清爽", "type": "taste" },
+  { "name": "麦芽", "type": "taste" },
+  { "name": "独处", "type": "scene" },
+  { "name": "观影", "type": "scene" },
+  { "name": "聚餐", "type": "scene" },
+  { "name": "送礼", "type": "scene" },
+  { "name": "餐后", "type": "scene" },
+  { "name": "轻饮", "type": "style" },
+  { "name": "经典", "type": "style" }
+]

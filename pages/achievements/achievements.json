@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我的成就"
+  "navigationBarTitleText": "我的成就",
+  "usingComponents": {
+    "progress-ring": "/components/ProgressRing/ProgressRing"
+  }
 }

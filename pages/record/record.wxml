@@ -1,14 +1,19 @@
 <view class="page record-page">
-  <text class="page-title">记录这款酒</text>
-  <view class="drink-summary">
-    <image class="bottle small" src="{{drink.image}}" mode="aspectFit"></image>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="nav-back">‹</text>
+    <text class="top-title">记录品鉴</text>
+    <text class="nav-action" bindtap="saveRecord">保存</text>
+  </view>
+  <view class="glass-card drink-summary">
+    <image class="summary-bottle" src="{{drink.image}}" mode="aspectFit"></image>
     <view>
       <text class="drink-name">{{drink.name}}</text>
       <text class="drink-en">{{drink.englishName}}</text>
-      <text class="drink-abv">{{drink.abv}}</text>
+      <text class="drink-abv">{{drink.abv}} · 日本</text>
     </view>
   </view>
-  <view class="card form">
+  <view class="glass-card form">
     <text class="label">我的评分</text>
     <view class="stars">
       <text
@@ -19,8 +24,6 @@
         bindtap="setRating"
       >★</text>
     </view>
-    <text class="label">饮用感受（可选）</text>
-    <textarea class="textarea" placeholder="记录下这款酒的口感、香气和感受..." value="{{note}}" bindinput="onNoteInput"></textarea>
     <text class="label">饮用场景</text>
     <view class="scene-row">
       <text
@@ -31,6 +34,17 @@
         bindtap="selectScene"
       >{{item}}</text>
     </view>
+    <text class="label">口感标签（可多选）</text>
+    <view class="scene-row">
+      <text
+        class="pill {{item === taste ? 'active' : ''}}"
+        wx:for="{{tasteTags}}"
+        wx:key="*this"
+        data-taste="{{item}}"
+        bindtap="selectTaste"
+      >{{item}}</text>
+    </view>
+    <text class="label">个人笔记（选填）</text>
+    <textarea class="textarea" placeholder="记录此刻的感受..." value="{{note}}" bindinput="onNoteInput"></textarea>
   </view>
-  <view class="primary-button" bindtap="saveRecord">保存记录</view>
 </view>

@@ -1,6 +1,8 @@
 const drinkService = require("../../services/drinks");
 
 const fallbackDrink = {
+  _id: "drink_kakubin",
+  id: "drink_kakubin",
   name: "角瓶威士忌",
   englishName: "Suntory Kakubin",
   image: "/assets/drinks/kakubin.png",
@@ -30,7 +32,17 @@ Page({
       this.setData({ drink: fallbackDrink });
     }
   },
+  async toggleFavorite() {
+    const drinkId = this.data.drink._id || this.data.drink.id || "drink_kakubin";
+    try {
+      const result = await drinkService.toggleDrinkFavorite(drinkId);
+      wx.showToast({ title: result.favorited ? "已收藏" : "已取消", icon: "success" });
+    } catch (error) {
+      wx.showToast({ title: error.message || "收藏失败", icon: "none" });
+    }
+  },
   goRecord() {
-    wx.navigateTo({ url: "/pages/record/record" });
+    const drinkId = this.data.drink._id || this.data.drink.id || "drink_kakubin";
+    wx.navigateTo({ url: `/pages/record/record?id=${drinkId}` });
   }
 });

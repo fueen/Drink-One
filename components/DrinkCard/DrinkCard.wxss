@@ -1,0 +1,40 @@
+.drink-card {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  box-sizing: border-box;
+  min-height: 240rpx;
+  padding: 32rpx;
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(24px);
+}
+
+.drink-image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.drink-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.drink-name,
+.drink-meta {
+  display: block;
+}
+
+.drink-name {
+  color: #1C1C1E;
+  font-size: 44rpx;
+  font-weight: 600;
+}
+
+.drink-meta {
+  margin-top: 10rpx;
+  color: #6B7280;
+  font-size: 30rpx;
+  font-weight: 500;
+}

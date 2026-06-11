@@ -1,0 +1,7 @@
+<view class="safe-notice">
+  <text class="safe-mark">!</text>
+  <view>
+    <text class="safe-title">{{title}}</text>
+    <text class="safe-content">{{content}}</text>
+  </view>
+</view>

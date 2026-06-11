@@ -12,6 +12,7 @@ function normalizeDrink(drink) {
 
   return {
     ...drink,
+    id: drink._id,
     image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
     tags: drink.tags || drink.tasteTags || [],
     abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv

@@ -1,32 +1,14 @@
-.page-title {
-  display: block;
-  text-align: center;
-  font-size: 32rpx;
-  font-weight: 800;
-}
-
 .drink-summary {
   display: flex;
   align-items: center;
   gap: 26rpx;
-  margin: 42rpx 0 28rpx;
+  margin: 20rpx 0 28rpx;
+  padding: 18rpx 28rpx;
 }
 
-.small {
-  width: 54rpx;
-  height: 100rpx;
-}
-
-.small::before {
-  left: 16rpx;
-  top: -24rpx;
-  width: 22rpx;
-  height: 32rpx;
-}
-
-.small::after {
-  top: 38rpx;
-  height: 26rpx;
+.summary-bottle {
+  width: 76rpx;
+  height: 118rpx;
 }
 
 .drink-name,
@@ -38,7 +20,7 @@
 
 .drink-name {
   font-size: 30rpx;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .drink-en,
@@ -48,14 +30,10 @@
   font-size: 23rpx;
 }
 
-.form {
-  padding: 28rpx;
-}
-
 .label {
   margin-top: 26rpx;
   color: #111827;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .label:first-child {
@@ -70,7 +48,7 @@
 
 .star {
   color: #e5e7eb;
-  font-size: 46rpx;
+  font-size: 48rpx;
 }
 
 .star.active {
@@ -82,8 +60,8 @@
   margin-top: 18rpx;
   box-sizing: border-box;
   padding: 22rpx;
-  border-radius: 16rpx;
-  background: #f8fafc;
+  border-radius: 24rpx;
+  background: rgba(248, 250, 255, 0.88);
   color: #6b7280;
   font-size: 24rpx;
   line-height: 1.5;
@@ -91,11 +69,12 @@
 
 .scene-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 14rpx;
-  margin: 18rpx 0 32rpx;
+  margin: 18rpx 0 20rpx;
 }
 
 .pill.active {
-  background: #fff3e9;
-  color: #d97706;
+  background: linear-gradient(135deg, #7C66FF, #A66BFF);
+  color: #ffffff;
 }

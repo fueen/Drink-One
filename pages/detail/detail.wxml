@@ -1,32 +1,51 @@
 <view class="page detail-page">
-  <view class="between detail-hero">
-    <view class="big-bottle-wrap">
-      <image class="big-bottle" src="{{drink.image}}" mode="aspectFit"></image>
+  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <view class="top-bar">
+    <text class="nav-back">‹</text>
+    <text class="top-title"></text>
+    <text class="nav-action">♡　⇧</text>
+  </view>
+
+  <view class="bottle-stage">
+    <text class="hot-badge">人气推荐</text>
+    <image class="big-bottle" src="{{drink.image}}" mode="aspectFit"></image>
+  </view>
+
+  <view class="glass-card info-panel">
+    <view class="between">
+      <view>
+        <text class="drink-title">{{drink.name}}</text>
+        <text class="drink-en">{{drink.englishName}}</text>
+        <text class="drink-meta">{{drink.abv}}%vol　·　日本　·　700ml</text>
+      </view>
+      <view class="score-card">
+        <text class="score">4.6</text>
+        <text class="score-desc">2363人评分</text>
+      </view>
     </view>
-    <view class="detail-copy">
-      <text class="drink-title">{{drink.name}}</text>
-      <text class="drink-en">{{drink.englishName}}</text>
-      <tag-list tags="{{drink.basicTags}}"></tag-list>
-      <view class="abv-row"><text class="abv">{{drink.abv}}</text><text class="abv-unit">%vol</text></view>
-      <text class="muted">酒精度</text>
+    <view class="detail-tags">
+      <text class="tag" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="intro">
+      <text class="intro-title">酒品简介</text>
+      <text class="intro-text">经典角瓶威士忌，口感柔和，带有香草与蜂蜜的韵味，适合入门品鉴。</text>
     </view>
   </view>
-  <view class="section">
-    <text class="section-title">口感标签</text>
-    <tag-list tags="{{drink.tags}}"></tag-list>
-  </view>
-  <view class="section">
-    <text class="section-title">适合场景</text>
-    <view class="scene-grid">
-      <view class="soft-card scene-cell" wx:for="{{drink.scenes}}" wx:key="*this">
-        <text class="scene-icon">◎</text>
-        <text>{{item}}</text>
+
+  <view class="action-grid">
+    <view class="glass-card action-card" bindtap="goRecord">
+      <text class="action-icon">✎</text>
+      <view>
+        <text class="action-title">记录品鉴</text>
+        <text class="action-desc">写下此刻感受</text>
+      </view>
+    </view>
+    <view class="glass-card action-card" bindtap="toggleFavorite">
+      <text class="action-icon">☆</text>
+      <view>
+        <text class="action-title">加入收藏</text>
+        <text class="action-desc">收藏到酒单</text>
       </view>
     </view>
   </view>
-  <view class="notice">
-    <text class="notice-title">酒精度提示</text>
-    <text class="notice-text">40%vol 属于中高度酒，建议酌量饮用，可静置 2-3 杯后出现明显醉意。</text>
-  </view>
-  <view class="primary-button" bindtap="goRecord">记录这款酒</view>
 </view>

@@ -2,7 +2,8 @@ const recordService = require("../../services/records");
 const drinkService = require("../../services/drinks");
 
 const fallbackRecordData = {
-  scenes: ["独处", "餐后", "聚会", "其他"],
+  scenes: ["独酌", "聚会", "约会", "庆祝", "其他"],
+  tasteTags: ["香草", "蜂蜜", "橡木", "果香", "辛辣"],
   stars: [1, 2, 3, 4, 5],
   drink: {
     name: "角瓶威士忌",
@@ -14,11 +15,13 @@ const fallbackRecordData = {
 
 Page({
   data: {
-    drinkId: "",
+    drinkId: "drink_kakubin",
     rating: 4,
     scene: "独处",
+    taste: "蜂蜜",
     note: "",
     scenes: fallbackRecordData.scenes,
+    tasteTags: fallbackRecordData.tasteTags,
     stars: fallbackRecordData.stars,
     drink: fallbackRecordData.drink
   },
@@ -46,13 +49,16 @@ Page({
     const scene = e.currentTarget.dataset.scene;
     this.setData({ scene });
   },
+  selectTaste(e) {
+    const taste = e.currentTarget.dataset.taste;
+    this.setData({ taste });
+  },
   onNoteInput(e) {
     this.setData({ note: e.detail.value });
   },
   async saveRecord() {
     if (!this.data.drinkId) {
-      wx.showToast({ title: "缺少酒品信息", icon: "none" });
-      return;
+      this.setData({ drinkId: "drink_kakubin" });
     }
 
     try {

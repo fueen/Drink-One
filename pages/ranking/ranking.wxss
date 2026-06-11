@@ -2,13 +2,6 @@
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fd 100%);
 }
 
-.page-title {
-  display: block;
-  text-align: center;
-  font-size: 34rpx;
-  font-weight: 800;
-}
-
 .rank-tabs {
   display: flex;
   gap: 20rpx;
@@ -23,8 +16,8 @@
 }
 
 .rank-tab.active {
-  background: #fff3e9;
-  color: #f97316;
+  background: rgba(108, 92, 255, 0.12);
+  color: #6C5CFF;
 }
 
 .podium {
