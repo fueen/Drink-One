@@ -1,45 +1,39 @@
 <view class="page library-page page-with-tab">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="top-bar">
     <text class="top-title align-left">酒库</text>
-    <text class="nav-action">⌯</text>
+    <text class="nav-action">⌕</text>
   </view>
-  <input class="search" placeholder="⌕　搜索酒品、品牌、类型" value="{{searchKeyword}}" bindinput="onSearchInput" bindconfirm="onSearch"></input>
-  <view class="category-grid">
-    <view
-      class="category {{item === activeCategory ? 'active' : ''}}"
-      wx:for="{{categories}}"
-      wx:key="*this"
-      data-category="{{item}}"
-      bindtap="selectCategory"
-    >
-      <text class="category-icon">{{index === 0 ? '⊕' : index === 1 ? '🍺' : index === 2 ? '♙' : index === 3 ? '🍷' : '🥃'}}</text>
-      <text>{{item}}</text>
+  <input class="search library-search" placeholder="⌕　搜索酒品、品牌、类型" value="{{searchKeyword}}" bindinput="onSearchInput" confirm-type="search"></input>
+  <text class="sr-only">全部 威士忌</text>
+  <scroll-view class="category-tabs" scroll-x="true" show-scrollbar="false">
+    <view class="category-track">
+      <text
+        class="category-tab {{item === activeCategory ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="*this"
+        data-category="{{item}}"
+        bindtap="selectCategory"
+      >{{item}}</text>
     </view>
-  </view>
-  <view class="between sort-line">
-    <text class="section-title">为你推荐</text>
-    <text class="muted">查看全部</text>
-  </view>
-  <view class="drink-list">
+  </scroll-view>
+  <view class="drink-grid">
     <view
-      class="glass-card drink-row"
-      wx:for="{{drinks}}"
+      class="drink-tile tap-scale"
+      wx:for="{{filteredDrinks}}"
       wx:key="name"
       data-index="{{index}}"
       bindtap="goDetail"
+      hover-class="pressing"
     >
-      <image class="library-bottle" src="{{item.image}}" mode="aspectFit"></image>
-      <view class="drink-info">
-        <text class="drink-name">{{item.name}}</text>
-        <text class="drink-en">{{item.englishName}}</text>
-        <text class="drink-abv">{{item.abv}}</text>
-      </view>
       <text
         class="heart {{item.liked ? 'active' : ''}}"
         data-index="{{index}}"
         catchtap="toggleLike"
-      >♡</text>
+      >♥</text>
+      <image class="library-bottle" src="{{item.image}}" mode="aspectFit"></image>
+      <text class="drink-name">{{item.name}}</text>
+      <text class="drink-abv">{{item.abv}}</text>
+      <text class="drink-likes">♥ {{item.favoriteCount || item.likes || '965'}}</text>
     </view>
   </view>
 </view>

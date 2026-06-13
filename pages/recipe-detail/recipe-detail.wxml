@@ -1,12 +1,28 @@
 <view class="page recipe-detail-page">
+  <view class="top-bar">
+    <text class="nav-back" bindtap="goBack">‹</text>
+    <text class="top-title"></text>
+    <text class="nav-action">•••</text>
+  </view>
+
   <view class="recipe-cover-hero">
     <image class="recipe-cover-image" src="{{recipe.cover}}" mode="aspectFit"></image>
   </view>
 
   <view class="glass-card recipe-info">
-    <text class="recipe-title">{{recipe.name}}</text>
-    <text class="recipe-author">作者：{{recipe.author}}</text>
+    <view class="between recipe-head">
+      <view class="recipe-title-wrap">
+        <text class="recipe-title">{{recipe.name}}</text>
+        <text class="recipe-author">作者：{{recipe.author}}</text>
+      </view>
+      <button class="follow-button">关注</button>
+    </view>
     <text class="recipe-desc">{{recipe.description}}</text>
+    <view class="recipe-stats">
+      <text>♥ {{recipe.likes}}</text>
+      <text>★ 4.8</text>
+      <text>□ {{recipe.favorites}}</text>
+    </view>
   </view>
 
   <view class="glass-card">

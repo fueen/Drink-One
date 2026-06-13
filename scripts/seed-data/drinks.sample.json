@@ -11,9 +11,22 @@
     "imageUrl": "/assets/drinks/kakubin.png",
     "gallery": [],
     "description": "适合制作清爽嗨棒的经典日式威士忌。",
-    "tasteTags": ["香草", "蜂蜜", "柑橘", "顺滑"],
-    "statusTags": ["微醺", "聚会", "品鉴"],
-    "recommendScenes": ["观影", "聚餐", "餐后"],
+    "tasteTags": [
+      "香草",
+      "蜂蜜",
+      "柑橘",
+      "顺滑"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会",
+      "品鉴"
+    ],
+    "recommendScenes": [
+      "观影",
+      "聚餐",
+      "餐后"
+    ],
     "riskLevel": 2,
     "favoriteCount": 2363,
     "viewCount": 8830,
@@ -31,9 +44,19 @@
     "imageUrl": "/assets/drinks/beer-red.png",
     "gallery": [],
     "description": "带有烟熏、焦糖和木桶香气，适合慢饮品鉴。",
-    "tasteTags": ["烟熏", "焦糖", "橡木"],
-    "statusTags": ["品鉴", "小醉"],
-    "recommendScenes": ["独处", "餐后"],
+    "tasteTags": [
+      "烟熏",
+      "焦糖",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后"
+    ],
     "riskLevel": 2,
     "favoriteCount": 1680,
     "viewCount": 5210,
@@ -50,10 +73,21 @@
     "capacity": "330ml",
     "imageUrl": "/assets/drinks/beer-red.png",
     "gallery": [],
-    "description": "口感清爽、易入口，适合轻松聚会场景。",
-    "tasteTags": ["清爽", "麦芽"],
-    "statusTags": ["微醺", "聚会"],
-    "recommendScenes": ["聚餐", "观影"],
+    "description": "Budweiser，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
     "riskLevel": 1,
     "favoriteCount": 1450,
     "viewCount": 4300,
@@ -70,10 +104,21 @@
     "capacity": "330ml",
     "imageUrl": "/assets/drinks/beer-green.png",
     "gallery": [],
-    "description": "经典拉格啤酒，适合朋友聚会和佐餐。",
-    "tasteTags": ["清爽", "麦芽", "微苦"],
-    "statusTags": ["微醺", "聚会"],
-    "recommendScenes": ["聚餐", "游戏"],
+    "description": "Heineken，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
     "riskLevel": 1,
     "favoriteCount": 1210,
     "viewCount": 3800,
@@ -90,10 +135,21 @@
     "capacity": "330ml",
     "imageUrl": "/assets/drinks/beer-yellow.png",
     "gallery": [],
-    "description": "搭配青柠饮用更清爽，适合轻饮和聚会。",
-    "tasteTags": ["清爽", "柑橘", "轻盈"],
-    "statusTags": ["微醺", "聚会"],
-    "recommendScenes": ["聚餐", "观影", "户外"],
+    "description": "Corona Extra，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
     "riskLevel": 1,
     "favoriteCount": 1320,
     "viewCount": 4010,
@@ -111,9 +167,19 @@
     "imageUrl": "/assets/drinks/beer-green.png",
     "gallery": [],
     "description": "酸甜青梅香气，适合轻松微醺。",
-    "tasteTags": ["酸甜", "果香", "顺滑"],
-    "statusTags": ["微醺", "小醉"],
-    "recommendScenes": ["独处", "观影"],
+    "tasteTags": [
+      "酸甜",
+      "果香",
+      "顺滑"
+    ],
+    "statusTags": [
+      "微醺",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "观影"
+    ],
     "riskLevel": 1,
     "favoriteCount": 1890,
     "viewCount": 5900,
@@ -131,9 +197,20 @@
     "imageUrl": "/assets/drinks/beer-yellow.png",
     "gallery": [],
     "description": "低度水果风味预调酒，适合轻饮入门。",
-    "tasteTags": ["果香", "甜感", "轻盈"],
-    "statusTags": ["微醺", "聚会"],
-    "recommendScenes": ["观影", "聚餐", "游戏"],
+    "tasteTags": [
+      "果香",
+      "甜感",
+      "轻盈"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "观影",
+      "聚餐",
+      "游戏"
+    ],
     "riskLevel": 1,
     "favoriteCount": 1540,
     "viewCount": 4100,
@@ -151,9 +228,19 @@
     "imageUrl": "/assets/drinks/beer-red.png",
     "gallery": [],
     "description": "奶油与巧克力风味浓郁，适合甜品搭配。",
-    "tasteTags": ["奶油", "巧克力", "甜感"],
-    "statusTags": ["小醉", "品鉴"],
-    "recommendScenes": ["餐后", "独处"],
+    "tasteTags": [
+      "奶油",
+      "巧克力",
+      "甜感"
+    ],
+    "statusTags": [
+      "小醉",
+      "品鉴"
+    ],
+    "recommendScenes": [
+      "餐后",
+      "独处"
+    ],
     "riskLevel": 2,
     "favoriteCount": 980,
     "viewCount": 3000,
@@ -171,9 +258,19 @@
     "imageUrl": "/assets/drinks/beer-green.png",
     "gallery": [],
     "description": "杜松子香气清晰，是金汤力等酒谱的经典基酒。",
-    "tasteTags": ["草本", "清爽", "辛香"],
-    "statusTags": ["品鉴", "聚会"],
-    "recommendScenes": ["聚餐", "调酒"],
+    "tasteTags": [
+      "草本",
+      "清爽",
+      "辛香"
+    ],
+    "statusTags": [
+      "品鉴",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "调酒"
+    ],
     "riskLevel": 2,
     "favoriteCount": 870,
     "viewCount": 2600,
@@ -191,9 +288,19 @@
     "imageUrl": "/assets/drinks/beer-yellow.png",
     "gallery": [],
     "description": "口感干净，适合作为果汁与气泡酒谱基底。",
-    "tasteTags": ["干净", "清冽", "中性"],
-    "statusTags": ["聚会", "小醉"],
-    "recommendScenes": ["调酒", "聚餐"],
+    "tasteTags": [
+      "干净",
+      "清冽",
+      "中性"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐"
+    ],
     "riskLevel": 2,
     "favoriteCount": 760,
     "viewCount": 2400,
@@ -211,9 +318,19 @@
     "imageUrl": "/assets/drinks/beer-red.png",
     "gallery": [],
     "description": "甘蔗香气轻快，是莫吉托与自由古巴的常用基酒。",
-    "tasteTags": ["甘蔗", "清爽", "甜香"],
-    "statusTags": ["聚会", "微醺"],
-    "recommendScenes": ["调酒", "户外"],
+    "tasteTags": [
+      "甘蔗",
+      "清爽",
+      "甜香"
+    ],
+    "statusTags": [
+      "聚会",
+      "微醺"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "户外"
+    ],
     "riskLevel": 2,
     "favoriteCount": 1120,
     "viewCount": 3400,
@@ -230,13 +347,1915 @@
     "capacity": "750ml",
     "imageUrl": "/assets/drinks/beer-red.png",
     "gallery": [],
-    "description": "黑莓、橡木与单宁结构明显，适合佐餐。",
-    "tasteTags": ["黑莓", "橡木", "单宁"],
-    "statusTags": ["品鉴", "小醉"],
-    "recommendScenes": ["聚餐", "送礼"],
+    "description": "Cabernet Sauvignon，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
     "riskLevel": 2,
     "favoriteCount": 930,
     "viewCount": 2780,
     "recordCount": 132
+  },
+  {
+    "_id": "drink_macallan_12",
+    "name": "The Macallan Double Cask 12 Years Old",
+    "englishName": "The Macallan Double Cask 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "The Macallan",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "The Macallan Double Cask 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1476,
+    "viewCount": 4332,
+    "recordCount": 524
+  },
+  {
+    "_id": "drink_glenfiddich_12",
+    "name": "Glenfiddich 12 Years Old",
+    "englishName": "Glenfiddich 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Glenfiddich",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Glenfiddich 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1549,
+    "viewCount": 4543,
+    "recordCount": 561
+  },
+  {
+    "_id": "drink_glenlivet_12",
+    "name": "The Glenlivet 12 Years Old",
+    "englishName": "The Glenlivet 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "The Glenlivet",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "The Glenlivet 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1622,
+    "viewCount": 4754,
+    "recordCount": 598
+  },
+  {
+    "_id": "drink_jameson",
+    "name": "Jameson Irish Whiskey",
+    "englishName": "Jameson Irish Whiskey",
+    "categoryName": "威士忌",
+    "brand": "Jameson",
+    "country": "爱尔兰",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Jameson Irish Whiskey，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1695,
+    "viewCount": 4965,
+    "recordCount": 115
+  },
+  {
+    "_id": "drink_jack_daniels_no7",
+    "name": "Jack Daniel's Old No. 7",
+    "englishName": "Jack Daniel's Old No. 7",
+    "categoryName": "威士忌",
+    "brand": "Jack Daniel's",
+    "country": "美国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Jack Daniel's Old No. 7，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1768,
+    "viewCount": 5176,
+    "recordCount": 152
+  },
+  {
+    "_id": "drink_makers_mark",
+    "name": "Maker's Mark Bourbon",
+    "englishName": "Maker's Mark Bourbon",
+    "categoryName": "威士忌",
+    "brand": "Maker's Mark",
+    "country": "美国",
+    "abv": 45,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Maker's Mark Bourbon，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1841,
+    "viewCount": 5387,
+    "recordCount": 189
+  },
+  {
+    "_id": "drink_buffalo_trace",
+    "name": "Buffalo Trace Bourbon",
+    "englishName": "Buffalo Trace Bourbon",
+    "categoryName": "威士忌",
+    "brand": "Buffalo Trace",
+    "country": "美国",
+    "abv": 45,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Buffalo Trace Bourbon，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1914,
+    "viewCount": 5598,
+    "recordCount": 226
+  },
+  {
+    "_id": "drink_jim_beam",
+    "name": "Jim Beam Bourbon",
+    "englishName": "Jim Beam Bourbon",
+    "categoryName": "威士忌",
+    "brand": "Jim Beam",
+    "country": "美国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Jim Beam Bourbon，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1987,
+    "viewCount": 5809,
+    "recordCount": 263
+  },
+  {
+    "_id": "drink_hibiki_harmony",
+    "name": "Hibiki Japanese Harmony",
+    "englishName": "Hibiki Japanese Harmony",
+    "categoryName": "威士忌",
+    "brand": "Hibiki",
+    "country": "日本",
+    "abv": 43,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Hibiki Japanese Harmony，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2060,
+    "viewCount": 6020,
+    "recordCount": 300
+  },
+  {
+    "_id": "drink_yamazaki_12",
+    "name": "Yamazaki 12 Years Old",
+    "englishName": "Yamazaki 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Yamazaki",
+    "country": "日本",
+    "abv": 43,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Yamazaki 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2133,
+    "viewCount": 6231,
+    "recordCount": 337
+  },
+  {
+    "_id": "drink_lagavulin_16",
+    "name": "Lagavulin 16 Years Old",
+    "englishName": "Lagavulin 16 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Lagavulin",
+    "country": "英国",
+    "abv": 43,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Lagavulin 16 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2206,
+    "viewCount": 6442,
+    "recordCount": 374
+  },
+  {
+    "_id": "drink_laphroaig_10",
+    "name": "Laphroaig 10 Years Old",
+    "englishName": "Laphroaig 10 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Laphroaig",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Laphroaig 10 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2279,
+    "viewCount": 6653,
+    "recordCount": 411
+  },
+  {
+    "_id": "drink_talisker_10",
+    "name": "Talisker 10 Years Old",
+    "englishName": "Talisker 10 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Talisker",
+    "country": "英国",
+    "abv": 45.8,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Talisker 10 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2352,
+    "viewCount": 6864,
+    "recordCount": 448
+  },
+  {
+    "_id": "drink_aberlour_12",
+    "name": "Aberlour 12 Years Old",
+    "englishName": "Aberlour 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Aberlour",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Aberlour 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2425,
+    "viewCount": 7075,
+    "recordCount": 485
+  },
+  {
+    "_id": "drink_redbreast_12",
+    "name": "Redbreast 12 Years Old",
+    "englishName": "Redbreast 12 Years Old",
+    "categoryName": "威士忌",
+    "brand": "Redbreast",
+    "country": "爱尔兰",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Redbreast 12 Years Old，经典威士忌风格，适合加冰、纯饮或用于高球调制。",
+    "tasteTags": [
+      "橡木",
+      "香草",
+      "焦糖"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2498,
+    "viewCount": 7286,
+    "recordCount": 522
+  },
+  {
+    "_id": "drink_guinness_draught",
+    "name": "Guinness Draught",
+    "englishName": "Guinness Draught",
+    "categoryName": "啤酒",
+    "brand": "Guinness",
+    "country": "爱尔兰",
+    "abv": 4.2,
+    "capacity": "440ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Guinness Draught，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2571,
+    "viewCount": 7497,
+    "recordCount": 559
+  },
+  {
+    "_id": "drink_blue_moon",
+    "name": "Blue Moon Belgian White",
+    "englishName": "Blue Moon Belgian White",
+    "categoryName": "啤酒",
+    "brand": "Blue Moon",
+    "country": "美国",
+    "abv": 5.4,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Blue Moon Belgian White，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2644,
+    "viewCount": 7708,
+    "recordCount": 596
+  },
+  {
+    "_id": "drink_sam_adams_lager",
+    "name": "Samuel Adams Boston Lager",
+    "englishName": "Samuel Adams Boston Lager",
+    "categoryName": "啤酒",
+    "brand": "Samuel Adams",
+    "country": "美国",
+    "abv": 5,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Samuel Adams Boston Lager，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2717,
+    "viewCount": 7919,
+    "recordCount": 113
+  },
+  {
+    "_id": "drink_modelo_especial",
+    "name": "Modelo Especial",
+    "englishName": "Modelo Especial",
+    "categoryName": "啤酒",
+    "brand": "Modelo",
+    "country": "其他",
+    "abv": 4.4,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Modelo Especial，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2790,
+    "viewCount": 8130,
+    "recordCount": 150
+  },
+  {
+    "_id": "drink_stella_artois",
+    "name": "Stella Artois",
+    "englishName": "Stella Artois",
+    "categoryName": "啤酒",
+    "brand": "Stella Artois",
+    "country": "比利时",
+    "abv": 5,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Stella Artois，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2863,
+    "viewCount": 8341,
+    "recordCount": 187
+  },
+  {
+    "_id": "drink_coors_light",
+    "name": "Coors Light",
+    "englishName": "Coors Light",
+    "categoryName": "啤酒",
+    "brand": "Coors",
+    "country": "其他",
+    "abv": 4.2,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Coors Light，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 2936,
+    "viewCount": 8552,
+    "recordCount": 224
+  },
+  {
+    "_id": "drink_miller_lite",
+    "name": "Miller Lite",
+    "englishName": "Miller Lite",
+    "categoryName": "啤酒",
+    "brand": "Miller",
+    "country": "其他",
+    "abv": 4.2,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Miller Lite，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 609,
+    "viewCount": 8763,
+    "recordCount": 261
+  },
+  {
+    "_id": "drink_pilsner_urquell",
+    "name": "Pilsner Urquell",
+    "englishName": "Pilsner Urquell",
+    "categoryName": "啤酒",
+    "brand": "Pilsner Urquell",
+    "country": "其他",
+    "abv": 4.4,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Pilsner Urquell，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 682,
+    "viewCount": 8974,
+    "recordCount": 298
+  },
+  {
+    "_id": "drink_hoegaarden",
+    "name": "Hoegaarden Witbier",
+    "englishName": "Hoegaarden Witbier",
+    "categoryName": "啤酒",
+    "brand": "Hoegaarden",
+    "country": "比利时",
+    "abv": 4.9,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Hoegaarden Witbier，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 755,
+    "viewCount": 9185,
+    "recordCount": 335
+  },
+  {
+    "_id": "drink_leffe_blonde",
+    "name": "Leffe Blonde",
+    "englishName": "Leffe Blonde",
+    "categoryName": "啤酒",
+    "brand": "Leffe",
+    "country": "其他",
+    "abv": 6.6,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Leffe Blonde，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 828,
+    "viewCount": 9396,
+    "recordCount": 372
+  },
+  {
+    "_id": "drink_tsingtao",
+    "name": "Tsingtao Beer",
+    "englishName": "Tsingtao Beer",
+    "categoryName": "啤酒",
+    "brand": "Tsingtao",
+    "country": "中国",
+    "abv": 4.7,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Tsingtao Beer，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 901,
+    "viewCount": 9607,
+    "recordCount": 409
+  },
+  {
+    "_id": "drink_snow_beer",
+    "name": "Snow Beer",
+    "englishName": "Snow Beer",
+    "categoryName": "啤酒",
+    "brand": "Snow",
+    "country": "其他",
+    "abv": 4,
+    "capacity": "330ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Snow Beer，清爽易饮的啤酒选择，适合轻松聚会和日常佐餐。",
+    "tasteTags": [
+      "麦芽",
+      "清爽",
+      "微苦"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "观影",
+      "户外"
+    ],
+    "riskLevel": 1,
+    "favoriteCount": 974,
+    "viewCount": 9818,
+    "recordCount": 446
+  },
+  {
+    "_id": "drink_changyu_cabernet",
+    "name": "Changyu Cabernet",
+    "englishName": "Changyu Cabernet",
+    "categoryName": "红酒",
+    "brand": "Changyu",
+    "country": "其他",
+    "abv": 13,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Changyu Cabernet，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1047,
+    "viewCount": 10029,
+    "recordCount": 483
+  },
+  {
+    "_id": "drink_penfolds_bin389",
+    "name": "Penfolds Bin 389",
+    "englishName": "Penfolds Bin 389",
+    "categoryName": "红酒",
+    "brand": "Penfolds",
+    "country": "其他",
+    "abv": 14.5,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Penfolds Bin 389，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1120,
+    "viewCount": 10240,
+    "recordCount": 520
+  },
+  {
+    "_id": "drink_lafite_legend",
+    "name": "Lafite Legende Bordeaux",
+    "englishName": "Lafite Legende Bordeaux",
+    "categoryName": "红酒",
+    "brand": "Lafite",
+    "country": "其他",
+    "abv": 13,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Lafite Legende Bordeaux，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1193,
+    "viewCount": 10451,
+    "recordCount": 557
+  },
+  {
+    "_id": "drink_yellow_tail_shiraz",
+    "name": "Yellow Tail Shiraz",
+    "englishName": "Yellow Tail Shiraz",
+    "categoryName": "红酒",
+    "brand": "Yellow Tail",
+    "country": "澳大利亚",
+    "abv": 13.5,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Yellow Tail Shiraz，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1266,
+    "viewCount": 10662,
+    "recordCount": 594
+  },
+  {
+    "_id": "drink_casillero_cabernet",
+    "name": "Casillero del Diablo Cabernet Sauvignon",
+    "englishName": "Casillero del Diablo Cabernet Sauvignon",
+    "categoryName": "红酒",
+    "brand": "Concha y Toro",
+    "country": "智利",
+    "abv": 13.5,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Casillero del Diablo Cabernet Sauvignon，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1339,
+    "viewCount": 1873,
+    "recordCount": 111
+  },
+  {
+    "_id": "drink_greatwall_dry_red",
+    "name": "Great Wall Dry Red Wine",
+    "englishName": "Great Wall Dry Red Wine",
+    "categoryName": "红酒",
+    "brand": "Great Wall",
+    "country": "中国",
+    "abv": 12.5,
+    "capacity": "750ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Great Wall Dry Red Wine，果香与单宁结构清晰，适合佐餐或慢饮品鉴。",
+    "tasteTags": [
+      "果香",
+      "单宁",
+      "橡木"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "餐后",
+      "送礼"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 1412,
+    "viewCount": 2084,
+    "recordCount": 148
+  },
+  {
+    "_id": "drink_maotai",
+    "name": "Kweichow Moutai",
+    "englishName": "Kweichow Moutai",
+    "categoryName": "白酒",
+    "brand": "Kweichow",
+    "country": "中国",
+    "abv": 53,
+    "capacity": "500ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Kweichow Moutai，中国白酒代表风格，香气饱满，建议小杯慢饮。",
+    "tasteTags": [
+      "粮香",
+      "醇厚",
+      "回甘"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "送礼",
+      "餐后"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1485,
+    "viewCount": 2295,
+    "recordCount": 185
+  },
+  {
+    "_id": "drink_wuliangye",
+    "name": "Wuliangye",
+    "englishName": "Wuliangye",
+    "categoryName": "白酒",
+    "brand": "Wuliangye",
+    "country": "中国",
+    "abv": 52,
+    "capacity": "500ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Wuliangye，中国白酒代表风格，香气饱满，建议小杯慢饮。",
+    "tasteTags": [
+      "粮香",
+      "醇厚",
+      "回甘"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "送礼",
+      "餐后"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1558,
+    "viewCount": 2506,
+    "recordCount": 222
+  },
+  {
+    "_id": "drink_fenjiu",
+    "name": "Fenjiu Qinghua",
+    "englishName": "Fenjiu Qinghua",
+    "categoryName": "白酒",
+    "brand": "Fenjiu",
+    "country": "中国",
+    "abv": 53,
+    "capacity": "500ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Fenjiu Qinghua，中国白酒代表风格，香气饱满，建议小杯慢饮。",
+    "tasteTags": [
+      "粮香",
+      "醇厚",
+      "回甘"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "送礼",
+      "餐后"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1631,
+    "viewCount": 2717,
+    "recordCount": 259
+  },
+  {
+    "_id": "drink_luzhou_laojiao",
+    "name": "Luzhou Laojiao",
+    "englishName": "Luzhou Laojiao",
+    "categoryName": "白酒",
+    "brand": "Luzhou",
+    "country": "中国",
+    "abv": 52,
+    "capacity": "500ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Luzhou Laojiao，中国白酒代表风格，香气饱满，建议小杯慢饮。",
+    "tasteTags": [
+      "粮香",
+      "醇厚",
+      "回甘"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "聚餐",
+      "送礼",
+      "餐后"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1704,
+    "viewCount": 2928,
+    "recordCount": 296
+  },
+  {
+    "_id": "drink_tanqueray",
+    "name": "Tanqueray London Dry Gin",
+    "englishName": "Tanqueray London Dry Gin",
+    "categoryName": "金酒",
+    "brand": "Tanqueray",
+    "country": "英国",
+    "abv": 43.1,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Tanqueray London Dry Gin，草本与杜松子香气明显，适合金汤力等经典调酒。",
+    "tasteTags": [
+      "杜松子",
+      "草本",
+      "清爽"
+    ],
+    "statusTags": [
+      "品鉴",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1777,
+    "viewCount": 3139,
+    "recordCount": 333
+  },
+  {
+    "_id": "drink_bombay_sapphire",
+    "name": "Bombay Sapphire Gin",
+    "englishName": "Bombay Sapphire Gin",
+    "categoryName": "金酒",
+    "brand": "Bombay Sapphire",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Bombay Sapphire Gin，草本与杜松子香气明显，适合金汤力等经典调酒。",
+    "tasteTags": [
+      "杜松子",
+      "草本",
+      "清爽"
+    ],
+    "statusTags": [
+      "品鉴",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1850,
+    "viewCount": 3350,
+    "recordCount": 370
+  },
+  {
+    "_id": "drink_hendricks",
+    "name": "Hendrick's Gin",
+    "englishName": "Hendrick's Gin",
+    "categoryName": "金酒",
+    "brand": "Hendrick's",
+    "country": "英国",
+    "abv": 41.4,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Hendrick's Gin，草本与杜松子香气明显，适合金汤力等经典调酒。",
+    "tasteTags": [
+      "杜松子",
+      "草本",
+      "清爽"
+    ],
+    "statusTags": [
+      "品鉴",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1923,
+    "viewCount": 3561,
+    "recordCount": 407
+  },
+  {
+    "_id": "drink_beefeater",
+    "name": "Beefeater London Dry Gin",
+    "englishName": "Beefeater London Dry Gin",
+    "categoryName": "金酒",
+    "brand": "Beefeater",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Beefeater London Dry Gin，草本与杜松子香气明显，适合金汤力等经典调酒。",
+    "tasteTags": [
+      "杜松子",
+      "草本",
+      "清爽"
+    ],
+    "statusTags": [
+      "品鉴",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1996,
+    "viewCount": 3772,
+    "recordCount": 444
+  },
+  {
+    "_id": "drink_absolut",
+    "name": "Absolut Vodka",
+    "englishName": "Absolut Vodka",
+    "categoryName": "伏特加",
+    "brand": "Absolut",
+    "country": "瑞典",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Absolut Vodka，口感干净中性，适合作为果汁或气泡类酒谱基底。",
+    "tasteTags": [
+      "干净",
+      "清冽",
+      "中性"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2069,
+    "viewCount": 3983,
+    "recordCount": 481
+  },
+  {
+    "_id": "drink_grey_goose",
+    "name": "Grey Goose Vodka",
+    "englishName": "Grey Goose Vodka",
+    "categoryName": "伏特加",
+    "brand": "Grey Goose",
+    "country": "法国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Grey Goose Vodka，口感干净中性，适合作为果汁或气泡类酒谱基底。",
+    "tasteTags": [
+      "干净",
+      "清冽",
+      "中性"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2142,
+    "viewCount": 4194,
+    "recordCount": 518
+  },
+  {
+    "_id": "drink_smirnoff",
+    "name": "Smirnoff Vodka",
+    "englishName": "Smirnoff Vodka",
+    "categoryName": "伏特加",
+    "brand": "Smirnoff",
+    "country": "英国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Smirnoff Vodka，口感干净中性，适合作为果汁或气泡类酒谱基底。",
+    "tasteTags": [
+      "干净",
+      "清冽",
+      "中性"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2215,
+    "viewCount": 4405,
+    "recordCount": 555
+  },
+  {
+    "_id": "drink_belvedere",
+    "name": "Belvedere Vodka",
+    "englishName": "Belvedere Vodka",
+    "categoryName": "伏特加",
+    "brand": "Belvedere",
+    "country": "波兰",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Belvedere Vodka，口感干净中性，适合作为果汁或气泡类酒谱基底。",
+    "tasteTags": [
+      "干净",
+      "清冽",
+      "中性"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2288,
+    "viewCount": 4616,
+    "recordCount": 592
+  },
+  {
+    "_id": "drink_bacardi",
+    "name": "Bacardi Carta Blanca",
+    "englishName": "Bacardi Carta Blanca",
+    "categoryName": "朗姆酒",
+    "brand": "Bacardi",
+    "country": "波多黎各",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Bacardi Carta Blanca，甘蔗与甜香风格突出，常用于莫吉托和自由古巴等调酒。",
+    "tasteTags": [
+      "甘蔗",
+      "香草",
+      "甜香"
+    ],
+    "statusTags": [
+      "聚会",
+      "微醺"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "户外",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2361,
+    "viewCount": 4827,
+    "recordCount": 109
+  },
+  {
+    "_id": "drink_havana_club_3",
+    "name": "Havana Club 3 Anos",
+    "englishName": "Havana Club 3 Anos",
+    "categoryName": "朗姆酒",
+    "brand": "Havana Club",
+    "country": "古巴",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Havana Club 3 Anos，甘蔗与甜香风格突出，常用于莫吉托和自由古巴等调酒。",
+    "tasteTags": [
+      "甘蔗",
+      "香草",
+      "甜香"
+    ],
+    "statusTags": [
+      "聚会",
+      "微醺"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "户外",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2434,
+    "viewCount": 5038,
+    "recordCount": 146
+  },
+  {
+    "_id": "drink_captain_morgan",
+    "name": "Captain Morgan Spiced Rum",
+    "englishName": "Captain Morgan Spiced Rum",
+    "categoryName": "朗姆酒",
+    "brand": "Captain Morgan",
+    "country": "牙买加",
+    "abv": 35,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Captain Morgan Spiced Rum，甘蔗与甜香风格突出，常用于莫吉托和自由古巴等调酒。",
+    "tasteTags": [
+      "甘蔗",
+      "香草",
+      "甜香"
+    ],
+    "statusTags": [
+      "聚会",
+      "微醺"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "户外",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2507,
+    "viewCount": 5249,
+    "recordCount": 183
+  },
+  {
+    "_id": "drink_mount_gay",
+    "name": "Mount Gay Rum",
+    "englishName": "Mount Gay Rum",
+    "categoryName": "朗姆酒",
+    "brand": "Mount Gay",
+    "country": "巴巴多斯",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Mount Gay Rum，甘蔗与甜香风格突出，常用于莫吉托和自由古巴等调酒。",
+    "tasteTags": [
+      "甘蔗",
+      "香草",
+      "甜香"
+    ],
+    "statusTags": [
+      "聚会",
+      "微醺"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "户外",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2580,
+    "viewCount": 5460,
+    "recordCount": 220
+  },
+  {
+    "_id": "drink_jose_cuervo",
+    "name": "Jose Cuervo Especial Silver",
+    "englishName": "Jose Cuervo Especial Silver",
+    "categoryName": "龙舌兰",
+    "brand": "Jose Cuervo",
+    "country": "墨西哥",
+    "abv": 38,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Jose Cuervo Especial Silver，龙舌兰风味鲜明，适合调制玛格丽特等经典鸡尾酒。",
+    "tasteTags": [
+      "龙舌兰",
+      "柑橘",
+      "辛香"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "户外"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2653,
+    "viewCount": 5671,
+    "recordCount": 257
+  },
+  {
+    "_id": "drink_don_julio_blanco",
+    "name": "Don Julio Blanco",
+    "englishName": "Don Julio Blanco",
+    "categoryName": "龙舌兰",
+    "brand": "Don Julio",
+    "country": "墨西哥",
+    "abv": 38,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Don Julio Blanco，龙舌兰风味鲜明，适合调制玛格丽特等经典鸡尾酒。",
+    "tasteTags": [
+      "龙舌兰",
+      "柑橘",
+      "辛香"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "户外"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2726,
+    "viewCount": 5882,
+    "recordCount": 294
+  },
+  {
+    "_id": "drink_patron_silver",
+    "name": "Patron Silver",
+    "englishName": "Patron Silver",
+    "categoryName": "龙舌兰",
+    "brand": "Patron",
+    "country": "墨西哥",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Patron Silver，龙舌兰风味鲜明，适合调制玛格丽特等经典鸡尾酒。",
+    "tasteTags": [
+      "龙舌兰",
+      "柑橘",
+      "辛香"
+    ],
+    "statusTags": [
+      "聚会",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "聚餐",
+      "户外"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2799,
+    "viewCount": 6093,
+    "recordCount": 331
+  },
+  {
+    "_id": "drink_hennessy_vsop",
+    "name": "Hennessy VSOP",
+    "englishName": "Hennessy VSOP",
+    "categoryName": "白兰地",
+    "brand": "Hennessy",
+    "country": "法国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Hennessy VSOP，葡萄蒸馏酒风格圆润，适合餐后慢饮。",
+    "tasteTags": [
+      "葡萄",
+      "橡木",
+      "果干"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "餐后",
+      "送礼",
+      "独处"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2872,
+    "viewCount": 6304,
+    "recordCount": 368
+  },
+  {
+    "_id": "drink_remy_martin_vsop",
+    "name": "Remy Martin VSOP",
+    "englishName": "Remy Martin VSOP",
+    "categoryName": "白兰地",
+    "brand": "Remy",
+    "country": "法国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Remy Martin VSOP，葡萄蒸馏酒风格圆润，适合餐后慢饮。",
+    "tasteTags": [
+      "葡萄",
+      "橡木",
+      "果干"
+    ],
+    "statusTags": [
+      "品鉴",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "餐后",
+      "送礼",
+      "独处"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 2945,
+    "viewCount": 6515,
+    "recordCount": 405
+  },
+  {
+    "_id": "drink_cointreau",
+    "name": "Cointreau",
+    "englishName": "Cointreau",
+    "categoryName": "利口酒",
+    "brand": "Cointreau",
+    "country": "法国",
+    "abv": 40,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Cointreau，甜香明显的利口酒，适合调酒、甜品搭配或低度轻饮。",
+    "tasteTags": [
+      "甜感",
+      "果香",
+      "辛香"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "餐后",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 618,
+    "viewCount": 6726,
+    "recordCount": 442
+  },
+  {
+    "_id": "drink_kahlua",
+    "name": "Kahlua Coffee Liqueur",
+    "englishName": "Kahlua Coffee Liqueur",
+    "categoryName": "利口酒",
+    "brand": "Kahlua",
+    "country": "墨西哥",
+    "abv": 20,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Kahlua Coffee Liqueur，甜香明显的利口酒，适合调酒、甜品搭配或低度轻饮。",
+    "tasteTags": [
+      "甜感",
+      "果香",
+      "辛香"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "餐后",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 691,
+    "viewCount": 6937,
+    "recordCount": 479
+  },
+  {
+    "_id": "drink_malibu",
+    "name": "Malibu Coconut Rum",
+    "englishName": "Malibu Coconut Rum",
+    "categoryName": "利口酒",
+    "brand": "Malibu",
+    "country": "巴巴多斯",
+    "abv": 21,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Malibu Coconut Rum，甜香明显的利口酒，适合调酒、甜品搭配或低度轻饮。",
+    "tasteTags": [
+      "甜感",
+      "果香",
+      "辛香"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "餐后",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 764,
+    "viewCount": 7148,
+    "recordCount": 516
+  },
+  {
+    "_id": "drink_choya_umeshu",
+    "name": "Choya Umeshu",
+    "englishName": "Choya Umeshu",
+    "categoryName": "梅酒",
+    "brand": "Choya",
+    "country": "日本",
+    "abv": 14.5,
+    "capacity": "720ml",
+    "imageUrl": "/assets/drinks/beer-red.png",
+    "gallery": [],
+    "description": "Choya Umeshu，青梅酸甜风味柔和，适合加冰或兑苏打轻饮。",
+    "tasteTags": [
+      "酸甜",
+      "青梅",
+      "果香"
+    ],
+    "statusTags": [
+      "微醺",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "观影",
+      "餐后"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 837,
+    "viewCount": 7359,
+    "recordCount": 553
+  },
+  {
+    "_id": "drink_nakano_umeshu",
+    "name": "Nakano BC Umeshu",
+    "englishName": "Nakano BC Umeshu",
+    "categoryName": "梅酒",
+    "brand": "Nakano BC",
+    "country": "日本",
+    "abv": 14,
+    "capacity": "720ml",
+    "imageUrl": "/assets/drinks/beer-green.png",
+    "gallery": [],
+    "description": "Nakano BC Umeshu，青梅酸甜风味柔和，适合加冰或兑苏打轻饮。",
+    "tasteTags": [
+      "酸甜",
+      "青梅",
+      "果香"
+    ],
+    "statusTags": [
+      "微醺",
+      "小醉"
+    ],
+    "recommendScenes": [
+      "独处",
+      "观影",
+      "餐后"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 910,
+    "viewCount": 7570,
+    "recordCount": 590
+  },
+  {
+    "_id": "drink_aperol",
+    "name": "Aperol",
+    "englishName": "Aperol",
+    "categoryName": "利口酒",
+    "brand": "Aperol",
+    "country": "意大利",
+    "abv": 11,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/beer-yellow.png",
+    "gallery": [],
+    "description": "Aperol，甜香明显的利口酒，适合调酒、甜品搭配或低度轻饮。",
+    "tasteTags": [
+      "甜感",
+      "果香",
+      "辛香"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "餐后",
+      "观影"
+    ],
+    "riskLevel": 2,
+    "favoriteCount": 983,
+    "viewCount": 7781,
+    "recordCount": 107
+  },
+  {
+    "_id": "drink_campari",
+    "name": "Campari",
+    "englishName": "Campari",
+    "categoryName": "利口酒",
+    "brand": "Campari",
+    "country": "意大利",
+    "abv": 25,
+    "capacity": "700ml",
+    "imageUrl": "/assets/drinks/kakubin.png",
+    "gallery": [],
+    "description": "Campari，甜香明显的利口酒，适合调酒、甜品搭配或低度轻饮。",
+    "tasteTags": [
+      "甜感",
+      "果香",
+      "辛香"
+    ],
+    "statusTags": [
+      "微醺",
+      "聚会"
+    ],
+    "recommendScenes": [
+      "调酒",
+      "餐后",
+      "观影"
+    ],
+    "riskLevel": 3,
+    "favoriteCount": 1056,
+    "viewCount": 7992,
+    "recordCount": 144
   }
 ]

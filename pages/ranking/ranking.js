@@ -1,7 +1,7 @@
 const rankingService = require("../../services/ranking");
 
 const fallbackRankingData = {
-  tabs: ["热门榜", "微醺榜", "创意榜", "收藏榜"],
+  tabs: ["酒谱榜"],
   top: [
     { rank: 2, name: "失恋特调", likes: "1.8k", image: "/assets/drinks/beer-red.png" },
     { rank: 1, name: "深夜程序员", likes: "2.3k", image: "/assets/drinks/beer-green.png" },
@@ -16,13 +16,25 @@ const fallbackRankingData = {
   activeType: "hot"
 };
 
+const tabTypes = ["recipe"];
+const normalizeType = (type) => (type === "recipe" ? "hot" : type || "hot");
+const getTabIndex = (type) => {
+  const initialType = type || "recipe";
+  const index = tabTypes.indexOf(initialType);
+  return index >= 0 ? index : 0;
+};
+
 Page({
   data: {
     ...fallbackRankingData,
     activeTab: 0
   },
-  onLoad() {
-    this.loadRanking(this.data.activeType);
+  onLoad(options = {}) {
+    const initialType = options.type || "recipe";
+    const activeTab = getTabIndex(initialType);
+    const activeType = normalizeType(initialType);
+    this.setData({ activeTab, activeType });
+    this.loadRanking(activeType);
   },
   async loadRanking(type) {
     try {
@@ -47,9 +59,10 @@ Page({
     }
   },
   switchTab(e) {
-    const index = e.currentTarget.dataset.index;
-    const typeMap = ["hot", "favorite", "creative", "favorite"];
-    this.setData({ activeTab: index, activeType: typeMap[index] || "hot" });
-    this.loadRanking(typeMap[index] || "hot");
+    const index = 0;
+    const selectedType = "recipe";
+    const activeType = normalizeType(selectedType);
+    this.setData({ activeTab: index, activeType });
+    this.loadRanking(activeType);
   }
 });

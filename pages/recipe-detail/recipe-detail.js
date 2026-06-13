@@ -30,12 +30,19 @@ Page({
       // Keep fallback recipe.
     }
   },
+  goBack() {
+    wx.navigateBack({
+      fail() {
+        wx.switchTab({ url: "/pages/index/index" });
+      }
+    });
+  },
   async likeRecipe() {
     try {
       const result = await recipeService.toggleRecipeLike(this.data.recipeId);
       wx.showToast({ title: result.liked ? "已点赞" : "已取消", icon: "success" });
     } catch (error) {
-      wx.showToast({ title: error.message || "点赞失败", icon: "none" });
+      wx.showToast({ title: "点赞暂不可用", icon: "none" });
     }
   },
   async favoriteRecipe() {
@@ -43,7 +50,7 @@ Page({
       const result = await recipeService.toggleRecipeFavorite(this.data.recipeId);
       wx.showToast({ title: result.favorited ? "已收藏" : "已取消", icon: "success" });
     } catch (error) {
-      wx.showToast({ title: error.message || "收藏失败", icon: "none" });
+      wx.showToast({ title: "收藏暂不可用", icon: "none" });
     }
   },
   async reportRecipe() {
@@ -51,7 +58,7 @@ Page({
       await recipeService.reportContent("recipe", this.data.recipeId, "用户举报");
       wx.showToast({ title: "已收到举报", icon: "none" });
     } catch (error) {
-      wx.showToast({ title: error.message || "举报失败", icon: "none" });
+      wx.showToast({ title: "举报暂不可用", icon: "none" });
     }
   }
 });

@@ -1,5 +1,8 @@
 const app = getApp();
 const userService = require("../../services/user");
+const drinkService = require("../../services/drinks");
+const recordService = require("../../services/records");
+const recipeService = require("../../services/recipes");
 
 Page({
   data: {
@@ -11,11 +14,11 @@ Page({
       { value: 8, label: "成就数" }
     ],
     menus: [
-      { name: "我的收藏", url: "/pages/library/library", tab: true },
-      { name: "浏览历史", url: "/pages/library/library", tab: true },
-      { name: "我的酒谱", url: "/pages/diy/diy", tab: true },
-      { name: "设置", url: "" },
-      { name: "关于我们", url: "" }
+      { icon: "♡", name: "我的收藏", action: "favorites" },
+      { icon: "◴", name: "浏览历史", action: "records" },
+      { icon: "♧", name: "我的酒谱", action: "recipes" },
+      { icon: "⚙", name: "设置", url: "/pages/settings/settings" },
+      { icon: "ⓘ", name: "关于我们", url: "" }
     ]
   },
   onShow() {
@@ -35,9 +38,13 @@ Page({
       // Keep fallback profile data.
     }
   },
-  goMenu(e) {
+  async goMenu(e) {
     const index = e.currentTarget.dataset.index;
     const menu = this.data.menus[index];
+    if (menu && menu.action) {
+      await this.handleDataMenu(menu.action);
+      return;
+    }
     if (menu && menu.url) {
       if (menu.tab) {
         wx.switchTab({ url: menu.url });
@@ -46,6 +53,33 @@ Page({
       }
     } else {
       wx.showToast({ title: "功能开发中", icon: "none" });
+    }
+  },
+  async handleDataMenu(action) {
+    wx.showLoading({ title: "读取中..." });
+    let toastTitle = "";
+    try {
+      if (action === "favorites") {
+        const [drinkFavorites, recipeFavorites] = await Promise.all([
+          drinkService.getDrinkFavorites(),
+          recipeService.getRecipeFavorites()
+        ]);
+        const total = (drinkFavorites.drinks || []).length + (recipeFavorites.recipes || []).length;
+        toastTitle = `收藏 ${total} 条`;
+      }
+      if (action === "records") {
+        const result = await recordService.getDrinkRecords();
+        toastTitle = `记录 ${((result && result.records) || []).length} 条`;
+      }
+      if (action === "recipes") {
+        const result = await recipeService.getMyRecipes();
+        toastTitle = `酒谱 ${((result && result.recipes) || []).length} 条`;
+      }
+    } catch (error) {
+      toastTitle = error.message || "读取失败";
+    } finally {
+      wx.hideLoading();
+      wx.showToast({ title: toastTitle || "读取完成", icon: "none" });
     }
   },
   goHome() {

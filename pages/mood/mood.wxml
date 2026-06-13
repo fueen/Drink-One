@@ -1,5 +1,4 @@
 <view class="page mood-page">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="top-bar">
     <text class="nav-back">‹</text>
     <text class="top-title">状态推荐</text>

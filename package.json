@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "node tests/validate-miniprogram.js"
+    "test": "node tests/validate-miniprogram.js",
+    "deploy:functions": "powershell -ExecutionPolicy Bypass -File scripts/deploy-cloudfunctions.ps1"
   },
   "devDependencies": {}
 }

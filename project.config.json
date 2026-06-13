@@ -45,6 +45,10 @@
       {
         "type": "glob",
         "value": "*.html"
+      },
+      {
+        "type": "glob",
+        "value": "*.png"
       }
     ],
     "include": []

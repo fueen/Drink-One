@@ -6,9 +6,12 @@
   display: flex;
   gap: 20rpx;
   margin: 34rpx 0 28rpx;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .rank-tab {
+  flex: 0 0 auto;
   padding: 14rpx 20rpx;
   border-radius: 999rpx;
   color: #6b7280;
@@ -24,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: end;
-  gap: 14rpx;
+  gap: 12rpx;
   min-height: 350rpx;
 }
 
@@ -70,6 +73,13 @@
   font-size: 22rpx;
 }
 
+.podium-name {
+  max-width: 150rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .likes {
   color: #ff6f73;
 }
@@ -102,6 +112,10 @@
 
 .rank-name {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 25rpx;
 }
 

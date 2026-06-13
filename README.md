@@ -290,3 +290,19 @@ develop
 - 最近修复：`pages/index/index.js` 曾因多余 `});` 导致模拟器空白，已修复，并增加 JS 语法校验。
 - 资源策略：当前使用本地 PNG 图标和酒瓶图，后续可替换为 CloudBase 文件存储或正式设计资源。
 - 下一个推荐任务：在微信开发者工具逐页对照效果图检查 UI，然后抽取公共组件。
+
+### 2026-06-13 最新状态
+
+- 当前临时可用 CloudBase 环境固定为 `cloud1-d6gkgmp1a475bc9b5`，`config/env.js` 和 `cloudbaserc.json` 均指向该环境。
+- `drink-one-dev-d8gemhfgb21abcf33` 当前环境存在问题，后续不要自动切回该环境，除非用户明确要求。
+- 已补齐用户侧 CRUD 云函数与服务封装：用户资料、酒品收藏、品鉴记录、我的酒谱、酒谱收藏、举报记录查询。
+- 已新增 `components/RandomDrinkModal` 和 `pages/settings/settings`，首页随机抽酒改为弹层抽取结果展示。
+- 种子数据已扩充到 12 个分类、73 条酒品，并修复中断后产生的 `???` 编码坏数据；本地和 `initSeedData` 云函数内置 seed 已同步。
+- `tests/validate-miniprogram.js` 已增加 seed 编码防回归校验，禁止种子数据中残留问号占位符。
+- 本地结构校验命令：`npm.cmd test`，当前输出为 `Mini program structure validated.`。
+- CloudBase CLI 当前登录账号只能看到 `drink-one-dev-d8gemhfgb21abcf33`，部署到 `cloud1-d6gkgmp1a475bc9b5` 会返回 `env not found in list`。需要切换到拥有 cloud1 权限的 CLI 账号，或在微信开发者工具中选择 cloud1 后手动上传 `initSeedData`。
+- 待 cloud1 权限可用后，优先部署并运行：
+
+```powershell
+npx.cmd -y --package @cloudbase/cli tcb fn deploy initSeedData --dir "D:\workspace\Drink One\cloudfunctions\initSeedData" -e cloud1-d6gkgmp1a475bc9b5 --yes --deployMode cos
+```

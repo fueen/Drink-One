@@ -39,14 +39,14 @@ flowchart TD
 
 ## 3. 技术栈
 
-| 层级 | 技术 | 说明 |
-| --- | --- | --- |
-| 小程序端 | 微信原生小程序 | 使用 `.wxml`、`.wxss`、`.js`、`.json` 页面结构 |
-| UI 样式 | 原生 WXSS | 全局基础组件样式在 `app.wxss` |
-| 路由配置 | `app.json` | 注册页面、窗口样式、底部 tabBar |
-| 数据库 | 微信云开发 CloudBase MongoDB | 规划中的主数据存储 |
-| 后端逻辑 | 云函数 | 后续承载登录、推荐、审核、点赞收藏、成就解锁 |
-| 测试校验 | Node.js 脚本 | `tests/validate-miniprogram.js` 校验页面结构 |
+| 层级    | 技术                      | 说明                                     |
+| ----- | ----------------------- | -------------------------------------- |
+| 小程序端  | 微信原生小程序                 | 使用 `.wxml`、`.wxss`、`.js`、`.json` 页面结构  |
+| UI 样式 | 原生 WXSS                 | 全局基础组件样式在 `app.wxss`                   |
+| 路由配置  | `app.json`              | 注册页面、窗口样式、底部 tabBar                    |
+| 数据库   | 微信云开发 CloudBase MongoDB | 规划中的主数据存储                              |
+| 后端逻辑  | 云函数                     | 后续承载登录、推荐、审核、点赞收藏、成就解锁                 |
+| 测试校验  | Node.js 脚本              | `tests/validate-miniprogram.js` 校验页面结构 |
 
 ---
 
@@ -96,23 +96,23 @@ pages/<page-name>/
 
 ### 5.1 主 tab 页面
 
-| 页面 | 路径 | 职责 |
-| --- | --- | --- |
-| 首页 | `pages/index/index` | 今日推荐、状态入口、随机抽酒、安全提示 |
-| 酒库 | `pages/library/library` | 酒品分类、搜索、列表浏览 |
-| DIY 酒谱 | `pages/diy/diy` | 创建酒谱流程入口，选择基酒与配料 |
-| 排行榜 | `pages/ranking/ranking` | 热门榜、微醺榜、创意榜、收藏榜 |
-| 我的 | `pages/profile/profile` | 用户信息、统计、菜单入口 |
+| 页面     | 路径                      | 职责                  |
+| ------ | ----------------------- | ------------------- |
+| 首页     | `pages/index/index`     | 今日推荐、状态入口、随机抽酒、安全提示 |
+| 酒库     | `pages/library/library` | 酒品分类、搜索、列表浏览        |
+| DIY 酒谱 | `pages/diy/diy`         | 创建酒谱流程入口，选择基酒与配料    |
+| 排行榜    | `pages/ranking/ranking` | 热门榜、微醺榜、创意榜、收藏榜     |
+| 我的     | `pages/profile/profile` | 用户信息、统计、菜单入口        |
 
 ### 5.2 二级页面
 
-| 页面 | 路径 | 职责 |
-| --- | --- | --- |
-| 状态推荐 | `pages/mood/mood` | 根据“微醺、小醉、品鉴、聚会”等状态推荐酒品 |
-| 酒品详情 | `pages/detail/detail` | 酒品基础信息、标签、场景、风险提示、记录入口 |
-| 酒量测试 | `pages/test/test` | 用户填写基础信息，后续生成酒量等级参考 |
-| 成就系统 | `pages/achievements/achievements` | 展示已解锁和未解锁成就 |
-| 品鉴记录 | `pages/record/record` | 评分、饮用感受、饮用场景记录 |
+| 页面   | 路径                                | 职责                     |
+| ---- | --------------------------------- | ---------------------- |
+| 状态推荐 | `pages/mood/mood`                 | 根据“微醺、小醉、品鉴、聚会”等状态推荐酒品 |
+| 酒品详情 | `pages/detail/detail`             | 酒品基础信息、标签、场景、风险提示、记录入口 |
+| 酒量测试 | `pages/test/test`                 | 用户填写基础信息，后续生成酒量等级参考    |
+| 成就系统 | `pages/achievements/achievements` | 展示已解锁和未解锁成就            |
+| 品鉴记录 | `pages/record/record`             | 评分、饮用感受、饮用场景记录         |
 
 ---
 
@@ -147,29 +147,29 @@ miniprogram
 
 ### 7.1 用户域
 
-| 集合 | 用途 |
-| --- | --- |
-| `users` | 用户基础信息、探索等级、累计记录数、成就数量 |
-| `drink_records` | 用户品鉴记录 |
-| `user_favorites` | 用户收藏的酒品 |
-| `user_achievements` | 用户已解锁成就 |
+| 集合                  | 用途                     |
+| ------------------- | ---------------------- |
+| `users`             | 用户基础信息、探索等级、累计记录数、成就数量 |
+| `drink_records`     | 用户品鉴记录                 |
+| `user_favorites`    | 用户收藏的酒品                |
+| `user_achievements` | 用户已解锁成就                |
 
 ### 7.2 酒品域
 
-| 集合 | 用途 |
-| --- | --- |
+| 集合                 | 用途              |
+| ------------------ | --------------- |
 | `drink_categories` | 酒品分类，如啤酒、红酒、威士忌 |
-| `drinks` | 酒品库核心数据 |
-| `drink_tags` | 状态、口感、场景、风格标签 |
+| `drinks`           | 酒品库核心数据         |
+| `drink_tags`       | 状态、口感、场景、风格标签   |
 
 ### 7.3 DIY 酒谱域
 
-| 集合 | 用途 |
-| --- | --- |
-| `ingredients` | 系统允许选择的原料库 |
-| `recipes` | 用户创建的酒谱 |
-| `recipe_likes` | 酒谱点赞关系 |
-| `recipe_favorites` | 酒谱收藏关系 |
+| 集合                 | 用途         |
+| ------------------ | ---------- |
+| `ingredients`      | 系统允许选择的原料库 |
+| `recipes`          | 用户创建的酒谱    |
+| `recipe_likes`     | 酒谱点赞关系     |
+| `recipe_favorites` | 酒谱收藏关系     |
 
 重要约束：
 
@@ -179,18 +179,18 @@ miniprogram
 
 ### 7.4 推荐与榜单域
 
-| 集合 | 用途 |
-| --- | --- |
-| `recommend_logs` | 记录推荐行为，支持后续个性化和数据分析 |
-| `drinks.favoriteCount` | 酒品收藏榜依据 |
-| `drinks.recordCount` | 品鉴榜依据 |
-| `recipes.likeCount` | 酒谱热门榜依据 |
-| `recipes.favoriteCount` | 酒谱收藏榜依据 |
+| 集合                      | 用途                  |
+| ----------------------- | ------------------- |
+| `recommend_logs`        | 记录推荐行为，支持后续个性化和数据分析 |
+| `drinks.favoriteCount`  | 酒品收藏榜依据             |
+| `drinks.recordCount`    | 品鉴榜依据               |
+| `recipes.likeCount`     | 酒谱热门榜依据             |
+| `recipes.favoriteCount` | 酒谱收藏榜依据             |
 
 ### 7.5 系统与审核域
 
-| 集合 | 用途 |
-| --- | --- |
+| 集合               | 用途        |
+| ---------------- | --------- |
 | `system_configs` | 安全提示、运营配置 |
 | `report_records` | 举报和人工审核记录 |
 
@@ -274,21 +274,21 @@ flowchart TD
 
 后续建议按业务能力拆分云函数，避免一个大函数承载所有逻辑。
 
-| 云函数 | 职责 |
-| --- | --- |
-| `login` | 获取 openid，创建或更新用户 |
-| `getHomeData` | 首页今日推荐、安全提示、热门酒谱 |
-| `getRandomDrink` | 随机抽酒并写入推荐日志 |
-| `getMoodRecommendations` | 状态推荐 |
-| `getDrinkDetail` | 酒品详情和浏览计数 |
-| `toggleDrinkFavorite` | 酒品收藏/取消收藏 |
-| `saveDrinkRecord` | 保存品鉴记录，触发成就检查 |
-| `createRecipe` | 创建 DIY 酒谱，进入审核流 |
-| `toggleRecipeLike` | 酒谱点赞/取消点赞 |
-| `toggleRecipeFavorite` | 酒谱收藏/取消收藏 |
-| `getRanking` | 榜单查询 |
-| `reportContent` | 举报内容 |
-| `checkAchievements` | 统一成就解锁逻辑 |
+| 云函数                      | 职责                |
+| ------------------------ | ----------------- |
+| `login`                  | 获取 openid，创建或更新用户 |
+| `getHomeData`            | 首页今日推荐、安全提示、热门酒谱  |
+| `getRandomDrink`         | 随机抽酒并写入推荐日志       |
+| `getMoodRecommendations` | 状态推荐              |
+| `getDrinkDetail`         | 酒品详情和浏览计数         |
+| `toggleDrinkFavorite`    | 酒品收藏/取消收藏         |
+| `saveDrinkRecord`        | 保存品鉴记录，触发成就检查     |
+| `createRecipe`           | 创建 DIY 酒谱，进入审核流   |
+| `toggleRecipeLike`       | 酒谱点赞/取消点赞         |
+| `toggleRecipeFavorite`   | 酒谱收藏/取消收藏         |
+| `getRanking`             | 榜单查询              |
+| `reportContent`          | 举报内容              |
+| `checkAchievements`      | 统一成就解锁逻辑          |
 
 ---
 
@@ -435,4 +435,3 @@ tests/validate-miniprogram.js
 - 前端展示状态不能替代后端审核，安全规则必须放在云函数侧再校验。
 - 排行榜和成就要奖励探索、收藏、创作，不奖励饮酒量。
 - 所有新增页面必须同步更新 `app.json` 和结构测试。
-

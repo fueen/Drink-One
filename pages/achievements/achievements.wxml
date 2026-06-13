@@ -1,5 +1,4 @@
 <view class="page achievements-page page-with-tab">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="top-bar">
     <text class="top-title align-left">成就</text>
     <text class="nav-action"></text>

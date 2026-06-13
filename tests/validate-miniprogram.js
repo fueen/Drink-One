@@ -20,8 +20,10 @@ const readPngSize = (file) => {
 };
 
 const app = readJson("app.json");
+const cloudbaseConfig = readJson("cloudbaserc.json");
 const jsonFiles = [
   "app.json",
+  "cloudbaserc.json",
   "sitemap.json",
   ...fs
     .readdirSync(path.join(root, "pages"), { recursive: true })
@@ -78,6 +80,7 @@ const requiredPages = [
   "pages/test/test",
   "pages/achievements/achievements",
   "pages/profile/profile",
+  "pages/settings/settings",
   "pages/record/record"
 ];
 
@@ -104,6 +107,7 @@ const requiredComponents = [
   "components/AchievementCard/AchievementCard",
   "components/RecipeCard/RecipeCard",
   "components/TagChip/TagChip",
+  "components/RandomDrinkModal/RandomDrinkModal",
   "components/ProgressRing/ProgressRing",
   "components/SafeNotice/SafeNotice",
   "components/EmptyState/EmptyState"
@@ -128,13 +132,22 @@ const requiredCloudFunctions = [
   "cloudfunctions/getRanking/index.js",
   "cloudfunctions/initSeedData/index.js",
   "cloudfunctions/getRecipeDetail/index.js",
+  "cloudfunctions/getMyRecipes/index.js",
+  "cloudfunctions/updateRecipe/index.js",
+  "cloudfunctions/deleteRecipe/index.js",
+  "cloudfunctions/getRecipeFavorites/index.js",
   "cloudfunctions/toggleRecipeLike/index.js",
   "cloudfunctions/toggleRecipeFavorite/index.js",
   "cloudfunctions/toggleDrinkFavorite/index.js",
+  "cloudfunctions/getDrinkFavorites/index.js",
   "cloudfunctions/reportContent/index.js",
+  "cloudfunctions/getMyReports/index.js",
+  "cloudfunctions/updateUserProfile/index.js",
   "cloudfunctions/getUserProfileData/index.js",
   "cloudfunctions/getAchievements/index.js",
-  "cloudfunctions/getDrinkRecords/index.js"
+  "cloudfunctions/getDrinkRecords/index.js",
+  "cloudfunctions/updateDrinkRecord/index.js",
+  "cloudfunctions/deleteDrinkRecord/index.js"
 ];
 const requiredServices = [
   "services/cloud.js",
@@ -202,12 +215,13 @@ for (const file of requiredSeedDataFiles) {
   const data = readJson(file);
   assert(Array.isArray(data), `${file} should contain a JSON array`);
   assert(data.length > 0, `${file} should contain at least one item`);
+  assert(!JSON.stringify(data).includes("?"), `${file} should not contain broken encoding placeholders`);
 }
 const seedDrinks = readJson("scripts/seed-data/drinks.sample.json");
 const seedIngredients = readJson("scripts/seed-data/ingredients.json");
 const seedAchievements = readJson("scripts/seed-data/achievements.json");
 const seedRecipes = readJson("scripts/seed-data/recipes.sample.json");
-assert(seedDrinks.length >= 12, "drinks seed should contain at least 12 preset drinks");
+assert(seedDrinks.length >= 50, "drinks seed should contain at least 50 preset drinks");
 assert(seedIngredients.length >= 20, "ingredients seed should contain at least 20 preset ingredients");
 assert(seedAchievements.length >= 12, "achievements seed should contain at least 12 preset achievements");
 assert(seedRecipes.length >= 4, "recipes seed should contain at least 4 approved recipes");
@@ -230,6 +244,26 @@ assert(fs.existsSync(path.join(root, "scripts/README.md")), "scripts/README.md s
 
 for (const file of requiredCloudFunctions) {
   assert(fs.existsSync(path.join(root, file)), `${file} should exist`);
+}
+
+assert(
+  cloudbaseConfig.envId === "cloud1-d6gkgmp1a475bc9b5",
+  "cloudbaserc.json should target the active CloudBase environment"
+);
+assert(
+  cloudbaseConfig.functionRoot === "cloudfunctions",
+  "cloudbaserc.json should set functionRoot to cloudfunctions"
+);
+assert(
+  Array.isArray(cloudbaseConfig.functions),
+  "cloudbaserc.json should define functions"
+);
+for (const file of requiredCloudFunctions) {
+  const functionName = file.split("/")[1];
+  const functionConfig = cloudbaseConfig.functions.find((item) => item.name === functionName);
+  assert(functionConfig, `cloudbaserc.json should configure ${functionName}`);
+  assert(functionConfig.runtime === "Nodejs18.15", `${functionName} runtime should be Nodejs18.15`);
+  assert(functionConfig.handler === "index.main", `${functionName} handler should be index.main`);
 }
 
 for (const file of requiredCloudFunctions) {
@@ -263,7 +297,10 @@ if (fs.existsSync(path.join(root, "config/secrets.local.js"))) {
   }
 }
 const envSource = fs.readFileSync(path.join(root, "config/env.js"), "utf8");
-assert(envSource.includes("cloudEnvId: null"), "config/env.js should use the default CloudBase environment unless a real envId is configured");
+assert(
+  envSource.includes('cloudEnvId: "cloud1-d6gkgmp1a475bc9b5"'),
+  "config/env.js should target the active CloudBase environment"
+);
 
 const appJs = fs.readFileSync(path.join(root, "app.js"), "utf8");
 assert(appJs.includes("wx.cloud.init"), "app.js should initialize wx.cloud");
@@ -284,7 +321,6 @@ for (const token of [
   ".page-header",
   ".page-content",
   ".glass-card",
-  ".mock-status",
   "font-weight: 600"
 ]) {
   assert(appWxss.includes(token), `app.wxss should include ${token}`);
@@ -294,6 +330,13 @@ const projectConfig = readJson("project.config.json");
 assert(
   projectConfig.cloudfunctionRoot === "cloudfunctions/",
   "project.config.json should set cloudfunctionRoot to cloudfunctions/"
+);
+const packIgnoreValues = projectConfig.packOptions && Array.isArray(projectConfig.packOptions.ignore)
+  ? projectConfig.packOptions.ignore.map((item) => `${item.type}:${item.value}`)
+  : [];
+assert(
+  packIgnoreValues.includes("glob:*.png"),
+  "project.config.json should ignore root-level PNG design references from preview package"
 );
 
 const indexJs = fs.readFileSync(path.join(root, "pages/index/index.js"), "utf8");
@@ -320,14 +363,43 @@ for (const tab of requiredTabs) {
 }
 
 const homeWxml = fs.readFileSync(path.join(root, "pages/index/index.wxml"), "utf8");
+const homeJs = fs.readFileSync(path.join(root, "pages/index/index.js"), "utf8");
 const safetyNoticeWxml = fs.readFileSync(path.join(root, "components/safety-notice/safety-notice.wxml"), "utf8");
 const homeRenderableMarkup = `${homeWxml}\n${safetyNoticeWxml}`;
-for (const text of ["喝一杯", "今晚，喝一杯", "搜索酒品、酒谱、品牌", "随机抽一杯", "今日推荐", "适量饮酒"]) {
+for (const text of ["喝一杯", "Drink One", "今晚想喝什么？", "随机抽一杯", "热门酒谱", "最近成就", "适量饮酒"]) {
   assert(homeRenderableMarkup.includes(text), `home should render ${text}`);
 }
-for (const className of ["mock-status", "app-shell", "dice-card", "drink-hero-card", "safety-notice"]) {
+for (const className of ["app-shell", "status-cards", "random-cta", "recipe-strip", "achievement-strip", "safety-notice"]) {
   assert(homeRenderableMarkup.includes(className), `home should use refined UI class ${className}`);
 }
+for (const page of requiredPages) {
+  const wxmlFile = `${page}.wxml`;
+  const source = fs.readFileSync(path.join(root, wxmlFile), "utf8");
+  assert(!source.includes("mock-status"), `${wxmlFile} should not render custom mock status bar`);
+}
+assert(homeWxml.includes("<random-drink-modal"), "home should render RandomDrinkModal component");
+assert(!homeWxml.includes("今日推荐"), "home should remove the Today Recommendation section");
+assert(homeWxml.includes('bindtap="goRecipeRanking"'), "home more recipes action should navigate to recipe ranking");
+assert(homeJs.includes("randomModalVisible"), "index page should track random modal visibility");
+assert(homeJs.includes("pendingRandomDrink"), "index page should stage random drink results until drawing finishes");
+assert(homeJs.includes("randomProgress"), "index page should expose random draw progress");
+assert(homeJs.includes("withTimeout"), "index page should timeout slow random cloud calls and use fallback");
+assert(homeJs.includes("openRandomModal"), "index page should open the random modal from CTA");
+assert(homeJs.includes("force: true"), "opening random modal should force the first draw instead of being blocked by loading state");
+assert(homeJs.includes("closeRandomModal"), "index page should close the random modal");
+assert(homeJs.includes("tryAnotherDrink"), "index page should support drawing another drink inside the modal");
+assert(homeJs.includes("getFallbackRandomDrink"), "index page should provide a fallback random drink when CloudBase fails");
+assert(homeJs.includes("shouldShowRandomError"), "index page should avoid noisy random errors during silent modal draws");
+assert(homeJs.includes("goRecipeRanking"), "index page should route recipe more action to ranking page");
+assert(homeJs.includes("/pages/ranking/ranking?type=recipe"), "recipe more action should target recipe ranking route");
+
+const randomDrinkModalWxml = fs.readFileSync(path.join(root, "components/RandomDrinkModal/RandomDrinkModal.wxml"), "utf8");
+const randomDrinkModalJs = fs.readFileSync(path.join(root, "components/RandomDrinkModal/RandomDrinkModal.js"), "utf8");
+assert(randomDrinkModalWxml.includes("drawing-panel"), "random modal should show a drawing progress panel before result");
+assert(randomDrinkModalWxml.includes("progress-fill"), "random modal should render a draw progress bar");
+assert(randomDrinkModalWxml.includes("wx:else"), "random modal should hide result content until drawing completes");
+assert(randomDrinkModalJs.includes("drawing"), "random modal should accept drawing state");
+assert(randomDrinkModalJs.includes("progress"), "random modal should accept progress value");
 for (const file of [
   "pages/index/index.wxml",
   "pages/library/library.wxml",
@@ -337,7 +409,6 @@ for (const file of [
   const source = fs.readFileSync(path.join(root, file), "utf8");
   assert(!source.includes("bottom-tab"), `${file} should use the native tabBar only`);
 }
-assert(homeWxml.includes("drink-hero-card"), "home should render the screenshot-style recommendation card");
 assert(homeWxml.includes("safety-card"), "home should render the screenshot-style safety card");
 
 const diyJs = fs.readFileSync(path.join(root, "pages/diy/diy.js"), "utf8");
@@ -345,6 +416,12 @@ assert(diyJs.includes("steps"), "DIY page should expose creation steps");
 assert(diyJs.includes("baseDrinks"), "DIY page should expose selectable base drinks");
 assert(diyJs.includes("ingredients"), "DIY page should expose selectable ingredients");
 assert(diyJs.includes("goNextStep"), "DIY page should implement next-step button behavior");
+assert(diyJs.includes("viewMode"), "DIY page should default to recipe list mode before entering create flow");
+assert(diyJs.includes("myRecipes"), "DIY page should display created recipes by default");
+assert(diyJs.includes("startCreateFlow"), "DIY page should enter create flow from the bottom DIY action");
+assert(diyJs.includes("finishCreateFlow"), "DIY page should return to list mode after submit");
+assert(diyJs.includes("submitting"), "DIY page should track submit loading state");
+assert(diyJs.includes("submitRecipeLocally"), "DIY page should provide local submit fallback when CloudBase is unavailable");
 
 const indexPageConfig = readJson("pages/index/index.json");
 assert(
@@ -383,24 +460,42 @@ for (const text of ["人气推荐", "酒品简介", "记录品鉴", "加入收�
 }
 
 const diyWxml = fs.readFileSync(path.join(root, "pages/diy/diy.wxml"), "utf8");
-for (const text of ["创酿酒谱", "选择基酒", "已选基酒", "下一步：选择配料"]) {
+for (const text of ["创建酒谱", "选择基酒", "选择配料", "命名", "完成", "下一步"]) {
   assert(diyWxml.includes(text), `DIY create page should render ${text}`);
 }
+assert(diyWxml.includes("myRecipes"), "DIY page should render recipe list by default");
+assert(diyWxml.includes("handleBottomAction"), "DIY page should render bottom DIY action");
+assert(diyWxml.includes("'DIY'"), "DIY page bottom action should show DIY in list mode");
+assert(diyWxml.includes("提交中"), "DIY create page should show submitting button text");
+assert(!diyWxml.includes("提交审核"), "DIY create page should not mention submit review");
+assert(!diyWxml.includes("审核中"), "DIY create page should not mention reviewing state");
+const diyWxss = fs.readFileSync(path.join(root, "pages/diy/diy.wxss"), "utf8");
+assert(diyWxss.includes("repeat(2, 1fr)"), "DIY base drink grid should use two columns");
 
 const libraryWxml = fs.readFileSync(path.join(root, "pages/library/library.wxml"), "utf8");
-for (const text of ["酒库", "搜索酒品、品牌、类型", "为你推荐"]) {
+for (const text of ["酒库", "搜索酒品、品牌、类型", "全部", "威士忌"]) {
   assert(libraryWxml.includes(text), `library page should render ${text}`);
 }
+assert(libraryWxml.includes("drink-grid"), "library page should use a two-column drink grid");
 
 const rankingWxml = fs.readFileSync(path.join(root, "pages/ranking/ranking.wxml"), "utf8");
-for (const text of ["排行榜", "热门榜", "收藏榜", "创意榜", "品鉴榜"]) {
+for (const text of ["排行榜", "酒谱榜"]) {
   assert(rankingWxml.includes(text), `ranking page should render ${text}`);
 }
+for (const text of ["收藏榜", "创意榜", "品鉴榜"]) {
+  assert(!rankingWxml.includes(text), `ranking page should not render ${text}`);
+}
+const rankingJs = fs.readFileSync(path.join(root, "pages/ranking/ranking.js"), "utf8");
+assert(rankingJs.includes("initialType"), "ranking page should read initial ranking type from route options");
+assert(rankingJs.includes("recipe"), "ranking page should support recipe ranking entry from home");
 
 const recordWxml = fs.readFileSync(path.join(root, "pages/record/record.wxml"), "utf8");
 for (const text of ["记录品鉴", "我的评分", "饮用场景", "口感标签", "个人笔记", "保存"]) {
   assert(recordWxml.includes(text), `record page should render ${text}`);
 }
+const recordJs = fs.readFileSync(path.join(root, "pages/record/record.js"), "utf8");
+assert(recordJs.includes("updateDrinkRecord"), "record page should update an existing drink record when recordId is present");
+assert(recordJs.includes("deleteDrinkRecord"), "record page should delete an existing drink record");
 
 const profileJs = fs.readFileSync(path.join(root, "pages/profile/profile.js"), "utf8");
 for (const text of ["我的收藏", "浏览历史", "我的酒谱", "设置", "关于我们"]) {
@@ -410,6 +505,16 @@ for (const text of ["记录酒品", "收藏酒品", "DIY酒谱", "成就数"]) {
   assert(profileJs.includes(text), `profile stats should include ${text}`);
 }
 assert(profileJs.includes("wx.switchTab"), "profile should use switchTab for tabBar pages");
+assert(profileJs.includes("/pages/settings/settings"), "profile settings menu should navigate to settings page");
+assert(profileJs.includes("getDrinkFavorites"), "profile should query drink favorites from CloudBase");
+assert(profileJs.includes("getRecipeFavorites"), "profile should query recipe favorites from CloudBase");
+assert(profileJs.includes("getDrinkRecords"), "profile should query drink records from CloudBase");
+assert(profileJs.includes("getMyRecipes"), "profile should query current user recipes from CloudBase");
+
+const settingsWxml = fs.readFileSync(path.join(root, "pages/settings/settings.wxml"), "utf8");
+for (const text of ["设置", "消息通知", "隐私设置", "清除缓存", "意见反馈", "关于我们", "退出登录"]) {
+  assert(settingsWxml.includes(text), `settings page should render ${text}`);
+}
 
 const getHomeDataSource = fs.readFileSync(path.join(root, "cloudfunctions/getHomeData/index.js"), "utf8");
 assert(getHomeDataSource.includes("wx-server-sdk"), "getHomeData should use wx-server-sdk");
@@ -456,7 +561,8 @@ const createRecipeSource = fs.readFileSync(path.join(root, "cloudfunctions/creat
 assert(createRecipeSource.includes("wx-server-sdk"), "createRecipe should use wx-server-sdk");
 assert(createRecipeSource.includes('collection("ingredients")'), "createRecipe should validate ingredients");
 assert(createRecipeSource.includes('collection("recipes")'), "createRecipe should insert into recipes");
-assert(createRecipeSource.includes('"pending"'), "createRecipe should set status to pending");
+assert(createRecipeSource.includes('"approved"'), "createRecipe should save recipe as approved for MVP direct publishing");
+assert(!createRecipeSource.includes('"pending"'), "createRecipe should not create pending recipes in MVP direct publishing mode");
 
 // — Phase 7: rankings —
 const getRankingSource = fs.readFileSync(path.join(root, "cloudfunctions/getRanking/index.js"), "utf8");
@@ -496,32 +602,50 @@ for (const file of requiredLaterServices) {
 }
 const userServiceSource = fs.readFileSync(path.join(root, "services/user.js"), "utf8");
 assert(userServiceSource.includes("login"), "user service should export login function");
+assert(userServiceSource.includes("updateUserProfile"), "user service should export updateUserProfile function");
+assert(userServiceSource.includes("getMyReports"), "user service should export getMyReports function");
 const recordsServiceSource = fs.readFileSync(path.join(root, "services/records.js"), "utf8");
 assert(recordsServiceSource.includes("saveDrinkRecord"), "records service should export saveDrinkRecord function");
 assert(recordsServiceSource.includes("getDrinkRecords"), "records service should export getDrinkRecords function");
+assert(recordsServiceSource.includes("updateDrinkRecord"), "records service should export updateDrinkRecord function");
+assert(recordsServiceSource.includes("deleteDrinkRecord"), "records service should export deleteDrinkRecord function");
 const recipesServiceSource = fs.readFileSync(path.join(root, "services/recipes.js"), "utf8");
 assert(recipesServiceSource.includes("createRecipe"), "recipes service should export createRecipe function");
 assert(recipesServiceSource.includes("getRecipeDetail"), "recipes service should export getRecipeDetail function");
+assert(recipesServiceSource.includes("getMyRecipes"), "recipes service should export getMyRecipes function");
+assert(recipesServiceSource.includes("updateRecipe"), "recipes service should export updateRecipe function");
+assert(recipesServiceSource.includes("deleteRecipe"), "recipes service should export deleteRecipe function");
 assert(recipesServiceSource.includes("toggleRecipeLike"), "recipes service should export toggleRecipeLike function");
 assert(recipesServiceSource.includes("toggleRecipeFavorite"), "recipes service should export toggleRecipeFavorite function");
+assert(recipesServiceSource.includes("getRecipeFavorites"), "recipes service should export getRecipeFavorites function");
 assert(recipesServiceSource.includes("reportContent"), "recipes service should export reportContent function");
 const rankingServiceSource = fs.readFileSync(path.join(root, "services/ranking.js"), "utf8");
 assert(rankingServiceSource.includes("getRanking"), "ranking service should export getRanking function");
 const drinksServiceSource = fs.readFileSync(path.join(root, "services/drinks.js"), "utf8");
 assert(drinksServiceSource.includes("toggleDrinkFavorite"), "drinks service should export toggleDrinkFavorite function");
+assert(drinksServiceSource.includes("getDrinkFavorites"), "drinks service should export getDrinkFavorites function");
 const profileServiceSource = fs.readFileSync(path.join(root, "services/user.js"), "utf8");
 assert(profileServiceSource.includes("getUserProfileData"), "user service should export getUserProfileData function");
 assert(profileServiceSource.includes("getAchievements"), "user service should export getAchievements function");
 
 for (const [file, checks] of Object.entries({
   "cloudfunctions/getRecipeDetail/index.js": ['collection("recipes")', 'collection("ingredients")', 'recipeId'],
+  "cloudfunctions/getMyRecipes/index.js": ['collection("recipes")', "OPENID", "userId"],
+  "cloudfunctions/updateRecipe/index.js": ['collection("recipes")', 'collection("ingredients")', "scanText", "status"],
+  "cloudfunctions/deleteRecipe/index.js": ['collection("recipes")', 'collection("recipe_likes")', 'collection("recipe_favorites")'],
+  "cloudfunctions/getRecipeFavorites/index.js": ['collection("recipe_favorites")', 'collection("recipes")', "OPENID"],
   "cloudfunctions/toggleRecipeLike/index.js": ['collection("recipe_likes")', 'likeCount', 'OPENID'],
   "cloudfunctions/toggleRecipeFavorite/index.js": ['collection("recipe_favorites")', 'favoriteCount', 'OPENID'],
   "cloudfunctions/toggleDrinkFavorite/index.js": ['collection("user_favorites")', 'favoriteCount', 'OPENID'],
+  "cloudfunctions/getDrinkFavorites/index.js": ['collection("user_favorites")', 'collection("drinks")', "OPENID"],
   "cloudfunctions/reportContent/index.js": ['collection("report_records")', 'targetType', 'reason'],
+  "cloudfunctions/getMyReports/index.js": ['collection("report_records")', "OPENID", "userId"],
+  "cloudfunctions/updateUserProfile/index.js": ['collection("users")', "OPENID", "allowedFields"],
   "cloudfunctions/getUserProfileData/index.js": ['collection("users")', 'collection("user_favorites")', 'collection("drink_records")'],
   "cloudfunctions/getAchievements/index.js": ['collection("achievement_definitions")', 'collection("user_achievements")'],
-  "cloudfunctions/getDrinkRecords/index.js": ['collection("drink_records")', 'collection("drinks")']
+  "cloudfunctions/getDrinkRecords/index.js": ['collection("drink_records")', 'collection("drinks")'],
+  "cloudfunctions/updateDrinkRecord/index.js": ['collection("drink_records")', "rating", "OPENID"],
+  "cloudfunctions/deleteDrinkRecord/index.js": ['collection("drink_records")', "recordCount", "OPENID"]
 })) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
   assert(source.includes("wx-server-sdk"), `${file} should use wx-server-sdk`);

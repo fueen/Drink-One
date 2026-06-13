@@ -1,11 +1,11 @@
 <view class="page profile-page page-with-tab">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
-  <view class="profile-head">
+  <view class="profile-card">
     <view class="avatar">👦🏻</view>
-    <view>
+    <view class="profile-copy">
       <text class="nickname">{{user ? user.nickname || '微醺的猫' : '微醺的猫'}}</text>
-      <text class="bio">爱生活，爱微醺　♡ VIP</text>
+      <text class="bio">ID: drink_one_666</text>
     </view>
+    <button class="edit-button">编辑资料</button>
   </view>
   <view class="card stat-card">
     <view class="stat" wx:for="{{stats}}" wx:key="label">
@@ -21,8 +21,11 @@
       data-index="{{index}}"
       bindtap="goMenu"
     >
-      <text>{{item.name}}</text>
-      <text>›</text>
+      <view class="menu-left">
+        <text class="menu-icon">{{item.icon}}</text>
+        <text>{{item.name}}</text>
+      </view>
+      <text class="chevron">›</text>
     </view>
   </view>
 </view>

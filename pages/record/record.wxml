@@ -1,5 +1,4 @@
 <view class="page record-page">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="top-bar">
     <text class="nav-back">‹</text>
     <text class="top-title">记录品鉴</text>
@@ -47,4 +46,5 @@
     <text class="label">个人笔记（选填）</text>
     <textarea class="textarea" placeholder="记录此刻的感受..." value="{{note}}" bindinput="onNoteInput"></textarea>
   </view>
+  <button wx:if="{{recordId}}" class="delete-button" bindtap="deleteRecord">删除记录</button>
 </view>

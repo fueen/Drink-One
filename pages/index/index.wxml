@@ -1,55 +1,66 @@
 <view class="page page-with-tab phone-page index-page">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="app-shell">
     <view class="home-head">
-      <view>
+      <view class="brand-line">
         <text class="title">喝一杯</text>
-        <text class="subtitle">今晚，喝一杯</text>
+        <text class="subtitle">Drink One</text>
       </view>
       <text class="bell">♧</text>
     </view>
 
-    <view class="search hero-search">⌕　搜索酒品、酒谱、品牌</view>
-
     <view class="safety-card">
-      <view>
-        <text class="safety-title">适量饮酒 · 理性饮酒</text>
-        <text class="safety-text">过度饮酒可能伤身体健康</text>
-        <text class="safety-text">未成年人禁止饮酒，酒后请勿驾车</text>
-      </view>
-      <text class="shield">♢</text>
+      <safety-notice title="适量饮酒" content="未成年人禁止饮酒，请勿酒后驾驶。"></safety-notice>
     </view>
 
-    <view class="mood-grid">
-      <view class="mood-item" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}">
-        <text class="mood-icon">{{item.icon}}</text>
-        <text class="mood-name">{{item.name}}</text>
-      </view>
-    </view>
-
-    <view class="random-card dice-card" bindtap="drawRandomDrink">
-      <view>
-        <text class="random-title">随机抽一杯</text>
-        <text class="random-subtitle">看看命运今天会给你哪一杯</text>
-      </view>
-      <text class="dice">⚂</text>
-    </view>
-
-    <view class="between section-head">
-      <text class="section-title">今日推荐</text>
-      <text class="refresh" bindtap="drawRandomDrink">换一杯</text>
-    </view>
-
-    <view class="drink-hero-card" bindtap="goDetail">
-      <image class="home-bottle" src="{{dailyDrink.image}}" mode="aspectFit"></image>
-      <view class="home-drink-copy">
-        <text class="home-drink-name">{{dailyDrink.name}}</text>
-        <text class="home-drink-en">{{dailyDrink.englishName}}</text>
-        <text class="home-drink-meta">{{dailyDrink.abv}} · 日本</text>
-        <view class="home-tags">
-          <text class="tag" wx:for="{{dailyDrink.tags}}" wx:key="*this">{{item}}</text>
+    <view class="section-block">
+      <text class="section-title">今晚想喝什么？</text>
+      <view class="status-cards">
+        <view class="status-card tap-scale" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}" hover-class="pressing">
+          <text class="status-icon">{{item.icon}}</text>
+          <text class="status-name">{{item.name}}</text>
+          <text class="status-desc">{{item.desc}}</text>
         </view>
       </view>
     </view>
+
+    <view class="random-cta tap-scale" bindtap="openRandomModal" hover-class="pressing">
+      <text class="random-title">随机抽一杯 ✦</text>
+      <text class="random-bottle">♢</text>
+    </view>
+
+    <view class="section-block">
+      <view class="between">
+        <text class="section-title">热门酒谱</text>
+        <text class="more" bindtap="goRecipeRanking">查看更多</text>
+      </view>
+      <view class="recipe-strip">
+        <view class="recipe-card tap-scale" wx:for="{{recipes}}" wx:key="name" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
+          <image class="recipe-cover" src="{{item.cover}}" mode="aspectFill"></image>
+          <text class="recipe-name">{{item.name}}</text>
+          <text class="recipe-meta">♥ {{item.likes}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="achievement-strip tap-scale" bindtap="goAchievements" hover-class="pressing">
+      <view class="badge-medal">🏅</view>
+      <view class="achievement-copy">
+        <text class="achievement-title">最近成就</text>
+        <text class="achievement-name">{{achievement.name}}</text>
+        <text class="achievement-desc">{{achievement.desc}}</text>
+      </view>
+      <text class="chevron">›</text>
+    </view>
   </view>
+
+  <random-drink-modal
+    visible="{{randomModalVisible}}"
+    drink="{{dailyDrink}}"
+    loading="{{randomLoading}}"
+    drawing="{{randomLoading}}"
+    progress="{{randomProgress}}"
+    bind:close="closeRandomModal"
+    bind:viewdetail="goDetail"
+    bind:tryanother="tryAnotherDrink"
+  ></random-drink-modal>
 </view>

@@ -56,22 +56,7 @@ button {
 }
 
 .page-with-tab {
-  padding-bottom: 56rpx;
-}
-
-.mock-status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64rpx;
-  color: #05060a;
-  font-size: 24rpx;
-  font-weight: 800;
-}
-
-.status-icons {
-  letter-spacing: 2rpx;
-  font-size: 22rpx;
+  padding-bottom: 136rpx;
 }
 
 .top-bar {
@@ -79,6 +64,7 @@ button {
   align-items: center;
   justify-content: space-between;
   min-height: 64rpx;
+  flex-shrink: 0;
 }
 
 .top-title {
@@ -154,6 +140,7 @@ button {
   font-size: 30rpx;
   font-weight: 900;
   line-height: 42rpx;
+  word-break: break-word;
 }
 
 .muted {
@@ -255,4 +242,21 @@ button {
 
 .bottle.clear {
   background: linear-gradient(180deg, #f8f9ff 0%, #f6bd41 100%);
+}
+
+.tap-scale {
+  transition: transform 200ms ease-out, box-shadow 300ms ease-out;
+}
+
+.pressing {
+  transform: scale(0.96) translateY(-4rpx);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1rpx;
+  height: 1rpx;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }

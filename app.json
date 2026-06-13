@@ -10,6 +10,7 @@
     "pages/test/test",
     "pages/achievements/achievements",
     "pages/profile/profile",
+    "pages/settings/settings",
     "pages/record/record"
   ],
   "window": {

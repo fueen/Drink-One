@@ -68,7 +68,7 @@ exports.main = async (event) => {
       ingredientIds,
       description: description || "",
       coverImage: coverImage || "",
-      status: "pending",
+      status: "approved",
       viewCount: 0,
       likeCount: 0,
       favoriteCount: 0,
@@ -94,6 +94,20 @@ exports.main = async (event) => {
 
   return {
     recipeId: result._id,
-    status: "pending"
+    status: "approved",
+    recipe: {
+      _id: result._id,
+      recipeName,
+      baseDrinkId,
+      ingredientIds,
+      description: description || "",
+      coverImage: coverImage || "",
+      status: "approved",
+      viewCount: 0,
+      likeCount: 0,
+      favoriteCount: 0,
+      createdAt: now,
+      updatedAt: now
+    }
   };
 };

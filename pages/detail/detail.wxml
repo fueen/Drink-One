@@ -1,7 +1,6 @@
 <view class="page detail-page">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
   <view class="top-bar">
-    <text class="nav-back">‹</text>
+    <text class="nav-back" bindtap="goBack">‹</text>
     <text class="top-title"></text>
     <text class="nav-action">♡　⇧</text>
   </view>
@@ -12,40 +11,41 @@
   </view>
 
   <view class="glass-card info-panel">
-    <view class="between">
-      <view>
+    <view class="between info-head">
+      <view class="info-copy">
         <text class="drink-title">{{drink.name}}</text>
         <text class="drink-en">{{drink.englishName}}</text>
-        <text class="drink-meta">{{drink.abv}}%vol　·　日本　·　700ml</text>
       </view>
-      <view class="score-card">
-        <text class="score">4.6</text>
-        <text class="score-desc">2363人评分</text>
+      <view class="abv-box">
+        <text class="abv-value">{{drink.abv}}</text>
+        <text class="abv-label">酒精度</text>
       </view>
     </view>
+    <view class="basic-tags">
+      <text class="mini-chip" wx:for="{{drink.basicTags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="intro-text">酒品简介：{{drink.description}}</text>
     <view class="detail-tags">
       <text class="tag" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
     </view>
-    <view class="intro">
-      <text class="intro-title">酒品简介</text>
-      <text class="intro-text">经典角瓶威士忌，口感柔和，带有香草与蜂蜜的韵味，适合入门品鉴。</text>
+  </view>
+
+  <view class="glass-card scene-panel">
+    <text class="panel-title">适合场景</text>
+    <view class="scene-grid">
+      <view class="scene-item" wx:for="{{drink.scenes}}" wx:key="*this">
+        <text class="scene-icon">{{index === 0 ? '♙' : index === 1 ? '♧' : index === 2 ? '✦' : '□'}}</text>
+        <text class="scene-name">{{item}}</text>
+      </view>
     </view>
   </view>
 
-  <view class="action-grid">
-    <view class="glass-card action-card" bindtap="goRecord">
-      <text class="action-icon">✎</text>
-      <view>
-        <text class="action-title">记录品鉴</text>
-        <text class="action-desc">写下此刻感受</text>
-      </view>
-    </view>
-    <view class="glass-card action-card" bindtap="toggleFavorite">
-      <text class="action-icon">☆</text>
-      <view>
-        <text class="action-title">加入收藏</text>
-        <text class="action-desc">收藏到酒单</text>
-      </view>
-    </view>
+  <view class="risk-warning">
+    <text>风险提示：本应用仅提供酒类信息展示，饮酒有风险，请理性饮酒。</text>
+  </view>
+
+  <view class="detail-actions">
+    <button class="record-button" bindtap="goRecord">✎ 记录品鉴</button>
+    <button class="favorite-button" bindtap="toggleFavorite">♥ 加入收藏</button>
   </view>
 </view>

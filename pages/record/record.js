@@ -15,6 +15,7 @@ const fallbackRecordData = {
 
 Page({
   data: {
+    recordId: "",
     drinkId: "drink_kakubin",
     rating: 4,
     scene: "独处",
@@ -26,9 +27,32 @@ Page({
     drink: fallbackRecordData.drink
   },
   onLoad(options) {
+    if (options && options.recordId) {
+      this.setData({ recordId: options.recordId });
+      this.loadRecord(options.recordId);
+      return;
+    }
     if (options && options.id) {
       this.setData({ drinkId: options.id });
       this.loadDrinkInfo(options.id);
+    }
+  },
+  async loadRecord(recordId) {
+    try {
+      const result = await recordService.getDrinkRecords();
+      const record = ((result && result.records) || []).find((item) => item._id === recordId);
+      if (!record) {
+        return;
+      }
+      this.setData({
+        drinkId: record.drinkId,
+        rating: record.rating,
+        scene: record.scene,
+        note: record.note || "",
+        drink: record.drink || fallbackRecordData.drink
+      });
+    } catch (error) {
+      // Keep fallback form state.
     }
   },
   async loadDrinkInfo(drinkId) {
@@ -62,15 +86,32 @@ Page({
     }
 
     try {
-      await recordService.saveDrinkRecord({
+      const payload = {
         drinkId: this.data.drinkId,
         rating: this.data.rating,
         scene: this.data.scene,
         note: this.data.note
-      });
+      };
+      if (this.data.recordId) {
+        await recordService.updateDrinkRecord(this.data.recordId, payload);
+      } else {
+        await recordService.saveDrinkRecord(payload);
+      }
       wx.showToast({ title: "已保存" });
     } catch (error) {
       wx.showToast({ title: error.message || "保存失败", icon: "none" });
+    }
+  },
+  async deleteRecord() {
+    if (!this.data.recordId) {
+      return;
+    }
+    try {
+      await recordService.deleteDrinkRecord(this.data.recordId);
+      wx.showToast({ title: "已删除" });
+      wx.navigateBack();
+    } catch (error) {
+      wx.showToast({ title: error.message || "删除失败", icon: "none" });
     }
   }
 });

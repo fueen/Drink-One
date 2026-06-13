@@ -2,6 +2,7 @@
   "navigationBarTitleText": "喝一杯",
   "usingComponents": {
     "drink-card": "/components/drink-card/drink-card",
-    "safety-notice": "/components/safety-notice/safety-notice"
+    "safety-notice": "/components/safety-notice/safety-notice",
+    "random-drink-modal": "/components/RandomDrinkModal/RandomDrinkModal"
   }
 }

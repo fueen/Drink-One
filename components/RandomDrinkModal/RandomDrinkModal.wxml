@@ -1,0 +1,46 @@
+<view wx:if="{{visible}}" class="random-modal">
+  <view class="modal-mask" bindtap="close"></view>
+  <view class="modal-panel" catchtap="noop">
+    <view class="modal-top">
+      <text class="spark">✦</text>
+      <text class="modal-title">为你抽到一杯</text>
+      <text class="spark">✦</text>
+      <text class="modal-close" bindtap="close">×</text>
+    </view>
+    <view wx:if="{{drawing}}" class="drawing-panel">
+      <view class="draw-orbit">
+        <text class="draw-glass">✦</text>
+      </view>
+      <text class="drawing-title">正在为你抽取</text>
+      <text class="drawing-desc">匹配口感、场景和理性饮酒提示</text>
+      <view class="progress-track">
+        <view class="progress-fill" style="width: {{progress}}%;"></view>
+      </view>
+      <text class="progress-text">{{progress}}%</text>
+    </view>
+    <block wx:else>
+      <image class="modal-bottle" src="{{displayDrink.image}}" mode="aspectFit"></image>
+      <view class="modal-card">
+      <view class="between">
+        <view class="modal-copy">
+          <text class="modal-name">{{displayDrink.name}}</text>
+          <text class="modal-en">{{displayDrink.englishName}}</text>
+        </view>
+        <view class="modal-score">
+          <text>4.6</text>
+          <text class="stars">★★★★★</text>
+        </view>
+      </view>
+      <text class="modal-abv">{{displayDrink.abv}}</text>
+      <view class="modal-tags">
+        <text class="tag" wx:for="{{displayDrink.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <text class="modal-desc">{{displayDrink.description}}</text>
+      <view class="modal-actions">
+        <button class="detail-button" bindtap="viewDetail">查看详情</button>
+        <button class="again-button" loading="{{loading}}" bindtap="tryAnother">我想换一杯</button>
+      </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -20,10 +20,15 @@ function toggleDrinkFavorite(drinkId) {
   return callFunction("toggleDrinkFavorite", { drinkId });
 }
 
+function getDrinkFavorites() {
+  return callFunction("getDrinkFavorites");
+}
+
 module.exports = {
   getHomeData,
   getRandomDrink,
   getMoodRecommendations,
   getDrinkDetail,
-  toggleDrinkFavorite
+  toggleDrinkFavorite,
+  getDrinkFavorites
 };

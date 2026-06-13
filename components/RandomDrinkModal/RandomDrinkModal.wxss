@@ -1,0 +1,254 @@
+.random-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.modal-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 24, 31, 0.62);
+  backdrop-filter: blur(16px);
+}
+
+.modal-panel {
+  position: absolute;
+  left: 48rpx;
+  right: 48rpx;
+  top: 128rpx;
+  box-sizing: border-box;
+  padding: 30rpx 28rpx 34rpx;
+  border-radius: 34rpx;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(255, 184, 92, 0.18), transparent 34%),
+    radial-gradient(circle at 24% 36%, rgba(122, 115, 255, 0.18), transparent 36%),
+    rgba(255, 255, 255, 0.9);
+  box-shadow: 0 36rpx 100rpx rgba(0, 0, 0, 0.24);
+  animation: modalIn 300ms ease-out both;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rpx;
+  min-height: 48rpx;
+}
+
+.modal-title {
+  color: #1C1C1E;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.spark {
+  color: #FFB85C;
+  font-size: 22rpx;
+}
+
+.modal-close {
+  position: absolute;
+  right: 4rpx;
+  top: -4rpx;
+  color: #1C1C1E;
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.modal-bottle {
+  display: block;
+  width: 210rpx;
+  height: 284rpx;
+  margin: 20rpx auto 8rpx;
+  filter: drop-shadow(0 26rpx 30rpx rgba(151, 78, 13, 0.22));
+}
+
+.drawing-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 600rpx;
+  box-sizing: border-box;
+  padding: 72rpx 28rpx 42rpx;
+}
+
+.draw-orbit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 120deg, #FFB85C, #7A73FF, #65A6FF, #FFB85C);
+  box-shadow: 0 20rpx 54rpx rgba(122, 115, 255, 0.24);
+  animation: drawSpin 1100ms linear infinite;
+}
+
+.draw-glass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 138rpx;
+  height: 138rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: #FFB85C;
+  font-size: 48rpx;
+  animation: drawPulse 900ms ease-in-out infinite alternate;
+}
+
+@keyframes drawSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes drawPulse {
+  from {
+    transform: scale(0.92);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.drawing-title,
+.drawing-desc,
+.progress-text {
+  display: block;
+}
+
+.drawing-title {
+  margin-top: 42rpx;
+  color: #1C1C1E;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.drawing-desc {
+  margin-top: 12rpx;
+  color: #6B7280;
+  font-size: 23rpx;
+}
+
+.progress-track {
+  width: 100%;
+  height: 18rpx;
+  margin-top: 44rpx;
+  border-radius: 999rpx;
+  background: rgba(122, 115, 255, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #FFB85C, #7A73FF);
+  transition: width 180ms ease-out;
+}
+
+.progress-text {
+  margin-top: 16rpx;
+  color: #7A73FF;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.modal-card {
+  box-sizing: border-box;
+  padding: 28rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16rpx 46rpx rgba(86, 95, 120, 0.08);
+}
+
+.modal-copy {
+  min-width: 0;
+}
+
+.modal-name,
+.modal-en,
+.modal-abv,
+.modal-desc,
+.modal-score text {
+  display: block;
+}
+
+.modal-name {
+  color: #1C1C1E;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.modal-en,
+.modal-abv,
+.modal-desc {
+  margin-top: 8rpx;
+  color: #6B7280;
+  font-size: 22rpx;
+}
+
+.modal-score {
+  min-width: 92rpx;
+  color: #1C1C1E;
+  text-align: right;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.stars {
+  color: #FFB85C;
+  font-size: 16rpx;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 18rpx;
+}
+
+.modal-desc {
+  line-height: 1.55;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.detail-button,
+.again-button {
+  height: 78rpx;
+  border: 0;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 26rpx;
+  font-weight: 900;
+  line-height: 78rpx;
+}
+
+.detail-button {
+  background: linear-gradient(135deg, #65A6FF 0%, #7A73FF 55%, #A55BFF 100%);
+  box-shadow: 0 18rpx 40rpx rgba(122, 115, 255, 0.28);
+}
+
+.again-button {
+  background: transparent;
+  color: #1C1C1E;
+}

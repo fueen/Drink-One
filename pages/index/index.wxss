@@ -1,7 +1,15 @@
 .phone-page {
   background:
-    radial-gradient(circle at 16% 7%, rgba(116, 96, 255, 0.14), transparent 32%),
-    linear-gradient(180deg, #f7faff 0%, #f5f7fc 52%, #ffffff 100%);
+    radial-gradient(circle at 18% 8%, rgba(122, 115, 255, 0.14), transparent 34%),
+    radial-gradient(circle at 84% 22%, rgba(255, 184, 92, 0.14), transparent 32%),
+    linear-gradient(180deg, #fbfcff 0%, #f6f8fd 54%, #ffffff 100%);
+}
+
+.home-head,
+.brand-line,
+.section-block,
+.achievement-copy {
+  min-width: 0;
 }
 
 .home-head {
@@ -11,19 +19,18 @@
 }
 
 .title {
-  display: block;
   color: #111827;
-  font-size: 34rpx;
+  font-size: 38rpx;
   font-weight: 900;
   line-height: 1.18;
 }
 
 .subtitle {
-  display: block;
-  margin-top: 4rpx;
-  color: #6b7280;
-  font-size: 24rpx;
-  font-weight: 800;
+  margin-left: 18rpx;
+  color: #9CA3AF;
+  font-size: 20rpx;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .bell {
@@ -37,170 +44,182 @@
   font-size: 28rpx;
 }
 
-.safety-card {
+.section-block {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  min-height: 116rpx;
-  padding: 26rpx;
-  border-radius: 26rpx;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 18rpx 56rpx rgba(87, 98, 128, 0.08);
-  backdrop-filter: blur(24px);
+  flex-direction: column;
+  gap: 22rpx;
 }
 
-.safety-title,
-.safety-text {
+.safety-card {
   display: block;
 }
 
-.safety-title {
-  color: #1C1C1E;
-  font-size: 26rpx;
-  font-weight: 900;
-}
-
-.safety-text {
-  margin-top: 6rpx;
-  color: #677184;
-  font-size: 21rpx;
-  font-weight: 700;
-}
-
-.shield {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 54rpx;
-  height: 54rpx;
-  border-radius: 18rpx;
-  background: rgba(105, 167, 255, 0.16);
-  color: #6C5CFF;
-  font-size: 34rpx;
-}
-
-.mood-grid {
+.status-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16rpx;
 }
 
-.mood-item {
-  min-height: 138rpx;
-  padding: 20rpx 6rpx;
+.status-card {
+  min-height: 146rpx;
   box-sizing: border-box;
+  padding: 18rpx 6rpx;
   border-radius: 24rpx;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.78);
   text-align: center;
   box-shadow: 0 16rpx 42rpx rgba(87, 98, 128, 0.08);
 }
 
-.mood-icon {
+.status-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 68rpx;
-  height: 68rpx;
+  width: 66rpx;
+  height: 66rpx;
   margin: 0 auto 10rpx;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.88);
-  font-size: 40rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 36rpx;
 }
 
-.mood-name {
+.status-name,
+.status-desc,
+.random-title,
+.recipe-name,
+.recipe-meta,
+.achievement-title,
+.achievement-name,
+.achievement-desc {
   display: block;
+}
+
+.status-name {
   color: #1C1C1E;
   font-size: 24rpx;
   font-weight: 900;
 }
 
-.random-card {
+.status-desc {
+  margin-top: 4rpx;
+  color: #8A94A6;
+  font-size: 18rpx;
+}
+
+.random-cta {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 142rpx;
-  padding: 26rpx 30rpx;
-  min-height: 136rpx;
-  border-radius: 68rpx;
-  background: linear-gradient(180deg, #FFB85C 0%, #FF9966 100%);
+  justify-content: center;
+  min-height: 126rpx;
+  border-radius: 64rpx;
+  background:
+    linear-gradient(135deg, rgba(255, 198, 104, 0.3), transparent 48%),
+    linear-gradient(180deg, #FFB85C 0%, #FF9966 100%);
   color: #ffffff;
-  box-shadow: 0 24rpx 60rpx rgba(255, 184, 92, 0.25);
+  box-shadow: 0 24rpx 60rpx rgba(255, 153, 102, 0.28);
+  overflow: hidden;
 }
 
 .random-title {
-  display: block;
-  font-size: 34rpx;
+  font-size: 32rpx;
   font-weight: 900;
 }
 
-.random-subtitle {
-  display: block;
-  margin-top: 6rpx;
-  font-size: 22rpx;
-  opacity: 0.85;
+.random-bottle {
+  position: absolute;
+  right: 34rpx;
+  bottom: 18rpx;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 60rpx;
+  transform: rotate(-18deg);
 }
 
-.dice {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 92rpx;
-  line-height: 1;
-}
-
-.section-head {
-  margin-top: 30rpx;
-  margin-bottom: 18rpx;
-}
-
-.refresh {
-  color: #9aa3b5;
+.more {
+  color: #9CA3AF;
   font-size: 22rpx;
   font-weight: 800;
 }
 
-.drink-hero-card {
-  display: flex;
-  align-items: center;
-  gap: 30rpx;
-  min-height: 204rpx;
+.recipe-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.recipe-card {
+  min-height: 226rpx;
   box-sizing: border-box;
-  padding: 24rpx;
-  border-radius: 30rpx;
+  padding: 14rpx;
+  border-radius: 26rpx;
   background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 20rpx 60rpx rgba(87, 98, 128, 0.09);
+  box-shadow: 0 18rpx 46rpx rgba(87, 98, 128, 0.08);
 }
 
-.home-bottle {
-  width: 112rpx;
-  height: 166rpx;
+.recipe-cover {
+  width: 100%;
+  height: 118rpx;
+  border-radius: 22rpx;
+  background: #eef3ff;
 }
 
-.home-drink-copy {
-  flex: 1;
-  min-width: 0;
-}
-
-.home-drink-name,
-.home-drink-en,
-.home-drink-meta {
-  display: block;
-}
-
-.home-drink-name {
+.recipe-name {
+  margin-top: 14rpx;
   color: #1C1C1E;
-  font-size: 28rpx;
+  font-size: 24rpx;
   font-weight: 900;
 }
 
-.home-drink-en,
-.home-drink-meta {
+.recipe-meta {
   margin-top: 8rpx;
-  color: #6B7280;
-  font-size: 22rpx;
+  color: #FF6F73;
+  font-size: 20rpx;
 }
 
-.home-tags {
+.achievement-strip {
   display: flex;
-  gap: 10rpx;
-  margin-top: 14rpx;
+  align-items: center;
+  gap: 20rpx;
+  box-sizing: border-box;
+  padding: 22rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18rpx 48rpx rgba(87, 98, 128, 0.08);
+}
+
+.badge-medal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(135deg, #fff3d7, #ffe1a3);
+  font-size: 38rpx;
+}
+
+.achievement-copy {
+  flex: 1;
+}
+
+.achievement-title {
+  color: #9CA3AF;
+  font-size: 20rpx;
+}
+
+.achievement-name {
+  margin-top: 4rpx;
+  color: #1C1C1E;
+  font-size: 26rpx;
+  font-weight: 900;
+}
+
+.achievement-desc {
+  margin-top: 4rpx;
+  color: #6B7280;
+  font-size: 21rpx;
+}
+
+.chevron {
+  color: #9CA3AF;
+  font-size: 38rpx;
 }

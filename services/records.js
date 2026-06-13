@@ -8,7 +8,17 @@ function getDrinkRecords() {
   return callFunction("getDrinkRecords");
 }
 
+function updateDrinkRecord(recordId, record) {
+  return callFunction("updateDrinkRecord", { recordId, ...record });
+}
+
+function deleteDrinkRecord(recordId) {
+  return callFunction("deleteDrinkRecord", { recordId });
+}
+
 module.exports = {
   saveDrinkRecord,
-  getDrinkRecords
+  getDrinkRecords,
+  updateDrinkRecord,
+  deleteDrinkRecord
 };

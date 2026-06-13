@@ -1,62 +1,58 @@
 <view class="page diy-page page-with-tab">
-  <view class="mock-status"><text>9:41</text><text class="status-icons">▮▮▮ ᯤ ▰</text></view>
+  <text class="sr-only">完成</text>
   <view class="top-bar">
     <text class="nav-back">‹</text>
-    <text class="top-title">创酿酒谱</text>
-    <text class="nav-action">下一步</text>
+    <text class="top-title">创建酒谱</text>
+    <text class="nav-action">•••</text>
   </view>
 
-  <view class="step-row">
-    <view class="step" wx:for="{{steps}}" wx:key="*this" data-index="{{index}}" bindtap="selectStep">
-      <text class="step-dot {{index === activeStep ? 'active' : ''}}">{{index + 1}}</text>
-      <text class="step-text {{index === activeStep ? 'active-text' : ''}}">{{item}}</text>
+  <view wx:if="{{viewMode === 'list'}}" class="recipe-list-panel">
+    <view class="between">
+      <text class="section-title">我的 DIY 酒谱</text>
+      <text class="muted">{{myRecipes.length}} 个</text>
     </view>
-  </view>
-
-  <view wx:if="{{activeStep === 0}}">
-    <text class="section-title">选择基酒</text>
-    <scroll-view class="category-scroll" scroll-x="true">
-      <view class="category-row">
-        <text
-          class="pill {{item === activeCategory ? 'active-pill' : ''}}"
-          wx:for="{{categories}}"
-          wx:key="*this"
-          data-category="{{item}}"
-          bindtap="selectCategory"
-        >{{item}}</text>
-      </view>
-    </scroll-view>
-
-    <scroll-view class="base-scroll" scroll-x="true">
-      <view class="base-row">
-        <view
-          class="base-card {{item.id === baseDrinkId ? 'selected' : ''}}"
-          wx:for="{{baseDrinks}}"
-          wx:key="name"
-          data-index="{{index}}"
-          bindtap="selectBaseDrink"
-        >
-          <image class="base-bottle" src="{{item.image}}" mode="aspectFit"></image>
-          <text class="base-name">{{item.name}}</text>
+    <view class="my-recipe-list">
+      <view class="my-recipe-card tap-scale" wx:for="{{myRecipes}}" wx:key="_id" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
+        <image class="my-recipe-cover" src="{{item.coverImage || item.cover || '/assets/drinks/beer-yellow.png'}}" mode="aspectFit"></image>
+        <view class="my-recipe-copy">
+          <text class="my-recipe-name">{{item.recipeName || item.name}}</text>
+          <text class="my-recipe-desc">{{item.description}}</text>
+          <text class="my-recipe-meta">♥ {{item.likeCount || item.likes || 0}} · 已保存</text>
         </view>
       </view>
-    </scroll-view>
-  </view>
-
-  <view class="glass-card picked-card" wx:if="{{selectedBaseDrink}}">
-    <text class="picked">已选基酒</text>
-    <view class="selected-drink">
-      <image class="selected-bottle" src="{{selectedBaseDrink.image}}" mode="aspectFit"></image>
-      <view>
-        <text class="selected-name">{{selectedBaseDrink.name}}</text>
-        <text class="selected-meta">{{selectedBaseDrink.abv}}</text>
-      </view>
-      <text class="remove">×</text>
     </view>
   </view>
 
-  <view wx:if="{{activeStep === 1}}" class="glass-card ingredient-card">
-    <text class="picked">选择配料</text>
+  <view wx:if="{{viewMode === 'create'}}" class="step-row">
+    <view class="step {{index === activeStep ? 'active' : ''}}" wx:for="{{steps}}" wx:key="*this" data-index="{{index}}" bindtap="selectStep">
+      <text class="step-dot">{{index + 1}}</text>
+      <text class="step-text">{{item}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{viewMode === 'create' && activeStep === 0}}" class="wizard-panel">
+    <view class="between">
+      <text class="section-title">选择基酒</text>
+      <text class="muted">全部⌄</text>
+    </view>
+    <view class="base-grid">
+      <view
+        class="base-card tap-scale {{item.id === baseDrinkId ? 'selected' : ''}}"
+        wx:for="{{baseDrinks}}"
+        wx:key="name"
+        data-index="{{index}}"
+        bindtap="selectBaseDrink"
+        hover-class="pressing"
+      >
+        <image class="base-bottle" src="{{item.image}}" mode="aspectFit"></image>
+        <text class="base-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{viewMode === 'create' && activeStep === 1}}" class="glass-card wizard-card">
+    <text class="section-title">选择配料</text>
+    <text class="hint">只能选择系统提供的安全原料</text>
     <view class="ingredient-grid">
       <text
         class="pill ingredient {{item.selected ? 'selected-ingredient' : ''}}"
@@ -68,11 +64,26 @@
     </view>
   </view>
 
-  <view wx:if="{{activeStep === 2}}" class="glass-card picked-card">
-    <text class="picked">命名酒谱</text>
+  <view wx:if="{{viewMode === 'create' && activeStep === 2}}" class="glass-card wizard-card">
+    <text class="section-title">命名</text>
     <input class="info-input" placeholder="为你的酒谱起个名字（最多20字）" value="{{recipeName}}" bindinput="onNameInput" maxlength="20"></input>
-    <textarea class="info-textarea" placeholder="描述这杯酒的风味和故事..." value="{{description}}" bindinput="onDescInput"></textarea>
+    <textarea class="info-textarea" placeholder="描述风味和适合场景，避免拼酒、断片等危险表达。" value="{{description}}" bindinput="onDescInput"></textarea>
   </view>
 
-  <view class="primary-button" bindtap="goNextStep">{{activeStep === 0 ? '下一步：选择配料' : activeStep === 1 ? '下一步：命名酒谱' : '提交酒谱'}}</view>
+  <view wx:if="{{viewMode === 'create' && activeStep === 3}}" class="glass-card finish-card">
+    <text class="finish-icon">✓</text>
+    <text class="finish-title">确认提交</text>
+    <text class="finish-desc">提交后会直接保存到 DIY 酒谱列表。</text>
+    <view class="summary-row" wx:if="{{selectedBaseDrink}}">
+      <image class="summary-bottle" src="{{selectedBaseDrink.image}}" mode="aspectFit"></image>
+      <view>
+        <text class="summary-name">{{recipeName}}</text>
+        <text class="summary-meta">基酒：{{selectedBaseDrink.name}} · 配料 {{ingredientIds.length}} 项</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="primary-button next-button {{submitting ? 'disabled' : ''}}" bindtap="handleBottomAction">
+    {{viewMode === 'list' ? 'DIY' : submitting ? '提交中...' : activeStep === 3 ? '提交' : '下一步'}}
+  </view>
 </view>
