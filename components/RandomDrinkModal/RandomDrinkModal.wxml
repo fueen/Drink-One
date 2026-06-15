@@ -1,6 +1,7 @@
 <view wx:if="{{visible}}" class="random-modal">
   <view class="modal-mask" bindtap="close"></view>
-  <view class="modal-panel" catchtap="noop">
+  <view class="modal-panel v3-modal-panel" catchtap="noop">
+    <view class="modal-handle"></view>
     <view class="modal-top">
       <text class="spark">✦</text>
       <text class="modal-title">为你抽到一杯</text>
@@ -19,7 +20,7 @@
       <text class="progress-text">{{progress}}%</text>
     </view>
     <block wx:else>
-      <image class="modal-bottle" src="{{displayDrink.image}}" mode="aspectFit"></image>
+      <image class="modal-bottle" src="{{displayDrink.image || '/assets/ui-v3/modal-kakubin.png'}}" mode="aspectFit"></image>
       <view class="modal-card">
       <view class="between">
         <view class="modal-copy">

@@ -1,25 +1,26 @@
 const drinkService = require("../../services/drinks");
+const { resolveDrinkImage } = require("../../utils/ui-v3-assets");
 
-const normalizeDrink = (drink = {}) => ({
+const normalizeDrink = (drink = {}, index = 0) => ({
   ...drink,
   _id: drink._id || drink.id,
   name: drink.name || "麦卡伦 12年",
   englishName: drink.englishName || "",
   category: drink.category || drink.categoryName || "威士忌",
   abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv || "40%vol",
-  image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
+  image: resolveDrinkImage(drink, index, "library"),
   favoriteCount: drink.favoriteCount || drink.likes || "965"
 });
 
 const fallbackLibraryData = {
   categories: ["全部", "威士忌", "白酒", "葡萄酒", "鸡尾酒", "啤酒"],
   drinks: [
-    { _id: "drink_macallan_12", name: "麦卡伦 12年", englishName: "Macallan 12", category: "威士忌", abv: "40%vol", image: "/assets/drinks/kakubin.png", favoriteCount: "2.3k", liked: true },
-    { _id: "drink_cognac", name: "轩尼诗 VSOP", englishName: "Hennessy VSOP", category: "白酒", abv: "40%vol", image: "/assets/drinks/beer-red.png", favoriteCount: "1.8k" },
-    { _id: "drink_gin", name: "绝对伏特加", englishName: "Absolut Vodka", category: "鸡尾酒", abv: "40%vol", image: "/assets/drinks/beer-yellow.png", favoriteCount: "1.2k" },
-    { _id: "drink_bud", name: "百威啤酒", englishName: "Budweiser", category: "啤酒", abv: "5.0%vol", image: "/assets/drinks/beer-red.png", favoriteCount: "965" },
-    { _id: "drink_jager", name: "野格利口酒", englishName: "Jagermeister", category: "鸡尾酒", abv: "35%vol", image: "/assets/drinks/beer-green.png", favoriteCount: "765" },
-    { _id: "drink_baileys", name: "贝礼诗奶酒", englishName: "Baileys", category: "鸡尾酒", abv: "17%vol", image: "/assets/drinks/beer-yellow.png", favoriteCount: "632" }
+    { _id: "drink_macallan_12", name: "角瓶威士忌", englishName: "Suntory Kakubin", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/library-bottle-1.png", favoriteCount: "2.3k", liked: true },
+    { _id: "drink_cognac", name: "黑方威士忌", englishName: "Johnnie Walker", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/library-bottle-2.png", favoriteCount: "1.8k" },
+    { _id: "drink_gin", name: "绝对伏特加", englishName: "Absolut Vodka", category: "鸡尾酒", abv: "40%vol", image: "/assets/ui-v3/library-bottle-3.png", favoriteCount: "1.2k" },
+    { _id: "drink_bud", name: "百威啤酒", englishName: "Budweiser", category: "啤酒", abv: "5.0%vol", image: "/assets/ui-v3/library-bottle-4.png", favoriteCount: "965" },
+    { _id: "drink_jager", name: "野格利口酒", englishName: "Jagermeister", category: "鸡尾酒", abv: "35%vol", image: "/assets/ui-v3/library-bottle-5.png", favoriteCount: "765" },
+    { _id: "drink_baileys", name: "贝礼诗奶酒", englishName: "Baileys", category: "鸡尾酒", abv: "17%vol", image: "/assets/ui-v3/library-bottle-6.png", favoriteCount: "632" }
   ].map(normalizeDrink)
 };
 

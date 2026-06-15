@@ -1,18 +1,30 @@
-<view class="page profile-page page-with-tab">
-  <view class="profile-card">
-    <view class="avatar">👦🏻</view>
+<view class="v3-page page-with-tab v3-profile profile-page">
+  <view class="profile-hero">
+    <image class="avatar" src="/assets/ui-v3/profile-avatar.png" mode="aspectFill"></image>
     <view class="profile-copy">
       <text class="nickname">{{user ? user.nickname || '微醺的猫' : '微醺的猫'}}</text>
       <text class="bio">ID: drink_one_666</text>
     </view>
-    <button class="edit-button">编辑资料</button>
+    <text class="level-pill">❤ Lv.5</text>
   </view>
-  <view class="card stat-card">
+
+  <view class="stat-card">
     <view class="stat" wx:for="{{stats}}" wx:key="label">
       <text class="stat-value">{{item.value}}</text>
       <text class="stat-label">{{item.label}}</text>
     </view>
   </view>
+
+  <view class="service-block">
+    <text class="v3-section-title">我的服务</text>
+    <view class="service-grid">
+      <view class="service-item" wx:for="{{menus}}" wx:key="name" data-index="{{index}}" bindtap="goMenu">
+        <text class="service-icon">{{item.icon}}</text>
+        <text class="service-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
   <view class="menu-list">
     <view
       class="menu-row"

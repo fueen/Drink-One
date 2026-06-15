@@ -1,5 +1,7 @@
 const recordService = require("../../services/records");
 const drinkService = require("../../services/drinks");
+const { getFriendlyErrorMessage } = require("../../services/cloud");
+const { resolveDrinkImage } = require("../../utils/ui-v3-assets");
 
 const fallbackRecordData = {
   scenes: ["独酌", "聚会", "约会", "庆祝", "其他"],
@@ -9,7 +11,7 @@ const fallbackRecordData = {
     name: "角瓶威士忌",
     englishName: "Suntory Kakubin",
     abv: "40%vol",
-    image: "/assets/drinks/kakubin.png"
+    image: "/assets/ui-v3/detail-macallan.png"
   }
 };
 
@@ -49,7 +51,7 @@ Page({
         rating: record.rating,
         scene: record.scene,
         note: record.note || "",
-        drink: record.drink || fallbackRecordData.drink
+        drink: record.drink ? { ...record.drink, image: resolveDrinkImage(record.drink, 0, "detail") } : fallbackRecordData.drink
       });
     } catch (error) {
       // Keep fallback form state.
@@ -59,7 +61,7 @@ Page({
     try {
       const result = await drinkService.getDrinkDetail(drinkId);
       if (result.drink) {
-        this.setData({ drink: result.drink });
+        this.setData({ drink: { ...result.drink, image: resolveDrinkImage(result.drink, 0, "detail") } });
       }
     } catch (error) {
       // keep fallback drink info
@@ -99,7 +101,7 @@ Page({
       }
       wx.showToast({ title: "已保存" });
     } catch (error) {
-      wx.showToast({ title: error.message || "保存失败", icon: "none" });
+      wx.showToast({ title: getFriendlyErrorMessage(error, "保存失败，请稍后再试"), icon: "none" });
     }
   },
   async deleteRecord() {
@@ -111,7 +113,7 @@ Page({
       wx.showToast({ title: "已删除" });
       wx.navigateBack();
     } catch (error) {
-      wx.showToast({ title: error.message || "删除失败", icon: "none" });
+      wx.showToast({ title: getFriendlyErrorMessage(error, "删除失败，请稍后再试"), icon: "none" });
     }
   }
 });

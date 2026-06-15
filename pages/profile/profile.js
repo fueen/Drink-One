@@ -3,6 +3,7 @@ const userService = require("../../services/user");
 const drinkService = require("../../services/drinks");
 const recordService = require("../../services/records");
 const recipeService = require("../../services/recipes");
+const { getFriendlyErrorMessage } = require("../../services/cloud");
 
 Page({
   data: {
@@ -76,7 +77,7 @@ Page({
         toastTitle = `酒谱 ${((result && result.recipes) || []).length} 条`;
       }
     } catch (error) {
-      toastTitle = error.message || "读取失败";
+      toastTitle = getFriendlyErrorMessage(error, "读取失败，请稍后再试");
     } finally {
       wx.hideLoading();
       wx.showToast({ title: toastTitle || "读取完成", icon: "none" });

@@ -1,37 +1,56 @@
-<view class="page detail-page">
-  <view class="top-bar">
-    <text class="nav-back" bindtap="goBack">‹</text>
-    <text class="top-title"></text>
-    <text class="nav-action">♡　⇧</text>
+<view class="v3-page v3-detail detail-page">
+  <view class="v3-topbar">
+    <text class="v3-back" bindtap="goBack">‹</text>
+    <text class="v3-topbar-title"></text>
+    <view class="detail-icons">
+      <text class="v3-icon-button hot">♡</text>
+      <text class="v3-icon-button">⇧</text>
+    </view>
   </view>
 
   <view class="bottle-stage">
     <text class="hot-badge">人气推荐</text>
-    <image class="big-bottle" src="{{drink.image}}" mode="aspectFit"></image>
+    <image class="big-bottle" src="{{drink.image || '/assets/ui-v3/detail-macallan.png'}}" mode="aspectFit"></image>
   </view>
 
-  <view class="glass-card info-panel">
-    <view class="between info-head">
+  <view class="v3-card info-panel">
+    <view class="info-head">
       <view class="info-copy">
         <text class="drink-title">{{drink.name}}</text>
         <text class="drink-en">{{drink.englishName}}</text>
       </view>
-      <view class="abv-box">
-        <text class="abv-value">{{drink.abv}}</text>
-        <text class="abv-label">酒精度</text>
+      <view class="rating-block">
+        <text class="rating-score">4.6</text>
+        <text class="rating-stars">★★★★★</text>
+        <text class="rating-count">2.3k 人评分</text>
       </view>
     </view>
-    <view class="basic-tags">
-      <text class="mini-chip" wx:for="{{drink.basicTags}}" wx:key="*this">{{item}}</text>
+
+    <view class="metric-grid">
+      <view class="metric">
+        <text class="metric-value">{{drink.abv}}</text>
+        <text class="metric-label">酒精度</text>
+      </view>
+      <view class="metric">
+        <text class="metric-value">{{drink.country}}</text>
+        <text class="metric-label">产地</text>
+      </view>
+      <view class="metric">
+        <text class="metric-value">{{drink.category}}</text>
+        <text class="metric-label">类型</text>
+      </view>
     </view>
-    <text class="intro-text">酒品简介：{{drink.description}}</text>
+
     <view class="detail-tags">
-      <text class="tag" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
+      <text class="v3-chip" wx:for="{{drink.tags}}" wx:key="*this">{{item}}</text>
     </view>
+
+    <text class="intro-title">酒品简介</text>
+    <text class="intro-text">{{drink.description}}</text>
   </view>
 
-  <view class="glass-card scene-panel">
-    <text class="panel-title">适合场景</text>
+  <view class="scene-panel">
+    <text class="v3-section-title">适合场景</text>
     <view class="scene-grid">
       <view class="scene-item" wx:for="{{drink.scenes}}" wx:key="*this">
         <text class="scene-icon">{{index === 0 ? '♙' : index === 1 ? '♧' : index === 2 ? '✦' : '□'}}</text>
@@ -40,12 +59,9 @@
     </view>
   </view>
 
-  <view class="risk-warning">
-    <text>风险提示：本应用仅提供酒类信息展示，饮酒有风险，请理性饮酒。</text>
-  </view>
-
   <view class="detail-actions">
-    <button class="record-button" bindtap="goRecord">✎ 记录品鉴</button>
-    <button class="favorite-button" bindtap="toggleFavorite">♥ 加入收藏</button>
+    <button class="record-button" bindtap="goRecord">▣ 记录品鉴</button>
+    <button class="favorite-button" bindtap="toggleFavorite">♡ 收藏酒品</button>
   </view>
+  <text class="sr-only">加入收藏</text>
 </view>

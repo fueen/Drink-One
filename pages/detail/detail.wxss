@@ -1,9 +1,14 @@
 .detail-page {
-  padding-bottom: 176rpx;
+  padding-bottom: 168rpx;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 184, 92, 0.16), transparent 30%),
-    radial-gradient(circle at 76% 32%, rgba(122, 115, 255, 0.16), transparent 34%),
-    linear-gradient(180deg, #fbfcff 0%, #f6f8fd 58%, #ffffff 100%);
+    radial-gradient(circle at 50% 18%, rgba(255, 174, 83, 0.18), transparent 32%),
+    linear-gradient(180deg, #fffaf4 0%, #ffffff 46%, #f8f9fc 100%);
+}
+
+.detail-icons {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
 }
 
 .bottle-stage {
@@ -11,36 +16,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 390rpx;
-  background: radial-gradient(ellipse at 50% 86%, rgba(122, 115, 255, 0.16), transparent 56%);
+  height: 394rpx;
 }
 
 .hot-badge {
   position: absolute;
-  left: 6rpx;
+  left: 0;
   top: 34rpx;
-  padding: 10rpx 18rpx;
+  padding: 8rpx 18rpx;
   border-radius: 999rpx;
-  background: rgba(255, 184, 92, 0.15);
-  color: #F2781F;
-  font-size: 22rpx;
+  background: #fff1e1;
+  color: #e97818;
+  font-size: 20rpx;
   font-weight: 900;
 }
 
 .big-bottle {
-  width: 250rpx;
-  height: 342rpx;
-  filter: drop-shadow(0 30rpx 34rpx rgba(149, 80, 13, 0.24));
+  width: 216rpx;
+  height: 330rpx;
+  filter: drop-shadow(0 32rpx 34rpx rgba(122, 64, 13, 0.22));
 }
 
 .info-panel {
-  margin-top: -20rpx;
-  padding: 32rpx;
-  border-radius: 34rpx;
+  padding: 28rpx;
+  border-radius: 28rpx;
 }
 
 .info-head {
+  display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  gap: 18rpx;
 }
 
 .info-copy {
@@ -50,89 +56,104 @@
 
 .drink-title,
 .drink-en,
+.rating-score,
+.rating-stars,
+.rating-count,
+.metric-value,
+.metric-label,
+.intro-title,
 .intro-text,
-.panel-title,
-.scene-name,
-.risk-warning text,
-.abv-value,
-.abv-label {
+.scene-name {
   display: block;
 }
 
 .drink-title {
-  color: #1C1C1E;
+  color: #111318;
   font-size: 34rpx;
   font-weight: 900;
 }
 
 .drink-en {
-  margin-top: 8rpx;
-  color: #6B7280;
-  font-size: 24rpx;
+  margin-top: 6rpx;
+  color: #7f8794;
+  font-size: 22rpx;
 }
 
-.abv-box {
-  min-width: 104rpx;
+.rating-block {
+  min-width: 120rpx;
   text-align: right;
 }
 
-.abv-value {
-  color: #1C1C1E;
+.rating-score {
+  color: #111318;
   font-size: 28rpx;
   font-weight: 900;
 }
 
-.abv-label {
-  margin-top: 4rpx;
-  color: #6B7280;
+.rating-stars {
+  margin-top: 2rpx;
+  color: #ffbd2e;
+  font-size: 18rpx;
+}
+
+.rating-count {
+  margin-top: 2rpx;
+  color: #a1a8b4;
+  font-size: 18rpx;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12rpx;
+  margin-top: 26rpx;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-value {
+  color: #111318;
+  font-size: 23rpx;
+  font-weight: 900;
+}
+
+.metric-label {
+  margin-top: 6rpx;
+  color: #8d95a3;
   font-size: 19rpx;
 }
 
-.basic-tags,
 .detail-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10rpx;
+  margin-top: 26rpx;
 }
 
-.basic-tags {
-  margin-top: 18rpx;
-}
-
-.mini-chip {
-  padding: 8rpx 16rpx;
-  border-radius: 999rpx;
-  background: rgba(122, 115, 255, 0.1);
-  color: #7A73FF;
-  font-size: 20rpx;
+.intro-title {
+  margin-top: 24rpx;
+  color: #111318;
+  font-size: 24rpx;
+  font-weight: 900;
 }
 
 .intro-text {
-  margin-top: 22rpx;
-  color: #6B7280;
+  margin-top: 10rpx;
+  color: #727b8a;
   font-size: 23rpx;
-  line-height: 1.65;
-}
-
-.detail-tags {
-  margin-top: 20rpx;
+  line-height: 1.7;
 }
 
 .scene-panel {
-  margin-top: 24rpx;
-  padding: 28rpx;
-}
-
-.panel-title {
-  color: #1C1C1E;
-  font-size: 26rpx;
-  font-weight: 900;
+  margin-top: 26rpx;
 }
 
 .scene-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14rpx;
+  gap: 12rpx;
   margin-top: 22rpx;
 }
 
@@ -144,41 +165,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58rpx;
-  height: 58rpx;
+  width: 54rpx;
+  height: 54rpx;
   margin: 0 auto 8rpx;
-  border-radius: 20rpx;
-  background: rgba(122, 115, 255, 0.1);
-  color: #7A73FF;
-  font-size: 28rpx;
+  border-radius: 18rpx;
+  background: #f3f0ff;
+  color: #7a64ff;
+  font-size: 26rpx;
 }
 
 .scene-name {
-  color: #6B7280;
-  font-size: 20rpx;
-}
-
-.risk-warning {
-  margin-top: 22rpx;
-  padding: 20rpx 24rpx;
-  border-radius: 24rpx;
-  background: rgba(255, 184, 92, 0.12);
-}
-
-.risk-warning text {
-  color: #A15C12;
-  font-size: 22rpx;
-  line-height: 1.5;
+  color: #7f8794;
+  font-size: 19rpx;
 }
 
 .detail-actions {
   position: fixed;
-  left: 28rpx;
-  right: 28rpx;
-  bottom: calc(36rpx + env(safe-area-inset-bottom));
+  left: 32rpx;
+  right: 32rpx;
+  bottom: calc(34rpx + env(safe-area-inset-bottom));
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.18fr;
   gap: 18rpx;
+  z-index: 20;
 }
 
 .record-button,
@@ -187,19 +196,19 @@
   padding: 0;
   border: 0;
   border-radius: 999rpx;
-  font-size: 26rpx;
+  font-size: 25rpx;
   font-weight: 900;
   line-height: 82rpx;
 }
 
 .record-button {
-  background: rgba(255, 255, 255, 0.88);
-  color: #7A73FF;
-  box-shadow: 0 18rpx 44rpx rgba(87, 98, 128, 0.08);
+  background: #ffffff;
+  color: #111318;
+  box-shadow: 0 12rpx 30rpx rgba(39, 48, 69, 0.08);
 }
 
 .favorite-button {
-  background: linear-gradient(135deg, #7A73FF, #8C6BFF);
+  background: linear-gradient(135deg, #ff9f45 0%, #ff4f7b 100%);
   color: #ffffff;
-  box-shadow: 0 18rpx 42rpx rgba(122, 115, 255, 0.28);
+  box-shadow: 0 16rpx 34rpx rgba(255, 79, 123, 0.24);
 }

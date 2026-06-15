@@ -1,4 +1,5 @@
 const recipeService = require("../../services/recipes");
+const { resolveRecipeCover } = require("../../utils/ui-v3-assets");
 
 Page({
   data: {
@@ -7,7 +8,7 @@ Page({
       id: "recipe_mojito_programmer",
       name: "周五快乐水",
       author: "Drink One",
-      cover: "/assets/drinks/beer-yellow.png",
+      cover: "/assets/ui-v3/recipe-cocktail.png",
       baseDrink: "角瓶威士忌",
       ingredients: ["苏打水", "青柠", "冰块"],
       description: "清爽明亮的轻饮配方，适合慢慢品尝。",
@@ -24,7 +25,7 @@ Page({
     try {
       const result = await recipeService.getRecipeDetail(recipeId);
       if (result.recipe) {
-        this.setData({ recipe: result.recipe });
+        this.setData({ recipe: { ...result.recipe, cover: resolveRecipeCover(result.recipe, 0) } });
       }
     } catch (error) {
       // Keep fallback recipe.

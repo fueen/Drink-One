@@ -1,64 +1,47 @@
-.page-title {
-  display: block;
-  color: #111827;
-  text-align: center;
-  font-size: 42rpx;
-  font-weight: 900;
-}
-
-.page-subtitle {
-  display: block;
-  margin-top: 10rpx;
-  color: #8a94a6;
-  text-align: center;
-  font-size: 24rpx;
+.mood-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .mood-hero {
-  margin: 34rpx 0 26rpx;
+  margin: 34rpx 0 28rpx;
 }
 
 .state-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24rpx;
+  gap: 20rpx;
 }
 
 .state-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 270rpx;
+  min-height: 222rpx;
   box-sizing: border-box;
-  padding: 30rpx;
-  border-radius: 34rpx;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 20rpx 60rpx rgba(87, 98, 128, 0.09);
-  backdrop-filter: blur(24px);
+  padding: 28rpx;
+  border: 1rpx solid #eef1f6;
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 30rpx rgba(39, 48, 69, 0.06);
 }
 
 .mint {
-  background: linear-gradient(145deg, rgba(240, 255, 250, 0.92), rgba(255, 255, 255, 0.74));
+  background: linear-gradient(145deg, #effff9, #ffffff);
 }
 
 .lavender {
-  background: linear-gradient(145deg, rgba(244, 242, 255, 0.94), rgba(255, 255, 255, 0.74));
+  background: linear-gradient(145deg, #f3f1ff, #ffffff);
 }
 
 .rose {
-  background: linear-gradient(145deg, rgba(255, 244, 246, 0.94), rgba(255, 255, 255, 0.74));
+  background: linear-gradient(145deg, #fff3f5, #ffffff);
 }
 
 .cream {
-  background: linear-gradient(145deg, rgba(255, 250, 235, 0.94), rgba(255, 255, 255, 0.74));
+  background: linear-gradient(145deg, #fff8eb, #ffffff);
 }
 
-.state-icon {
-  display: block;
-  font-size: 64rpx;
-}
-
+.state-icon,
 .state-title,
 .state-desc,
 .record-title,
@@ -66,16 +49,20 @@
   display: block;
 }
 
+.state-icon {
+  font-size: 56rpx;
+}
+
 .state-title {
-  margin-top: 24rpx;
-  color: #1C1C1E;
+  margin-top: 22rpx;
+  color: #111318;
   font-size: 28rpx;
   font-weight: 900;
 }
 
 .state-desc {
   margin-top: 8rpx;
-  color: #8a94a6;
+  color: #8d95a3;
   font-size: 22rpx;
 }
 
@@ -83,21 +70,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 34rpx;
+  margin-top: 28rpx;
+  padding: 28rpx;
 }
 
 .record-title {
-  color: #1C1C1E;
+  color: #111318;
   font-size: 26rpx;
   font-weight: 900;
 }
 
 .record-desc {
   margin-top: 8rpx;
-  color: #8a94a6;
+  color: #8d95a3;
   font-size: 22rpx;
 }
 
 .record-arrow {
+  color: #b0b6c2;
   font-size: 34rpx;
 }

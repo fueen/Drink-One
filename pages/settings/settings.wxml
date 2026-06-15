@@ -1,8 +1,8 @@
-<view class="page settings-page">
-  <view class="top-bar">
-    <text class="nav-back" bindtap="goBack">‹</text>
-    <text class="top-title">设置</text>
-    <text class="nav-action"></text>
+<view class="v3-page v3-settings settings-page">
+  <view class="v3-topbar">
+    <text class="v3-back" bindtap="goBack">‹</text>
+    <text class="v3-topbar-title">设置</text>
+    <text class="v3-icon-button"></text>
   </view>
   <text class="sr-only">消息通知 隐私设置 清除缓存 意见反馈 关于我们 退出登录</text>
   <view class="settings-list">

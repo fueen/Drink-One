@@ -1,11 +1,12 @@
 const drinkService = require("../../services/drinks");
+const { resolveDrinkImage, resolveRecipeCover } = require("../../utils/ui-v3-assets");
 
-const normalizeDrink = (drink = {}) => ({
+const normalizeDrink = (drink = {}, index = 0) => ({
   ...drink,
   _id: drink._id || drink.id || "drink_kakubin",
   name: drink.name || "麦卡伦 12年",
   englishName: drink.englishName || "Macallan 12 Years Old",
-  image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
+  image: resolveDrinkImage(drink, index, "modal"),
   abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv || "40%vol",
   tags: drink.tags || drink.tasteTags || ["香草", "蜂蜜", "果干"],
   note: drink.note || drink.description || "经典雪莉桶风格，口感圆润顺滑，带有香草、蜂蜜与果干的味道。"
@@ -16,7 +17,7 @@ const normalizeRecipe = (recipe = {}, index = 0) => ({
   _id: recipe._id || recipe.id || "",
   name: recipe.name || recipe.recipeName || ["柠檬金汤力", "蜜桃乌龙茶酒"][index % 2],
   likes: recipe.likes || recipe.likeCount || (index === 0 ? "2.3k" : "1.8k"),
-  cover: recipe.cover || recipe.coverImage || (index === 0 ? "/assets/drinks/beer-yellow.png" : "/assets/drinks/beer-green.png")
+  cover: resolveRecipeCover(recipe, index)
 });
 
 const fallbackHomeData = {
@@ -30,11 +31,12 @@ const fallbackHomeData = {
     _id: "drink_macallan_12",
     name: "麦卡伦 12年",
     englishName: "Macallan 12 Years Old",
-    image: "/assets/drinks/kakubin.png",
+    image: "/assets/ui-v3/detail-macallan.png",
     abv: "40%vol",
     tags: ["香草", "蜂蜜", "果干"],
     note: "经典雪莉桶风格，口感圆润顺滑，带有香草、蜂蜜与果干的味道。"
   }),
+  randomVisual: "/assets/ui-v3/home-random-cocktail.png",
   achievement: {
     icon: "🏅",
     name: "品鉴新手",
@@ -46,13 +48,13 @@ const fallbackHomeData = {
       name: "柠檬金汤力",
       author: "WhiskyMan",
       likes: "2.3k",
-      cover: "/assets/drinks/beer-yellow.png"
+      cover: "/assets/ui-v3/home-recipe-1.png"
     },
     {
       name: "蜜桃乌龙茶酒",
       author: "Lemonade",
       likes: "1.8k",
-      cover: "/assets/drinks/beer-green.png"
+      cover: "/assets/ui-v3/home-recipe-2.png"
     }
   ].map(normalizeRecipe)
 };
@@ -63,7 +65,7 @@ const fallbackRandomDrinks = [
     _id: "drink_kakubin",
     name: "角瓶威士忌",
     englishName: "Suntory Kakubin",
-    image: "/assets/drinks/kakubin.png",
+    image: "/assets/ui-v3/modal-kakubin.png",
     abv: "40%vol",
     tags: ["清爽", "蜂蜜", "嗨棒"],
     note: "适合加苏打水做成轻盈嗨棒，入口清爽，适合慢慢品尝。"
@@ -72,7 +74,7 @@ const fallbackRandomDrinks = [
     _id: "drink_lager",
     name: "精酿拉格",
     englishName: "Craft Lager",
-    image: "/assets/drinks/beer-yellow.png",
+    image: "/assets/ui-v3/library-bottle-4.png",
     abv: "5%vol",
     tags: ["麦芽", "清爽", "聚会"],
     note: "麦芽香气直接，口感干净，适合作为轻松聚会的低负担选择。"
@@ -81,7 +83,7 @@ const fallbackRandomDrinks = [
     _id: "drink_plum",
     name: "青梅酒",
     englishName: "Umeshu",
-    image: "/assets/drinks/beer-green.png",
+    image: "/assets/ui-v3/library-bottle-5.png",
     abv: "12%vol",
     tags: ["酸甜", "果香", "微醺"],
     note: "果香明显，酸甜柔和，适合加冰或兑苏打水饮用。"
@@ -107,7 +109,7 @@ Page({
       const data = await drinkService.getHomeData();
       this.setData({
         moods: this.normalizeMoods(data.moods),
-        dailyDrink: normalizeDrink(data.dailyDrink || fallbackHomeData.dailyDrink),
+        dailyDrink: normalizeDrink(data.dailyDrink || fallbackHomeData.dailyDrink, 0),
         achievement: data.achievement || fallbackHomeData.achievement,
         recipes: data.recipes && data.recipes.length ? data.recipes.map(normalizeRecipe) : fallbackHomeData.recipes
       });

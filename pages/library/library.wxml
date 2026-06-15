@@ -1,10 +1,12 @@
-<view class="page library-page page-with-tab">
-  <view class="top-bar">
-    <text class="top-title align-left">酒库</text>
-    <text class="nav-action">⌕</text>
+<view class="v3-page page-with-tab v3-library library-page">
+  <view class="library-header">
+    <text class="v3-title">酒库</text>
+    <text class="v3-icon-button library-notify">♡</text>
   </view>
-  <input class="search library-search" placeholder="⌕　搜索酒品、品牌、类型" value="{{searchKeyword}}" bindinput="onSearchInput" confirm-type="search"></input>
+
+  <input class="v3-search library-search" placeholder="⌕  搜索酒品、品牌、类型" value="{{searchKeyword}}" bindinput="onSearchInput" confirm-type="search"></input>
   <text class="sr-only">全部 威士忌</text>
+
   <scroll-view class="category-tabs" scroll-x="true" show-scrollbar="false">
     <view class="category-track">
       <text
@@ -16,6 +18,7 @@
       >{{item}}</text>
     </view>
   </scroll-view>
+
   <view class="drink-grid">
     <view
       class="drink-tile tap-scale"
@@ -25,15 +28,10 @@
       bindtap="goDetail"
       hover-class="pressing"
     >
-      <text
-        class="heart {{item.liked ? 'active' : ''}}"
-        data-index="{{index}}"
-        catchtap="toggleLike"
-      >♥</text>
       <image class="library-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <text class="drink-name">{{item.name}}</text>
       <text class="drink-abv">{{item.abv}}</text>
-      <text class="drink-likes">♥ {{item.favoriteCount || item.likes || '965'}}</text>
+      <text class="library-card-metric" data-index="{{index}}" catchtap="toggleLike">♥ {{item.favoriteCount || item.likes || '965'}}</text>
     </view>
   </view>
 </view>

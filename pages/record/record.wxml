@@ -1,10 +1,10 @@
-<view class="page record-page">
-  <view class="top-bar">
-    <text class="nav-back">‹</text>
-    <text class="top-title">记录品鉴</text>
-    <text class="nav-action" bindtap="saveRecord">保存</text>
+<view class="v3-page v3-record record-page">
+  <view class="v3-topbar">
+    <text class="v3-back">‹</text>
+    <text class="v3-topbar-title">记录品鉴</text>
+    <text class="v3-more" bindtap="saveRecord">保存</text>
   </view>
-  <view class="glass-card drink-summary">
+  <view class="v3-card drink-summary">
     <image class="summary-bottle" src="{{drink.image}}" mode="aspectFit"></image>
     <view>
       <text class="drink-name">{{drink.name}}</text>
@@ -12,7 +12,7 @@
       <text class="drink-abv">{{drink.abv}} · 日本</text>
     </view>
   </view>
-  <view class="glass-card form">
+  <view class="v3-card form">
     <text class="label">我的评分</text>
     <view class="stars">
       <text

@@ -1,13 +1,13 @@
-<view class="page mood-page">
-  <view class="top-bar">
-    <text class="nav-back">‹</text>
-    <text class="top-title">状态推荐</text>
-    <text class="nav-action">记录</text>
+<view class="v3-page v3-mood mood-page">
+  <view class="v3-topbar">
+    <text class="v3-back">‹</text>
+    <text class="v3-topbar-title">状态推荐</text>
+    <text class="v3-more">记录</text>
   </view>
 
   <view class="mood-hero">
-    <text class="page-title">选择你的此刻状态</text>
-    <text class="page-subtitle">我们为你推荐最适合的一杯</text>
+    <text class="v3-title">选择你的此刻状态</text>
+    <text class="v3-subtitle">我们为你推荐最适合的一杯，慢慢品尝，保持清醒。</text>
   </view>
 
   <view class="state-grid">
@@ -33,7 +33,7 @@
     </view>
   </view>
 
-  <view class="glass-card mood-record">
+  <view class="v3-card mood-record">
     <view>
       <text class="record-title">我的状态记录</text>
       <text class="record-desc">本周已探索 12 种酒品</text>

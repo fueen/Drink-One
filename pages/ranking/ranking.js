@@ -3,15 +3,14 @@ const rankingService = require("../../services/ranking");
 const fallbackRankingData = {
   tabs: ["酒谱榜"],
   top: [
-    { rank: 2, name: "失恋特调", likes: "1.8k", image: "/assets/drinks/beer-red.png" },
-    { rank: 1, name: "深夜程序员", likes: "2.3k", image: "/assets/drinks/beer-green.png" },
-    { rank: 3, name: "夏日海风", likes: "1.5k", image: "/assets/drinks/beer-yellow.png" }
+    { rank: 2, name: "Lemonade", likes: "986", image: "/assets/ui-v3/profile-avatar.png" },
+    { rank: 1, name: "深夜程序员", likes: "1.2k", image: "/assets/ui-v3/library-bottle-2.png" },
+    { rank: 3, name: "WhiskyMan", likes: "872", image: "/assets/ui-v3/profile-avatar.png" }
   ],
   list: [
-    { rank: 4, name: "星辰大海", likes: 987, image: "/assets/drinks/kakubin.png" },
-    { rank: 5, name: "薄荷莫吉托", likes: 865, image: "/assets/drinks/beer-green.png" },
-    { rank: 6, name: "柠檬气泡酒", likes: 754, image: "/assets/drinks/beer-yellow.png" },
-    { rank: 7, name: "西柚微醺", likes: 623, image: "/assets/drinks/beer-red.png" }
+    { rank: 4, name: "CocktailMan", likes: 768, image: "/assets/ui-v3/profile-avatar.png" },
+    { rank: 5, name: "NightCat", likes: 612, image: "/assets/ui-v3/profile-avatar.png" },
+    { rank: 6, name: "Ares", likes: 540, image: "/assets/ui-v3/profile-avatar.png" }
   ],
   activeType: "hot"
 };
@@ -44,13 +43,13 @@ Page({
           rank: index + 1,
           name: item.recipeName || item.name,
           likes: item.likeCount != null ? `${item.likeCount}` : "0",
-          image: item.coverImage || item.image || "/assets/drinks/kakubin.png"
+          image: item.coverImage || item.image || "/assets/ui-v3/library-bottle-2.png"
         }));
         const list = result.list.slice(3).map((item, index) => ({
           rank: index + 4,
           name: item.recipeName || item.name,
           likes: item.likeCount != null ? item.likeCount : 0,
-          image: item.coverImage || item.image || "/assets/drinks/kakubin.png"
+          image: item.coverImage || item.image || "/assets/ui-v3/profile-avatar.png"
         }));
         this.setData({ top, list });
       }

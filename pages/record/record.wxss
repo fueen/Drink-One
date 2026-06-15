@@ -1,14 +1,18 @@
+.record-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+}
+
 .drink-summary {
   display: flex;
   align-items: center;
-  gap: 26rpx;
-  margin: 20rpx 0 28rpx;
-  padding: 18rpx 28rpx;
+  gap: 22rpx;
+  margin: 22rpx 0 24rpx;
+  padding: 18rpx 24rpx;
 }
 
 .summary-bottle {
   width: 76rpx;
-  height: 118rpx;
+  height: 112rpx;
 }
 
 .drink-name,
@@ -19,6 +23,7 @@
 }
 
 .drink-name {
+  color: #111318;
   font-size: 30rpx;
   font-weight: 900;
 }
@@ -26,13 +31,18 @@
 .drink-en,
 .drink-abv {
   margin-top: 6rpx;
-  color: #6b7280;
-  font-size: 23rpx;
+  color: #7f8794;
+  font-size: 22rpx;
+}
+
+.form {
+  padding: 28rpx;
 }
 
 .label {
   margin-top: 26rpx;
-  color: #111827;
+  color: #111318;
+  font-size: 24rpx;
   font-weight: 900;
 }
 
@@ -42,49 +52,56 @@
 
 .stars {
   display: flex;
-  gap: 16rpx;
+  gap: 14rpx;
   margin-top: 18rpx;
 }
 
 .star {
-  color: #e5e7eb;
-  font-size: 48rpx;
+  color: #e5e9f0;
+  font-size: 46rpx;
 }
 
 .star.active {
-  color: #f6bd16;
-}
-
-.textarea {
-  min-height: 138rpx;
-  margin-top: 18rpx;
-  box-sizing: border-box;
-  padding: 22rpx;
-  border-radius: 24rpx;
-  background: rgba(248, 250, 255, 0.88);
-  color: #6b7280;
-  font-size: 24rpx;
-  line-height: 1.5;
+  color: #ffbd2e;
 }
 
 .scene-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 14rpx;
+  gap: 12rpx;
   margin: 18rpx 0 20rpx;
 }
 
+.pill {
+  background: #f6f7fa;
+  color: #606a78;
+}
+
 .pill.active {
-  background: linear-gradient(135deg, #7C66FF, #A66BFF);
+  background: linear-gradient(135deg, #ff9f45, #ff4f7b);
   color: #ffffff;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 150rpx;
+  margin-top: 18rpx;
+  box-sizing: border-box;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #f8f9fc;
+  color: #606a78;
+  font-size: 24rpx;
+  line-height: 1.5;
 }
 
 .delete-button {
   height: 78rpx;
   margin-top: 24rpx;
+  border: 0;
   border-radius: 999rpx;
-  background: rgba(255, 111, 115, 0.1);
-  color: #FF4F62;
+  background: #fff0f2;
+  color: #ff4f62;
   font-size: 26rpx;
   font-weight: 900;
   line-height: 78rpx;

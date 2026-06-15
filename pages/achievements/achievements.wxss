@@ -1,105 +1,163 @@
-.hero-progress {
-  display: flex;
-  align-items: center;
-  gap: 28rpx;
-  min-height: 144rpx;
-  background: linear-gradient(135deg, #7C66FF 0%, #78A7FF 58%, #F7C77A 100%);
-  color: #ffffff;
-  overflow: hidden;
+.achievements-page {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .align-left {
   text-align: left;
 }
 
-.page-title {
-  display: block;
+.achievement-summary-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 150rpx;
+  box-sizing: border-box;
+  margin-top: 22rpx;
+  padding: 28rpx;
+  border-radius: 26rpx;
+  background: linear-gradient(135deg, #7a64ff 0%, #c85dff 48%, #ff9f45 100%);
   color: #ffffff;
-  font-size: 34rpx;
+  overflow: hidden;
+}
+
+.summary-copy {
+  flex: 1;
+}
+
+.summary-label,
+.summary-count,
+.recent-name,
+.recent-desc,
+.recent-date,
+.ach-name,
+.ach-desc {
+  display: block;
+}
+
+.summary-label {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 22rpx;
+}
+
+.summary-count {
+  margin-top: 10rpx;
+  color: #ffffff;
+  font-size: 46rpx;
   font-weight: 900;
 }
 
-.page-subtitle {
-  display: block;
-  margin-top: 8rpx;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 24rpx;
+.summary-cup {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  font-size: 66rpx;
+  opacity: 0.85;
+}
+
+.achievement-summary-card progress-ring {
+  position: absolute;
+  right: -999rpx;
+  opacity: 0;
 }
 
 .unlock-title {
   margin-top: 30rpx;
 }
 
-.achievement-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20rpx;
+.recent-list {
+  margin-top: 16rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 28rpx rgba(39, 48, 69, 0.06);
+  overflow: hidden;
+}
+
+.recent-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  min-height: 88rpx;
+  padding: 14rpx 20rpx;
+  border-bottom: 1rpx solid #f0f2f6;
+}
+
+.recent-row:last-child {
+  border-bottom: 0;
+}
+
+.recent-medal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 18rpx;
+  background: #fff1dc;
+  font-size: 28rpx;
+}
+
+.recent-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-name {
+  color: #111318;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.recent-desc,
+.recent-date {
+  margin-top: 4rpx;
+  color: #8d95a3;
+  font-size: 19rpx;
+}
+
+.wall-head {
   margin-top: 28rpx;
 }
 
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18rpx;
+  margin-top: 18rpx;
+}
+
 .achievement-card {
-  min-height: 146rpx;
+  min-height: 142rpx;
   box-sizing: border-box;
-  padding: 28rpx 18rpx;
-  border: 1rpx solid rgba(255, 255, 255, 0.8);
-  border-radius: 28rpx;
-  background: rgba(255, 255, 255, 0.72);
+  padding: 24rpx 16rpx;
+  border: 1rpx solid #eef1f6;
+  border-radius: 22rpx;
+  background: #ffffff;
   text-align: center;
   opacity: 0.62;
-  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(24px);
+  box-shadow: 0 10rpx 28rpx rgba(39, 48, 69, 0.05);
 }
 
 .achievement-card.active {
-  border-color: #f6bd41;
-  background: rgba(255, 250, 241, 0.86);
+  border-color: #ffe0b7;
+  background: #fffaf2;
   opacity: 1;
 }
 
 .medal {
   display: block;
   color: #f59e0b;
-  font-size: 54rpx;
+  font-size: 48rpx;
 }
 
 .ach-name {
-  display: block;
   margin-top: 8rpx;
-  font-size: 24rpx;
-  font-weight: 800;
-}
-
-.ach-desc {
-  display: block;
-  margin-top: 6rpx;
-  color: #6b7280;
-  font-size: 18rpx;
-}
-
-.progress-card {
-  margin-top: 28rpx;
-  padding: 26rpx;
-}
-
-.progress-line {
-  margin-top: 20rpx;
-}
-
-.count {
-  font-size: 40rpx;
+  color: #111318;
+  font-size: 23rpx;
   font-weight: 900;
 }
 
-.track {
-  height: 12rpx;
-  margin-top: 20rpx;
-  border-radius: 999rpx;
-  background: #e9e7ff;
-}
-
-.bar {
-  width: 76%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #FFB85C, #FF9966);
+.ach-desc {
+  margin-top: 6rpx;
+  color: #8d95a3;
+  font-size: 18rpx;
 }

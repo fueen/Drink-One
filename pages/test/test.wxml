@@ -1,23 +1,36 @@
-<view class="page test-page">
-  <view class="between">
-    <view>
-      <text class="page-title">酒量测试</text>
-      <text class="page-subtitle">填写信息，看看你的酒量等级</text>
-    </view>
-    <text class="hero-mark">◒</text>
+<view class="v3-page v3-test test-page">
+  <view class="v3-topbar">
+    <text class="v3-back">‹</text>
+    <text class="v3-topbar-title">酒量测试</text>
+    <text class="history-link">历史记录</text>
   </view>
-  <view class="form-card card">
-    <view
-      class="form-row"
-      wx:for="{{fields}}"
-      wx:key="label"
-      data-index="{{index}}"
-      bindtap="selectField"
-    >
-      <text>{{item.label}}</text>
-      <text class="value">{{item.value}} ›</text>
+
+  <view class="test-intro">
+    <text class="test-title">填写信息，获取饮酒建议</text>
+    <text class="test-subtitle">测试结果仅供参考，请理性饮酒</text>
+  </view>
+
+  <view class="form-panel">
+    <view class="form-row gender-row">
+      <text class="form-label">你的性别</text>
+      <view class="segmented-control">
+        <text class="segment active">男</text>
+        <text class="segment">女</text>
+      </view>
+    </view>
+    <view class="form-row">
+      <text class="form-label">你的体重</text>
+      <view class="input-like"><text>60</text><text class="unit">kg</text></view>
+    </view>
+    <view class="form-row">
+      <text class="form-label">你的年龄</text>
+      <view class="input-like"><text>25</text><text class="unit">岁</text></view>
+    </view>
+    <view class="form-row">
+      <text class="form-label">常饮酒类</text>
+      <view class="input-like"><text>威士忌</text><text class="unit">⌄</text></view>
     </view>
   </view>
-  <view class="primary-button" bindtap="startTest">开始测试</view>
-  <text class="hint">测试结果仅供参考</text>
+
+  <view class="v3-fixed-action" bindtap="startTest">开始测试</view>
 </view>

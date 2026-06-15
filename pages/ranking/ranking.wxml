@@ -1,22 +1,25 @@
-<view class="page ranking-page page-with-tab">
-  <view class="top-bar">
-    <text class="nav-back">‹</text>
-    <text class="top-title">排行榜</text>
-    <text class="nav-action"></text>
+<view class="v3-page page-with-tab v3-ranking ranking-page">
+  <view class="v3-topbar">
+    <text class="v3-back">‹</text>
+    <text class="v3-topbar-title">排行榜</text>
+    <text class="v3-icon-button"></text>
   </view>
+
   <view class="rank-tabs">
-    <text class="rank-tab {{activeTab === 0 ? 'active' : ''}}" data-index="0" bindtap="switchTab">酒谱榜</text>
+    <text class="rank-tab active" data-index="0" bindtap="switchTab">酒谱榜</text>
   </view>
+
   <view class="podium">
     <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name">
-      <text class="crown">♕</text>
+      <text class="podium-rank-badge">{{item.rank}}</text>
       <image class="podium-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <text class="podium-name">{{item.name}}</text>
       <text class="likes">♥ {{item.likes}}</text>
     </view>
   </view>
+
   <view class="rank-list">
-    <view class="soft-card rank-row" wx:for="{{list}}" wx:key="name">
+    <view class="rank-row" wx:for="{{list}}" wx:key="name">
       <text class="rank-num">{{item.rank}}</text>
       <image class="rank-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <text class="rank-name">{{item.name}}</text>

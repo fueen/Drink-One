@@ -1,57 +1,134 @@
-.phone-page {
-  background:
-    radial-gradient(circle at 18% 8%, rgba(122, 115, 255, 0.14), transparent 34%),
-    radial-gradient(circle at 84% 22%, rgba(255, 184, 92, 0.14), transparent 32%),
-    linear-gradient(180deg, #fbfcff 0%, #f6f8fd 54%, #ffffff 100%);
-}
-
-.home-head,
-.brand-line,
-.section-block,
-.achievement-copy {
-  min-width: 0;
-}
-
-.home-head {
+.index-page {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 28rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+}
+
+.home-header {
+  display: flex;
   justify-content: space-between;
+  gap: 20rpx;
+  padding-top: 10rpx;
 }
 
-.title {
-  color: #111827;
-  font-size: 38rpx;
-  font-weight: 900;
-  line-height: 1.18;
+.brand-script,
+.home-title,
+.random-title,
+.random-subtitle,
+.random-arrow,
+.status-name,
+.recipe-name,
+.recipe-author,
+.achievement-title,
+.achievement-name,
+.achievement-desc {
+  display: block;
 }
 
-.subtitle {
-  margin-left: 18rpx;
-  color: #9CA3AF;
-  font-size: 20rpx;
+.brand-script {
+  margin-bottom: 12rpx;
+  color: #ff5c3f;
+  font-size: 22rpx;
   font-style: italic;
   font-weight: 700;
 }
 
-.bell {
+.home-title {
+  color: #080a10;
+  font-size: 48rpx;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.home-bell {
+  margin-top: 38rpx;
+}
+
+.safety-card {
+  margin-top: 14rpx;
+}
+
+.home-random-card {
+  position: relative;
+  min-height: 236rpx;
+  box-sizing: border-box;
+  padding: 38rpx 34rpx;
+  border-radius: 28rpx;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(255, 255, 255, 0.28), transparent 28%),
+    linear-gradient(135deg, #ff4b62 0%, #ff8a42 52%, #ffc442 100%);
+  box-shadow: 0 20rpx 42rpx rgba(255, 106, 78, 0.26);
+  overflow: hidden;
+}
+
+.random-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.random-title {
+  margin-top: 54rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.random-subtitle {
+  margin-top: 8rpx;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 22rpx;
+}
+
+.random-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 58rpx;
   height: 58rpx;
+  margin-top: 24rpx;
   border-radius: 50%;
-  color: #111827;
-  font-size: 28rpx;
+  background: #ffffff;
+  color: #ff604f;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.random-visual {
+  position: absolute;
+  right: 24rpx;
+  top: 28rpx;
+  width: 188rpx;
+  height: 166rpx;
+  z-index: 1;
+}
+
+.spark {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 24rpx;
+  z-index: 2;
+}
+
+.s1 {
+  right: 26rpx;
+  top: 40rpx;
+}
+
+.s2 {
+  right: 112rpx;
+  bottom: 48rpx;
+}
+
+.s3 {
+  left: 214rpx;
+  bottom: 66rpx;
 }
 
 .section-block {
   display: flex;
   flex-direction: column;
-  gap: 22rpx;
-}
-
-.safety-card {
-  display: block;
+  gap: 18rpx;
 }
 
 .status-cards {
@@ -61,83 +138,30 @@
 }
 
 .status-card {
-  min-height: 146rpx;
+  min-height: 112rpx;
   box-sizing: border-box;
-  padding: 18rpx 6rpx;
-  border-radius: 24rpx;
-  background: rgba(255, 255, 255, 0.78);
+  padding: 14rpx 6rpx;
+  border: 1rpx solid #eef1f6;
+  border-radius: 18rpx;
+  background: #ffffff;
   text-align: center;
-  box-shadow: 0 16rpx 42rpx rgba(87, 98, 128, 0.08);
+  box-shadow: 0 10rpx 26rpx rgba(39, 48, 69, 0.06);
 }
 
 .status-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 66rpx;
-  height: 66rpx;
-  margin: 0 auto 10rpx;
-  border-radius: 24rpx;
-  background: rgba(255, 255, 255, 0.9);
-  font-size: 36rpx;
-}
-
-.status-name,
-.status-desc,
-.random-title,
-.recipe-name,
-.recipe-meta,
-.achievement-title,
-.achievement-name,
-.achievement-desc {
-  display: block;
+  width: 52rpx;
+  height: 52rpx;
+  margin: 0 auto 8rpx;
+  font-size: 32rpx;
 }
 
 .status-name {
-  color: #1C1C1E;
-  font-size: 24rpx;
+  color: #1b1e27;
+  font-size: 21rpx;
   font-weight: 900;
-}
-
-.status-desc {
-  margin-top: 4rpx;
-  color: #8A94A6;
-  font-size: 18rpx;
-}
-
-.random-cta {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 126rpx;
-  border-radius: 64rpx;
-  background:
-    linear-gradient(135deg, rgba(255, 198, 104, 0.3), transparent 48%),
-    linear-gradient(180deg, #FFB85C 0%, #FF9966 100%);
-  color: #ffffff;
-  box-shadow: 0 24rpx 60rpx rgba(255, 153, 102, 0.28);
-  overflow: hidden;
-}
-
-.random-title {
-  font-size: 32rpx;
-  font-weight: 900;
-}
-
-.random-bottle {
-  position: absolute;
-  right: 34rpx;
-  bottom: 18rpx;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 60rpx;
-  transform: rotate(-18deg);
-}
-
-.more {
-  color: #9CA3AF;
-  font-size: 22rpx;
-  font-weight: 800;
 }
 
 .recipe-strip {
@@ -147,32 +171,46 @@
 }
 
 .recipe-card {
-  min-height: 226rpx;
+  min-height: 178rpx;
   box-sizing: border-box;
-  padding: 14rpx;
-  border-radius: 26rpx;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 18rpx 46rpx rgba(87, 98, 128, 0.08);
+  padding: 10rpx;
+  border-radius: 16rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 28rpx rgba(39, 48, 69, 0.07);
+  overflow: hidden;
 }
 
 .recipe-cover {
   width: 100%;
-  height: 118rpx;
-  border-radius: 22rpx;
-  background: #eef3ff;
+  height: 108rpx;
+  border-radius: 14rpx;
+  background: #eef2f8;
 }
 
 .recipe-name {
-  margin-top: 14rpx;
-  color: #1C1C1E;
-  font-size: 24rpx;
+  margin-top: 10rpx;
+  color: #1b1e27;
+  font-size: 23rpx;
   font-weight: 900;
 }
 
-.recipe-meta {
-  margin-top: 8rpx;
-  color: #FF6F73;
-  font-size: 20rpx;
+.recipe-author-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  margin-top: 6rpx;
+}
+
+.avatar-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7a64ff, #52c8ff);
+}
+
+.recipe-author {
+  color: #8790a0;
+  font-size: 18rpx;
 }
 
 .achievement-strip {
@@ -180,46 +218,50 @@
   align-items: center;
   gap: 20rpx;
   box-sizing: border-box;
-  padding: 22rpx;
-  border-radius: 28rpx;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 18rpx 48rpx rgba(87, 98, 128, 0.08);
+  padding: 20rpx;
+  border-radius: 22rpx;
+  background: #ffffff;
+  box-shadow: 0 10rpx 28rpx rgba(39, 48, 69, 0.07);
 }
 
 .badge-medal {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72rpx;
-  height: 72rpx;
-  border-radius: 24rpx;
-  background: linear-gradient(135deg, #fff3d7, #ffe1a3);
-  font-size: 38rpx;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 20rpx;
+  background: #fff1dc;
+  font-size: 34rpx;
 }
 
 .achievement-copy {
   flex: 1;
+  min-width: 0;
 }
 
 .achievement-title {
-  color: #9CA3AF;
+  color: #9aa2af;
   font-size: 20rpx;
 }
 
 .achievement-name {
   margin-top: 4rpx;
-  color: #1C1C1E;
-  font-size: 26rpx;
+  color: #1b1e27;
+  font-size: 25rpx;
   font-weight: 900;
 }
 
 .achievement-desc {
   margin-top: 4rpx;
-  color: #6B7280;
-  font-size: 21rpx;
+  color: #8790a0;
+  font-size: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .chevron {
-  color: #9CA3AF;
-  font-size: 38rpx;
+  color: #aeb4bf;
+  font-size: 34rpx;
 }

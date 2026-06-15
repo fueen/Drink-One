@@ -1,4 +1,6 @@
 const drinkService = require("../../services/drinks");
+const { getFriendlyErrorMessage } = require("../../services/cloud");
+const { resolveDrinkImage } = require("../../utils/ui-v3-assets");
 
 const normalizeDrink = (drink = {}) => ({
   ...drink,
@@ -6,7 +8,7 @@ const normalizeDrink = (drink = {}) => ({
   id: drink.id || drink._id || "drink_macallan_12",
   name: drink.name || "麦卡伦 12年",
   englishName: drink.englishName || "Macallan 12 Years Old",
-  image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
+  image: resolveDrinkImage(drink, 0, "detail"),
   abv: typeof drink.abv === "number" ? `${drink.abv}%vol` : drink.abv || "40%vol",
   country: drink.country || "苏格兰",
   category: drink.category || "威士忌",
@@ -46,7 +48,7 @@ Page({
       const result = await drinkService.toggleDrinkFavorite(drinkId);
       wx.showToast({ title: result.favorited ? "已收藏" : "已取消", icon: "success" });
     } catch (error) {
-      wx.showToast({ title: error.message || "收藏失败", icon: "none" });
+      wx.showToast({ title: getFriendlyErrorMessage(error, "收藏失败，请稍后再试"), icon: "none" });
     }
   },
   goRecord() {

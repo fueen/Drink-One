@@ -1,29 +1,39 @@
-<view class="page achievements-page page-with-tab">
-  <view class="top-bar">
-    <text class="top-title align-left">成就</text>
-    <text class="nav-action"></text>
+<view class="v3-page page-with-tab v3-achievements achievements-page">
+  <view class="v3-topbar">
+    <text class="v3-topbar-title align-left">成就</text>
+    <text class="v3-icon-button"></text>
   </view>
-  <view class="glass-card hero-progress">
+
+  <view class="achievement-summary-card">
+    <view class="summary-copy">
+      <text class="summary-label">已解锁成就</text>
+      <text class="summary-count">32 / 68</text>
+    </view>
+    <view class="summary-cup">🏆</view>
     <progress-ring value="{{unlocked}}" total="{{achievements.length}}"></progress-ring>
-    <view>
-      <text class="page-title">酒馆学徒</text>
-      <text class="page-subtitle">Lv.3　已解锁 {{unlocked}}</text>
+  </view>
+
+  <text class="v3-section-title unlock-title">最近解锁</text>
+  <view class="recent-list">
+    <view class="recent-row" wx:for="{{recentAchievements}}" wx:key="name">
+      <text class="recent-medal">🏅</text>
+      <view class="recent-copy">
+        <text class="recent-name">{{item.name}}</text>
+        <text class="recent-desc">{{item.desc}}</text>
+      </view>
+      <text class="recent-date">{{index === 0 ? '2024.06.10' : '2024.06.08'}}</text>
     </view>
   </view>
-  <text class="section-title unlock-title">最近解锁</text>
+
+  <view class="v3-section-head wall-head">
+    <text class="v3-section-title">成就墙</text>
+    <text class="v3-more">全部⌄</text>
+  </view>
   <view class="achievement-grid">
     <view class="achievement-card {{item.active ? 'active' : ''}}" wx:for="{{achievements}}" wx:key="name">
       <text class="medal">{{item.active ? '★' : '◇'}}</text>
       <text class="ach-name">{{item.name}}</text>
       <text class="ach-desc">{{item.desc}}</text>
     </view>
-  </view>
-  <view class="glass-card progress-card">
-    <text class="section-title">累计记录酒品</text>
-    <view class="between progress-line">
-      <text class="count">23 种</text>
-      <text class="muted">23/30</text>
-    </view>
-    <view class="track"><view class="bar"></view></view>
   </view>
 </view>

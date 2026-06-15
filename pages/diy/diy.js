@@ -1,15 +1,18 @@
 const recipeService = require("../../services/recipes");
 const drinkService = require("../../services/drinks");
+const { resolveRecipeCover } = require("../../utils/ui-v3-assets");
 
 const fallbackDiyData = {
   steps: ["选择基酒", "选择配料", "命名", "完成"],
   activeStep: 0,
   categories: ["威士忌", "伏特加", "金酒", "朗姆酒", "龙舌兰"],
   baseDrinks: [
-    { id: "drink_kakubin", name: "威士忌", image: "/assets/drinks/kakubin.png", abv: "40%vol" },
-    { id: "drink_vodka", name: "伏特加", image: "/assets/drinks/beer-red.png", abv: "40%vol" },
-    { id: "drink_gin_tonic_base", name: "金酒", image: "/assets/drinks/beer-green.png", abv: "40%vol" },
-    { id: "drink_rum_base", name: "白朗姆", image: "/assets/drinks/beer-yellow.png", abv: "40%vol" }
+    { id: "drink_kakubin", name: "威士忌", image: "/assets/ui-v3/diy-base-1.png", abv: "40%vol" },
+    { id: "drink_vodka", name: "伏特加", image: "/assets/ui-v3/diy-base-2.png", abv: "40%vol" },
+    { id: "drink_gin_tonic_base", name: "金酒", image: "/assets/ui-v3/diy-base-3.png", abv: "40%vol" },
+    { id: "drink_plum_base", name: "朗姆酒", image: "/assets/ui-v3/diy-base-4.png", abv: "38%vol" },
+    { id: "drink_tequila_base", name: "龙舌兰", image: "/assets/ui-v3/diy-base-5.png", abv: "40%vol" },
+    { id: "drink_rum_base", name: "白兰地", image: "/assets/ui-v3/diy-base-6.png", abv: "40%vol" }
   ],
   ingredients: [
     { id: "ing_soda", name: "苏打水", selected: false },
@@ -24,14 +27,14 @@ const fallbackDiyData = {
       _id: "recipe_local_highball",
       recipeName: "柠檬威士忌嗨棒",
       description: "威士忌、苏打水和青柠组合，清爽轻盈。",
-      coverImage: "/assets/drinks/beer-yellow.png",
+      coverImage: "/assets/ui-v3/home-recipe-1.png",
       likeCount: 128
     },
     {
       _id: "recipe_local_plum_soda",
       recipeName: "青梅苏打",
       description: "青梅酒搭配苏打和冰块，酸甜微醺。",
-      coverImage: "/assets/drinks/beer-green.png",
+      coverImage: "/assets/ui-v3/home-recipe-2.png",
       likeCount: 96
     }
   ]
@@ -58,9 +61,9 @@ Page({
       const data = await drinkService.getHomeData();
       if (data.drinks && data.drinks.length) {
         this.setData({
-          baseDrinks: data.drinks.map((d) => ({
+          baseDrinks: data.drinks.map((d, index) => ({
             name: d.name || d.recipeName,
-            image: d.image || d.imageUrl || "/assets/drinks/kakubin.png",
+            image: d.image || d.imageUrl || fallbackDiyData.baseDrinks[index % fallbackDiyData.baseDrinks.length].image,
             id: d.id || d._id,
             abv: typeof d.abv === "number" ? `${d.abv}%vol` : d.abv
           })),
@@ -109,7 +112,7 @@ Page({
         _id: recipe._id || recipe.recipeId || `local_recipe_${Date.now()}`,
         recipeName: recipe.recipeName || this.data.recipeName,
         description: recipe.description || this.data.description,
-        coverImage: recipe.coverImage || (this.data.selectedBaseDrink && this.data.selectedBaseDrink.image) || "/assets/drinks/beer-yellow.png",
+        coverImage: resolveRecipeCover(recipe, 0),
         likeCount: recipe.likeCount || 0
       },
       ...this.data.myRecipes

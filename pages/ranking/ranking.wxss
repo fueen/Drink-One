@@ -1,113 +1,127 @@
 .ranking-page {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fd 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .rank-tabs {
   display: flex;
   gap: 20rpx;
-  margin: 34rpx 0 28rpx;
-  overflow-x: auto;
-  white-space: nowrap;
+  margin: 30rpx 0 28rpx;
 }
 
 .rank-tab {
-  flex: 0 0 auto;
-  padding: 14rpx 20rpx;
+  padding: 14rpx 24rpx;
   border-radius: 999rpx;
-  color: #6b7280;
-  font-size: 24rpx;
+  color: #8d95a3;
+  font-size: 23rpx;
+  font-weight: 900;
 }
 
 .rank-tab.active {
-  background: rgba(108, 92, 255, 0.12);
-  color: #6C5CFF;
+  background: linear-gradient(135deg, #ff9f45, #ff4f7b);
+  color: #ffffff;
+  box-shadow: 0 12rpx 26rpx rgba(255, 79, 123, 0.22);
 }
 
 .podium {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: end;
-  gap: 12rpx;
-  min-height: 350rpx;
+  gap: 14rpx;
+  min-height: 312rpx;
 }
 
 .podium-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rpx 8rpx;
-  border-radius: 110rpx 110rpx 28rpx 28rpx;
-  background: linear-gradient(180deg, #ffffff 0%, #fffaf2 100%);
-  box-shadow: 0 18rpx 42rpx rgba(31, 41, 55, 0.08);
+  min-height: 224rpx;
+  box-sizing: border-box;
+  padding: 28rpx 8rpx 18rpx;
+  border-radius: 70rpx 70rpx 22rpx 22rpx;
+  background: linear-gradient(180deg, #fff8eb 0%, #ffffff 100%);
+  box-shadow: 0 12rpx 30rpx rgba(39, 48, 69, 0.07);
 }
 
 .rank-1 {
-  min-height: 300rpx;
-  border: 2rpx solid #f6bd16;
+  min-height: 282rpx;
 }
 
 .rank-2 {
-  min-height: 250rpx;
-  border: 2rpx solid #9ab6ff;
+  min-height: 238rpx;
+  background: linear-gradient(180deg, #eef2ff 0%, #ffffff 100%);
 }
 
 .rank-3 {
-  min-height: 238rpx;
-  border: 2rpx solid #ffb86c;
+  min-height: 232rpx;
+  background: linear-gradient(180deg, #fff1ec 0%, #ffffff 100%);
 }
 
-.crown {
-  color: #f6bd16;
-  font-size: 28rpx;
+.podium-rank-badge {
+  position: absolute;
+  top: -14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #ffb22e;
+  color: #ffffff;
+  font-size: 18rpx;
+  font-weight: 900;
 }
 
 .podium-bottle {
-  width: 82rpx;
-  height: 132rpx;
+  width: 72rpx;
+  height: 104rpx;
+  border-radius: 50%;
 }
 
 .podium-name,
 .likes {
   display: block;
   margin-top: 10rpx;
-  font-size: 22rpx;
-}
-
-.podium-name {
   max-width: 150rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 21rpx;
+  font-weight: 900;
 }
 
 .likes {
-  color: #ff6f73;
+  color: #ff5b64;
+  font-size: 18rpx;
 }
 
 .rank-list {
   display: flex;
   flex-direction: column;
-  gap: 16rpx;
+  gap: 12rpx;
   margin-top: 28rpx;
 }
 
 .rank-row {
   display: flex;
   align-items: center;
-  gap: 18rpx;
-  min-height: 78rpx;
-  padding: 14rpx 22rpx;
-  box-shadow: 0 12rpx 30rpx rgba(31, 41, 55, 0.055);
+  gap: 16rpx;
+  min-height: 74rpx;
+  padding: 12rpx 20rpx;
+  border-radius: 18rpx;
+  background: #ffffff;
 }
 
 .rank-num {
   width: 34rpx;
-  font-weight: 700;
+  color: #111318;
+  font-weight: 900;
 }
 
 .rank-bottle {
-  width: 40rpx;
-  height: 62rpx;
+  width: 42rpx;
+  height: 42rpx;
+  border-radius: 50%;
 }
 
 .rank-name {
@@ -116,10 +130,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 25rpx;
+  color: #111318;
+  font-size: 24rpx;
 }
 
 .rank-like {
-  color: #6b7280;
-  font-size: 23rpx;
+  color: #8d95a3;
+  font-size: 22rpx;
 }

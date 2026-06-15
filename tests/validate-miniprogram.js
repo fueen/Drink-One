@@ -95,7 +95,12 @@ const requiredAssets = [
   "assets/drinks/kakubin.png",
   "assets/drinks/beer-red.png",
   "assets/drinks/beer-green.png",
-  "assets/drinks/beer-yellow.png"
+  "assets/drinks/beer-yellow.png",
+  "assets/ui-v3/home-random-cocktail.png",
+  "assets/ui-v3/modal-kakubin.png",
+  "assets/ui-v3/detail-macallan.png",
+  "assets/ui-v3/recipe-cocktail.png",
+  "assets/ui-v3/profile-avatar.png"
 ];
 const requiredComponents = [
   "components/drink-card/drink-card",
@@ -325,6 +330,15 @@ for (const token of [
 ]) {
   assert(appWxss.includes(token), `app.wxss should include ${token}`);
 }
+for (const token of [
+  "--v3-gradient: linear-gradient(135deg, #ff9f45 0%, #ff4f7b 100%)",
+  ".v3-page",
+  ".v3-card",
+  ".v3-fixed-action",
+  ".v3-icon-button"
+]) {
+  assert(appWxss.includes(token), `app.wxss should include UI V3 token ${token}`);
+}
 
 const projectConfig = readJson("project.config.json");
 assert(
@@ -380,6 +394,9 @@ for (const page of requiredPages) {
 assert(homeWxml.includes("<random-drink-modal"), "home should render RandomDrinkModal component");
 assert(!homeWxml.includes("今日推荐"), "home should remove the Today Recommendation section");
 assert(homeWxml.includes('bindtap="goRecipeRanking"'), "home more recipes action should navigate to recipe ranking");
+for (const token of ["v3-home", "home-random-card", "assets/ui-v3/home-random-cocktail.png", "Tap to Discover"]) {
+  assert(homeWxml.includes(token) || homeJs.includes(token), `home should include UI V3 marker ${token}`);
+}
 assert(homeJs.includes("randomModalVisible"), "index page should track random modal visibility");
 assert(homeJs.includes("pendingRandomDrink"), "index page should stage random drink results until drawing finishes");
 assert(homeJs.includes("randomProgress"), "index page should expose random draw progress");
@@ -400,6 +417,10 @@ assert(randomDrinkModalWxml.includes("progress-fill"), "random modal should rend
 assert(randomDrinkModalWxml.includes("wx:else"), "random modal should hide result content until drawing completes");
 assert(randomDrinkModalJs.includes("drawing"), "random modal should accept drawing state");
 assert(randomDrinkModalJs.includes("progress"), "random modal should accept progress value");
+for (const token of ["modal-handle", "v3-modal-panel", "assets/ui-v3/modal-kakubin.png"]) {
+  assert(randomDrinkModalWxml.includes(token) || randomDrinkModalJs.includes(token), `random modal should include UI V3 marker ${token}`);
+}
+assert(randomDrinkModalJs.includes("resolveModalImage"), "random modal should normalize non-V3 drink images");
 for (const file of [
   "pages/index/index.wxml",
   "pages/library/library.wxml",
@@ -448,20 +469,30 @@ const recipeDetailWxml = fs.readFileSync(path.join(root, "pages/recipe-detail/re
 for (const text of ["点赞", "收藏", "举报"]) {
   assert(recipeDetailWxml.includes(text), `recipe detail should render ${text}`);
 }
+for (const token of ["v3-recipe-detail", "assets/ui-v3/recipe-cocktail.png"]) {
+  assert(recipeDetailWxml.includes(token), `recipe detail should include UI V3 marker ${token}`);
+}
 
 const moodWxml = fs.readFileSync(path.join(root, "pages/mood/mood.wxml"), "utf8");
 for (const text of ["状态推荐", "选择你的此刻状态", "微醺模式", "小酌模式", "重口感模式", "聚会模式", "我的状态记录"]) {
   assert(moodWxml.includes(text), `mood page should render ${text}`);
 }
+assert(moodWxml.includes("v3-mood"), "mood page should include UI V3 marker v3-mood");
 
 const detailWxml = fs.readFileSync(path.join(root, "pages/detail/detail.wxml"), "utf8");
 for (const text of ["人气推荐", "酒品简介", "记录品鉴", "加入收藏"]) {
   assert(detailWxml.includes(text), `detail page should render ${text}`);
 }
+for (const token of ["v3-detail", "rating-block", "assets/ui-v3/detail-macallan.png", "收藏酒品"]) {
+  assert(detailWxml.includes(token), `detail page should include UI V3 marker ${token}`);
+}
 
 const diyWxml = fs.readFileSync(path.join(root, "pages/diy/diy.wxml"), "utf8");
 for (const text of ["创建酒谱", "选择基酒", "选择配料", "命名", "完成", "下一步"]) {
   assert(diyWxml.includes(text), `DIY create page should render ${text}`);
+}
+for (const token of ["v3-diy", "stepper-line", "base-card-grid"]) {
+  assert(diyWxml.includes(token), `DIY page should include UI V3 marker ${token}`);
 }
 assert(diyWxml.includes("myRecipes"), "DIY page should render recipe list by default");
 assert(diyWxml.includes("handleBottomAction"), "DIY page should render bottom DIY action");
@@ -477,6 +508,9 @@ for (const text of ["酒库", "搜索酒品、品牌、类型", "全部", "威�
   assert(libraryWxml.includes(text), `library page should render ${text}`);
 }
 assert(libraryWxml.includes("drink-grid"), "library page should use a two-column drink grid");
+for (const token of ["v3-library", "library-notify", "library-card-metric"]) {
+  assert(libraryWxml.includes(token), `library page should include UI V3 marker ${token}`);
+}
 
 const rankingWxml = fs.readFileSync(path.join(root, "pages/ranking/ranking.wxml"), "utf8");
 for (const text of ["排行榜", "酒谱榜"]) {
@@ -484,6 +518,9 @@ for (const text of ["排行榜", "酒谱榜"]) {
 }
 for (const text of ["收藏榜", "创意榜", "品鉴榜"]) {
   assert(!rankingWxml.includes(text), `ranking page should not render ${text}`);
+}
+for (const token of ["v3-ranking", "podium-rank-badge"]) {
+  assert(rankingWxml.includes(token), `ranking page should include UI V3 marker ${token}`);
 }
 const rankingJs = fs.readFileSync(path.join(root, "pages/ranking/ranking.js"), "utf8");
 assert(rankingJs.includes("initialType"), "ranking page should read initial ranking type from route options");
@@ -493,9 +530,11 @@ const recordWxml = fs.readFileSync(path.join(root, "pages/record/record.wxml"), 
 for (const text of ["记录品鉴", "我的评分", "饮用场景", "口感标签", "个人笔记", "保存"]) {
   assert(recordWxml.includes(text), `record page should render ${text}`);
 }
+assert(recordWxml.includes("v3-record"), "record page should include UI V3 marker v3-record");
 const recordJs = fs.readFileSync(path.join(root, "pages/record/record.js"), "utf8");
 assert(recordJs.includes("updateDrinkRecord"), "record page should update an existing drink record when recordId is present");
 assert(recordJs.includes("deleteDrinkRecord"), "record page should delete an existing drink record");
+assert(!recordJs.includes("title: error.message"), "record page should not show raw error messages");
 
 const profileJs = fs.readFileSync(path.join(root, "pages/profile/profile.js"), "utf8");
 for (const text of ["我的收藏", "浏览历史", "我的酒谱", "设置", "关于我们"]) {
@@ -510,10 +549,25 @@ assert(profileJs.includes("getDrinkFavorites"), "profile should query drink favo
 assert(profileJs.includes("getRecipeFavorites"), "profile should query recipe favorites from CloudBase");
 assert(profileJs.includes("getDrinkRecords"), "profile should query drink records from CloudBase");
 assert(profileJs.includes("getMyRecipes"), "profile should query current user recipes from CloudBase");
+assert(!profileJs.includes("toastTitle = error.message"), "profile should not show raw CloudBase error messages");
 
 const settingsWxml = fs.readFileSync(path.join(root, "pages/settings/settings.wxml"), "utf8");
 for (const text of ["设置", "消息通知", "隐私设置", "清除缓存", "意见反馈", "关于我们", "退出登录"]) {
   assert(settingsWxml.includes(text), `settings page should render ${text}`);
+}
+assert(settingsWxml.includes("v3-settings"), "settings page should include UI V3 marker v3-settings");
+
+const achievementsWxmlV3 = fs.readFileSync(path.join(root, "pages/achievements/achievements.wxml"), "utf8");
+for (const token of ["v3-achievements", "achievement-summary-card", "32 / 68"]) {
+  assert(achievementsWxmlV3.includes(token), `achievement page should include UI V3 marker ${token}`);
+}
+const profileWxmlV3 = fs.readFileSync(path.join(root, "pages/profile/profile.wxml"), "utf8");
+for (const token of ["v3-profile", "assets/ui-v3/profile-avatar.png", "我的服务"]) {
+  assert(profileWxmlV3.includes(token), `profile page should include UI V3 marker ${token}`);
+}
+const testWxmlV3 = fs.readFileSync(path.join(root, "pages/test/test.wxml"), "utf8");
+for (const token of ["v3-test", "history-link", "segmented-control"]) {
+  assert(testWxmlV3.includes(token), `test page should include UI V3 marker ${token}`);
 }
 
 const getHomeDataSource = fs.readFileSync(path.join(root, "cloudfunctions/getHomeData/index.js"), "utf8");
@@ -627,6 +681,10 @@ assert(drinksServiceSource.includes("getDrinkFavorites"), "drinks service should
 const profileServiceSource = fs.readFileSync(path.join(root, "services/user.js"), "utf8");
 assert(profileServiceSource.includes("getUserProfileData"), "user service should export getUserProfileData function");
 assert(profileServiceSource.includes("getAchievements"), "user service should export getAchievements function");
+const cloudServiceSource = fs.readFileSync(path.join(root, "services/cloud.js"), "utf8");
+assert(cloudServiceSource.includes("getFriendlyErrorMessage"), "cloud service should expose friendly error messages");
+assert(cloudServiceSource.includes("DATABASE_COLLECTION_NOT_EXIST"), "cloud service should sanitize missing collection errors");
+assert(cloudServiceSource.includes("云端数据暂不可用"), "cloud service should map infrastructure errors to short user copy");
 
 for (const [file, checks] of Object.entries({
   "cloudfunctions/getRecipeDetail/index.js": ['collection("recipes")', 'collection("ingredients")', 'recipeId'],

@@ -1,3 +1,5 @@
+const { resolveDrinkImage } = require("../../utils/ui-v3-assets");
+
 Component({
   properties: {
     visible: {
@@ -26,7 +28,7 @@ Component({
   },
   data: {
     displayDrink: {
-      image: "/assets/drinks/kakubin.png",
+      image: "/assets/ui-v3/modal-kakubin.png",
       name: "麦卡伦 12年",
       englishName: "Macallan 12 Years Old",
       abv: "40%vol",
@@ -35,9 +37,12 @@ Component({
     }
   },
   methods: {
+    resolveModalImage(drink = {}) {
+      return resolveDrinkImage(drink, 0, "modal");
+    },
     normalizeDrink(drink = {}) {
       return {
-        image: drink.image || drink.imageUrl || "/assets/drinks/kakubin.png",
+        image: this.resolveModalImage(drink),
         name: drink.name || "麦卡伦 12年",
         englishName: drink.englishName || "Macallan 12 Years Old",
         abv: drink.abv || "40%vol",

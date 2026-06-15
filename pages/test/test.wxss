@@ -1,50 +1,93 @@
-.page-title {
+.test-page {
+  padding-bottom: 150rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+}
+
+.history-link {
+  color: #5f6876;
+  font-size: 22rpx;
+}
+
+.test-intro {
+  margin-top: 38rpx;
+}
+
+.test-title,
+.test-subtitle,
+.form-label {
   display: block;
-  font-size: 40rpx;
-  font-weight: 800;
 }
 
-.page-subtitle {
-  display: block;
-  margin-top: 8rpx;
-  color: #8a94a6;
-  font-size: 24rpx;
+.test-title {
+  color: #111318;
+  font-size: 32rpx;
+  font-weight: 900;
 }
 
-.hero-mark {
-  color: #d8ccff;
-  font-size: 96rpx;
+.test-subtitle {
+  margin-top: 10rpx;
+  color: #8d95a3;
+  font-size: 22rpx;
 }
 
-.form-card {
-  margin: 42rpx 0 36rpx;
-  padding: 10rpx 28rpx;
+.form-panel {
+  margin-top: 32rpx;
 }
 
 .form-row {
+  display: grid;
+  grid-template-columns: 150rpx 1fr;
+  align-items: center;
+  gap: 20rpx;
+  min-height: 84rpx;
+}
+
+.form-label {
+  color: #111318;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.segmented-control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 58rpx;
+  padding: 4rpx;
+  border-radius: 999rpx;
+  background: #f6f7fa;
+}
+
+.segment {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 94rpx;
-  border-bottom: 1rpx solid #edf0f5;
+  justify-content: center;
+  border-radius: 999rpx;
+  color: #111318;
+  font-size: 23rpx;
 }
 
-.form-row:active {
-  background: #f9fafb;
+.segment.active {
+  background: linear-gradient(135deg, #ff9f45, #ff4f7b);
+  color: #ffffff;
+  box-shadow: 0 10rpx 22rpx rgba(255, 79, 123, 0.2);
 }
 
-.form-row:last-child {
-  border-bottom: 0;
+.input-like {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12rpx;
+  height: 58rpx;
+  box-sizing: border-box;
+  padding: 0 22rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 22rpx rgba(39, 48, 69, 0.05);
+  color: #111318;
+  font-size: 23rpx;
 }
 
-.value {
-  color: #6b7280;
-}
-
-.hint {
-  display: block;
-  margin-top: 28rpx;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 22rpx;
+.unit {
+  color: #9aa2af;
+  font-size: 20rpx;
 }

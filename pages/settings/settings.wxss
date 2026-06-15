@@ -1,15 +1,14 @@
 .settings-page {
-  padding-bottom: 164rpx;
-  background:
-    radial-gradient(circle at 20% 8%, rgba(122, 115, 255, 0.12), transparent 32%),
-    linear-gradient(180deg, #fbfcff 0%, #f7f8fc 100%);
+  padding-bottom: 150rpx;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
 
 .settings-list {
-  margin-top: 36rpx;
-  border-radius: 28rpx;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 20rpx 58rpx rgba(87, 98, 128, 0.08);
+  margin-top: 34rpx;
+  border: 1rpx solid #eef1f6;
+  border-radius: 26rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 32rpx rgba(39, 48, 69, 0.06);
   overflow: hidden;
 }
 
@@ -17,9 +16,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 100rpx;
-  padding: 0 28rpx;
-  border-bottom: 1rpx solid rgba(0, 0, 0, 0.05);
+  min-height: 94rpx;
+  padding: 0 26rpx;
+  border-bottom: 1rpx solid #f0f2f6;
 }
 
 .setting-row:last-child {
@@ -30,7 +29,7 @@
 .setting-right {
   display: flex;
   align-items: center;
-  gap: 18rpx;
+  gap: 16rpx;
 }
 
 .setting-icon {
@@ -40,34 +39,35 @@
   width: 44rpx;
   height: 44rpx;
   border-radius: 14rpx;
-  background: rgba(122, 115, 255, 0.1);
-  color: #7A73FF;
-  font-size: 24rpx;
+  background: #fff1e6;
+  color: #ff8a42;
+  font-size: 23rpx;
 }
 
 .setting-name {
-  color: #1C1C1E;
-  font-size: 26rpx;
+  color: #111318;
+  font-size: 25rpx;
   font-weight: 800;
 }
 
 .setting-value,
 .chevron {
-  color: #9CA3AF;
+  color: #9aa2af;
   font-size: 22rpx;
 }
 
 .logout-button {
   position: fixed;
-  left: 46rpx;
-  right: 46rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
-  height: 82rpx;
+  left: 42rpx;
+  right: 42rpx;
+  bottom: calc(36rpx + env(safe-area-inset-bottom));
+  height: 80rpx;
+  border: 0;
   border-radius: 999rpx;
-  background: rgba(255, 255, 255, 0.82);
-  color: #1C1C1E;
+  background: #ffffff;
+  color: #111318;
   font-size: 26rpx;
   font-weight: 900;
-  line-height: 82rpx;
-  box-shadow: 0 18rpx 48rpx rgba(87, 98, 128, 0.08);
+  line-height: 80rpx;
+  box-shadow: 0 12rpx 32rpx rgba(39, 48, 69, 0.08);
 }

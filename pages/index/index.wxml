@@ -1,56 +1,66 @@
-<view class="page page-with-tab phone-page index-page">
-  <view class="app-shell">
-    <view class="home-head">
-      <view class="brand-line">
-        <text class="title">喝一杯</text>
-        <text class="subtitle">Drink One</text>
+<view class="v3-page page-with-tab v3-home index-page app-shell">
+  <text class="sr-only">喝一杯 今晚想喝什么？</text>
+  <view class="home-header">
+    <view>
+      <text class="brand-script">Drink One</text>
+      <text class="home-title">今晚喝什么？</text>
+      <view class="safety-card">
+        <safety-notice title="适量饮酒" content="未成年人禁止饮酒，请勿酒后驾驶。"></safety-notice>
       </view>
-      <text class="bell">♧</text>
     </view>
+    <text class="v3-icon-button home-bell">♧</text>
+  </view>
 
-    <view class="safety-card">
-      <safety-notice title="适量饮酒" content="未成年人禁止饮酒，请勿酒后驾驶。"></safety-notice>
+  <view class="random-cta home-random-card tap-scale" bindtap="openRandomModal" hover-class="pressing">
+    <view class="random-copy">
+      <text class="random-title">随机抽一杯</text>
+      <text class="random-subtitle">Tap to Discover</text>
+      <text class="random-arrow">➜</text>
     </view>
+    <image class="random-visual" src="/assets/ui-v3/home-random-cocktail.png" mode="aspectFit"></image>
+    <text class="spark s1">✦</text>
+    <text class="spark s2">✦</text>
+    <text class="spark s3">✦</text>
+  </view>
 
-    <view class="section-block">
-      <text class="section-title">今晚想喝什么？</text>
-      <view class="status-cards">
-        <view class="status-card tap-scale" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}" hover-class="pressing">
-          <text class="status-icon">{{item.icon}}</text>
-          <text class="status-name">{{item.name}}</text>
-          <text class="status-desc">{{item.desc}}</text>
+  <view class="section-block mood-block">
+    <view class="v3-section-head">
+      <text class="v3-section-title">选择你的此刻心情</text>
+      <text class="v3-more" bindtap="goMood">全部 ›</text>
+    </view>
+    <view class="status-cards">
+      <view class="status-card tap-scale" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}" hover-class="pressing">
+        <text class="status-icon">{{item.icon}}</text>
+        <text class="status-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-block">
+    <view class="v3-section-head">
+      <text class="v3-section-title">热门酒谱</text>
+      <text class="v3-more" bindtap="goRecipeRanking">更多 ›</text>
+    </view>
+    <view class="recipe-strip">
+      <view class="recipe-card tap-scale" wx:for="{{recipes}}" wx:key="name" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
+        <image class="recipe-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        <text class="recipe-name">{{item.name}}</text>
+        <view class="recipe-author-row">
+          <text class="avatar-dot"></text>
+          <text class="recipe-author">{{item.author || 'Drink One'}}</text>
         </view>
       </view>
     </view>
+  </view>
 
-    <view class="random-cta tap-scale" bindtap="openRandomModal" hover-class="pressing">
-      <text class="random-title">随机抽一杯 ✦</text>
-      <text class="random-bottle">♢</text>
+  <view class="achievement-strip tap-scale" bindtap="goAchievements" hover-class="pressing">
+    <view class="badge-medal">🏆</view>
+    <view class="achievement-copy">
+      <text class="achievement-title">最近成就</text>
+      <text class="achievement-name">{{achievement.name}}</text>
+      <text class="achievement-desc">{{achievement.desc}}</text>
     </view>
-
-    <view class="section-block">
-      <view class="between">
-        <text class="section-title">热门酒谱</text>
-        <text class="more" bindtap="goRecipeRanking">查看更多</text>
-      </view>
-      <view class="recipe-strip">
-        <view class="recipe-card tap-scale" wx:for="{{recipes}}" wx:key="name" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
-          <image class="recipe-cover" src="{{item.cover}}" mode="aspectFill"></image>
-          <text class="recipe-name">{{item.name}}</text>
-          <text class="recipe-meta">♥ {{item.likes}}</text>
-        </view>
-      </view>
-    </view>
-
-    <view class="achievement-strip tap-scale" bindtap="goAchievements" hover-class="pressing">
-      <view class="badge-medal">🏅</view>
-      <view class="achievement-copy">
-        <text class="achievement-title">最近成就</text>
-        <text class="achievement-name">{{achievement.name}}</text>
-        <text class="achievement-desc">{{achievement.desc}}</text>
-      </view>
-      <text class="chevron">›</text>
-    </view>
+    <text class="chevron">›</text>
   </view>
 
   <random-drink-modal

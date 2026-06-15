@@ -1,19 +1,19 @@
-<view class="page recipe-detail-page">
-  <view class="top-bar">
-    <text class="nav-back" bindtap="goBack">‹</text>
-    <text class="top-title"></text>
-    <text class="nav-action">•••</text>
+<view class="v3-page v3-recipe-detail recipe-detail-page">
+  <view class="v3-topbar">
+    <text class="v3-back" bindtap="goBack">‹</text>
+    <text class="v3-topbar-title"></text>
+    <text class="v3-icon-button">•••</text>
   </view>
 
   <view class="recipe-cover-hero">
-    <image class="recipe-cover-image" src="{{recipe.cover}}" mode="aspectFit"></image>
+    <image class="recipe-cover-image" src="{{recipe.cover || '/assets/ui-v3/recipe-cocktail.png'}}" mode="aspectFit"></image>
   </view>
 
-  <view class="glass-card recipe-info">
-    <view class="between recipe-head">
+  <view class="v3-card recipe-info">
+    <view class="recipe-head">
       <view class="recipe-title-wrap">
         <text class="recipe-title">{{recipe.name}}</text>
-        <text class="recipe-author">作者：{{recipe.author}}</text>
+        <text class="recipe-author">👤 {{recipe.author}}</text>
       </view>
       <button class="follow-button">关注</button>
     </view>
@@ -21,26 +21,32 @@
     <view class="recipe-stats">
       <text>♥ {{recipe.likes}}</text>
       <text>★ 4.8</text>
-      <text>□ {{recipe.favorites}}</text>
+      <text>▱ {{recipe.favorites}}</text>
     </view>
   </view>
 
-  <view class="glass-card">
-    <text class="section-title">配方原料</text>
-    <text class="base-drink">基酒：{{recipe.baseDrink}}</text>
-    <view class="ingredient-tags">
-      <text class="tag" wx:for="{{recipe.ingredients}}" wx:key="*this">{{item}}</text>
+  <view class="v3-card ingredient-card">
+    <text class="v3-section-title">配料</text>
+    <view class="ingredient-line">
+      <text>🍾</text>
+      <text class="ingredient-name">{{recipe.baseDrink}}</text>
+      <text class="ingredient-amount">45ml</text>
+    </view>
+    <view class="ingredient-line" wx:for="{{recipe.ingredients}}" wx:key="*this">
+      <text>◌</text>
+      <text class="ingredient-name">{{item}}</text>
+      <text class="ingredient-amount">{{index === 0 ? '15ml' : index === 1 ? '适量' : '1片'}}</text>
     </view>
   </view>
 
-  <view class="glass-card action-bar">
+  <view class="v3-card action-bar">
     <view class="action-item" bindtap="likeRecipe">
       <text class="action-icon">♥</text>
-      <text>点赞 {{recipe.likes}}</text>
+      <text>点赞</text>
     </view>
     <view class="action-item" bindtap="favoriteRecipe">
-      <text class="action-icon">☆</text>
-      <text>收藏 {{recipe.favorites}}</text>
+      <text class="action-icon">★</text>
+      <text>收藏</text>
     </view>
     <view class="action-item report" bindtap="reportRecipe">
       <text class="action-icon">!</text>
