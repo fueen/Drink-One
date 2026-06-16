@@ -1,6 +1,21 @@
 const drinkService = require("../../services/drinks");
 const { resolveDrinkImage, resolveRecipeCover } = require("../../utils/ui-v3-assets");
 
+const moodIconMap = {
+  tipsy: "/assets/ui-v3/icons/mood-tipsy.svg",
+  sip: "/assets/ui-v3/icons/mood-sip.svg",
+  tasting: "/assets/ui-v3/icons/mood-tasting.svg",
+  party: "/assets/ui-v3/icons/mood-party.svg"
+};
+
+const moodNameIconMap = {
+  微醺: moodIconMap.tipsy,
+  小醉: moodIconMap.sip,
+  小酌: moodIconMap.sip,
+  品鉴: moodIconMap.tasting,
+  聚会: moodIconMap.party
+};
+
 const normalizeDrink = (drink = {}, index = 0) => ({
   ...drink,
   _id: drink._id || drink.id || "drink_kakubin",
@@ -22,21 +37,21 @@ const normalizeRecipe = (recipe = {}, index = 0) => ({
 
 const fallbackHomeData = {
   moods: [
-    { icon: "😌", name: "微醺", desc: "放松心情" },
-    { icon: "🍻", name: "小酌", desc: "轻松自在" },
-    { icon: "🥃", name: "品鉴", desc: "细品慢饮" },
-    { icon: "🎉", name: "聚会", desc: "多人畅饮" }
+    { icon: moodIconMap.tipsy, name: "微醺", desc: "放松心情" },
+    { icon: moodIconMap.sip, name: "小酌", desc: "轻松自在" },
+    { icon: moodIconMap.tasting, name: "品鉴", desc: "细品慢饮" },
+    { icon: moodIconMap.party, name: "聚会", desc: "多人畅饮" }
   ],
   dailyDrink: normalizeDrink({
     _id: "drink_macallan_12",
     name: "麦卡伦 12年",
     englishName: "Macallan 12 Years Old",
-    image: "/assets/ui-v3/detail-macallan.png",
+    image: "/assets/ui-v3/icons/bottle-hero.svg",
     abv: "40%vol",
     tags: ["香草", "蜂蜜", "果干"],
     note: "经典雪莉桶风格，口感圆润顺滑，带有香草、蜂蜜与果干的味道。"
   }),
-  randomVisual: "/assets/ui-v3/home-random-cocktail.png",
+  randomVisual: "/assets/ui-v3/icons/random-cocktail.svg",
   achievement: {
     icon: "🏅",
     name: "品鉴新手",
@@ -48,13 +63,13 @@ const fallbackHomeData = {
       name: "柠檬金汤力",
       author: "WhiskyMan",
       likes: "2.3k",
-      cover: "/assets/ui-v3/home-recipe-1.png"
+      cover: "/assets/ui-v3/icons/recipe-citrus.svg"
     },
     {
       name: "蜜桃乌龙茶酒",
       author: "Lemonade",
       likes: "1.8k",
-      cover: "/assets/ui-v3/home-recipe-2.png"
+      cover: "/assets/ui-v3/icons/recipe-tea.svg"
     }
   ].map(normalizeRecipe)
 };
@@ -65,7 +80,7 @@ const fallbackRandomDrinks = [
     _id: "drink_kakubin",
     name: "角瓶威士忌",
     englishName: "Suntory Kakubin",
-    image: "/assets/ui-v3/modal-kakubin.png",
+    image: "/assets/ui-v3/icons/bottle-hero.svg",
     abv: "40%vol",
     tags: ["清爽", "蜂蜜", "嗨棒"],
     note: "适合加苏打水做成轻盈嗨棒，入口清爽，适合慢慢品尝。"
@@ -74,7 +89,7 @@ const fallbackRandomDrinks = [
     _id: "drink_lager",
     name: "精酿拉格",
     englishName: "Craft Lager",
-    image: "/assets/ui-v3/library-bottle-4.png",
+    image: "/assets/ui-v3/icons/bottle-beer.svg",
     abv: "5%vol",
     tags: ["麦芽", "清爽", "聚会"],
     note: "麦芽香气直接，口感干净，适合作为轻松聚会的低负担选择。"
@@ -83,7 +98,7 @@ const fallbackRandomDrinks = [
     _id: "drink_plum",
     name: "青梅酒",
     englishName: "Umeshu",
-    image: "/assets/ui-v3/library-bottle-5.png",
+    image: "/assets/ui-v3/icons/bottle-green.svg",
     abv: "12%vol",
     tags: ["酸甜", "果香", "微醺"],
     note: "果香明显，酸甜柔和，适合加冰或兑苏打水饮用。"
@@ -126,10 +141,14 @@ Page({
       聚会: "多人畅饮"
     };
     const source = moods && moods.length ? moods : fallbackHomeData.moods;
-    return source.map((item) => ({
-      ...item,
-      desc: item.desc || descMap[item.name] || "随心一杯"
-    }));
+    return source.map((item, index) => {
+      const fallbackIcons = [moodIconMap.tipsy, moodIconMap.sip, moodIconMap.tasting, moodIconMap.party];
+      return {
+        ...item,
+        icon: item.icon && item.icon.includes("/assets/") ? item.icon : moodNameIconMap[item.name] || fallbackIcons[index % fallbackIcons.length],
+        desc: item.desc || descMap[item.name] || "随心一杯"
+      };
+    });
   },
   getFallbackRandomDrink(excludeId) {
     const candidates = fallbackRandomDrinks.filter((drink) => drink._id !== excludeId && drink.id !== excludeId);

@@ -28,7 +28,7 @@ Component({
   },
   data: {
     displayDrink: {
-      image: "/assets/ui-v3/modal-kakubin.png",
+      image: "/assets/ui-v3/icons/bottle-hero.svg",
       name: "麦卡伦 12年",
       englishName: "Macallan 12 Years Old",
       abv: "40%vol",

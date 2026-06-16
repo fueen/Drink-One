@@ -13,7 +13,7 @@
     </view>
     <view class="my-recipe-list">
       <view class="my-recipe-card v3-card tap-scale" wx:for="{{myRecipes}}" wx:key="_id" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
-        <image class="my-recipe-cover" src="{{item.coverImage || item.cover || '/assets/ui-v3/home-recipe-1.png'}}" mode="aspectFill"></image>
+        <image class="my-recipe-cover" src="{{item.coverImage || item.cover || '/assets/ui-v3/icons/recipe-citrus.svg'}}" mode="aspectFit"></image>
         <view class="my-recipe-copy">
           <text class="my-recipe-name">{{item.recipeName || item.name}}</text>
           <text class="my-recipe-desc">{{item.description}}</text>

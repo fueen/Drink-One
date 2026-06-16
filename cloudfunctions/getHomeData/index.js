@@ -3,6 +3,7 @@ const cloud = require("wx-server-sdk");
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
 const db = cloud.database();
+const _ = db.command;
 
 function normalizeDrink(drink) {
   if (!drink) {
@@ -27,15 +28,20 @@ function normalizeRecipe(recipe) {
     ...recipe,
     id: recipe._id,
     name: recipe.recipeName || recipe.name,
-    cover: recipe.coverImage || recipe.cover || "/assets/drinks/beer-yellow.png",
+    cover: recipe.coverImage || recipe.cover || "/assets/ui-v3/icons/recipe-citrus.svg",
     author: recipe.author || "Drink One",
     likes: recipe.likeCount || 0
   };
 }
 
 exports.main = async () => {
+  const visibleDrinkWhere = {
+    enabled: true,
+    status: _.neq("hidden")
+  };
+
   const [drinksResult, categoriesResult, recipesResult, ingredientsResult] = await Promise.all([
-    db.collection("drinks").orderBy("favoriteCount", "desc").limit(20).get(),
+    db.collection("drinks").where(visibleDrinkWhere).orderBy("favoriteCount", "desc").limit(20).get(),
     db.collection("drink_categories").orderBy("sort", "asc").get(),
     db.collection("recipes").where({ status: "approved" }).orderBy("likeCount", "desc").limit(10).get(),
     db.collection("ingredients").where({ enabled: true }).limit(50).get()
@@ -51,17 +57,17 @@ exports.main = async () => {
 
   return {
     moods: [
-      { icon: "😌", name: "微醺" },
-      { icon: "🍻", name: "小醉" },
-      { icon: "🥃", name: "品鉴" },
-      { icon: "🎉", name: "聚会" }
+      { icon: "/assets/ui-v3/icons/mood-tipsy.svg", name: "微醺" },
+      { icon: "/assets/ui-v3/icons/mood-sip.svg", name: "小酌" },
+      { icon: "/assets/ui-v3/icons/mood-tasting.svg", name: "品鉴" },
+      { icon: "/assets/ui-v3/icons/mood-party.svg", name: "聚会" }
     ],
     categories: ["全部", ...categories],
     drinks,
     ingredients,
     recipes,
     achievement: {
-      icon: "🏅",
+      icon: "/assets/ui-v3/icons/recipe-citrus.svg",
       name: "微醺新人",
       progress: "1/3",
       desc: "记录第一种酒，开启品鉴旅程。"

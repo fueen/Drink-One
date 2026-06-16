@@ -10,7 +10,7 @@
   </view>
 
   <view class="podium">
-    <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name">
+    <view class="podium-item rank-{{item.rank}}" wx:for="{{top}}" wx:key="name" data-id="{{item.id}}" catchtap="goRecipeDetail">
       <text class="podium-rank-badge">{{item.rank}}</text>
       <image class="podium-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <text class="podium-name">{{item.name}}</text>
@@ -19,7 +19,7 @@
   </view>
 
   <view class="rank-list">
-    <view class="rank-row" wx:for="{{list}}" wx:key="name">
+    <view class="rank-row" wx:for="{{list}}" wx:key="name" data-id="{{item.id}}" catchtap="goRecipeDetail">
       <text class="rank-num">{{item.rank}}</text>
       <image class="rank-bottle" src="{{item.image}}" mode="aspectFit"></image>
       <text class="rank-name">{{item.name}}</text>

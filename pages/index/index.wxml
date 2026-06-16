@@ -17,7 +17,7 @@
       <text class="random-subtitle">Tap to Discover</text>
       <text class="random-arrow">➜</text>
     </view>
-    <image class="random-visual" src="/assets/ui-v3/home-random-cocktail.png" mode="aspectFit"></image>
+    <image class="random-visual" src="/assets/ui-v3/icons/random-cocktail.svg" mode="aspectFit"></image>
     <text class="spark s1">✦</text>
     <text class="spark s2">✦</text>
     <text class="spark s3">✦</text>
@@ -30,7 +30,7 @@
     </view>
     <view class="status-cards">
       <view class="status-card tap-scale" wx:for="{{moods}}" wx:key="name" bindtap="goMood" data-mood="{{item.name}}" hover-class="pressing">
-        <text class="status-icon">{{item.icon}}</text>
+        <image class="status-icon" src="{{item.icon}}" mode="aspectFit"></image>
         <text class="status-name">{{item.name}}</text>
       </view>
     </view>
@@ -43,7 +43,7 @@
     </view>
     <view class="recipe-strip">
       <view class="recipe-card tap-scale" wx:for="{{recipes}}" wx:key="name" data-index="{{index}}" bindtap="goRecipeDetail" hover-class="pressing">
-        <image class="recipe-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        <image class="recipe-cover" src="{{item.cover}}" mode="aspectFit"></image>
         <text class="recipe-name">{{item.name}}</text>
         <view class="recipe-author-row">
           <text class="avatar-dot"></text>

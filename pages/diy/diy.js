@@ -1,5 +1,6 @@
 const recipeService = require("../../services/recipes");
 const drinkService = require("../../services/drinks");
+const { getFriendlyErrorMessage } = require("../../services/cloud");
 const { resolveRecipeCover } = require("../../utils/ui-v3-assets");
 
 const fallbackDiyData = {
@@ -7,12 +8,12 @@ const fallbackDiyData = {
   activeStep: 0,
   categories: ["威士忌", "伏特加", "金酒", "朗姆酒", "龙舌兰"],
   baseDrinks: [
-    { id: "drink_kakubin", name: "威士忌", image: "/assets/ui-v3/diy-base-1.png", abv: "40%vol" },
-    { id: "drink_vodka", name: "伏特加", image: "/assets/ui-v3/diy-base-2.png", abv: "40%vol" },
-    { id: "drink_gin_tonic_base", name: "金酒", image: "/assets/ui-v3/diy-base-3.png", abv: "40%vol" },
-    { id: "drink_plum_base", name: "朗姆酒", image: "/assets/ui-v3/diy-base-4.png", abv: "38%vol" },
-    { id: "drink_tequila_base", name: "龙舌兰", image: "/assets/ui-v3/diy-base-5.png", abv: "40%vol" },
-    { id: "drink_rum_base", name: "白兰地", image: "/assets/ui-v3/diy-base-6.png", abv: "40%vol" }
+    { id: "drink_kakubin", name: "威士忌", image: "/assets/ui-v3/icons/bottle-whisky.svg", abv: "40%vol" },
+    { id: "drink_vodka", name: "伏特加", image: "/assets/ui-v3/icons/bottle-clear.svg", abv: "40%vol" },
+    { id: "drink_gin_tonic_base", name: "金酒", image: "/assets/ui-v3/icons/bottle-green.svg", abv: "40%vol" },
+    { id: "drink_plum_base", name: "朗姆酒", image: "/assets/ui-v3/icons/bottle-dark.svg", abv: "38%vol" },
+    { id: "drink_tequila_base", name: "龙舌兰", image: "/assets/ui-v3/icons/bottle-beer.svg", abv: "40%vol" },
+    { id: "drink_rum_base", name: "白兰地", image: "/assets/ui-v3/icons/bottle-cream.svg", abv: "40%vol" }
   ],
   ingredients: [
     { id: "ing_soda", name: "苏打水", selected: false },
@@ -27,14 +28,14 @@ const fallbackDiyData = {
       _id: "recipe_local_highball",
       recipeName: "柠檬威士忌嗨棒",
       description: "威士忌、苏打水和青柠组合，清爽轻盈。",
-      coverImage: "/assets/ui-v3/home-recipe-1.png",
+      coverImage: "/assets/ui-v3/icons/recipe-citrus.svg",
       likeCount: 128
     },
     {
       _id: "recipe_local_plum_soda",
       recipeName: "青梅苏打",
       description: "青梅酒搭配苏打和冰块，酸甜微醺。",
-      coverImage: "/assets/ui-v3/home-recipe-2.png",
+      coverImage: "/assets/ui-v3/icons/recipe-tea.svg",
       likeCount: 96
     }
   ]
@@ -109,7 +110,7 @@ Page({
   finishCreateFlow(recipe) {
     const myRecipes = [
       {
-        _id: recipe._id || recipe.recipeId || `local_recipe_${Date.now()}`,
+        _id: recipe._id || recipe.recipeId,
         recipeName: recipe.recipeName || this.data.recipeName,
         description: recipe.description || this.data.description,
         coverImage: resolveRecipeCover(recipe, 0),
@@ -236,24 +237,10 @@ Page({
         coverImage: this.data.selectedBaseDrink && this.data.selectedBaseDrink.image
       });
     } catch (error) {
-      const result = this.submitRecipeLocally();
-      wx.showToast({ title: result.message, icon: "none" });
-      this.finishCreateFlow(result.recipe);
+      wx.showToast({ title: getFriendlyErrorMessage(error, "保存失败，请稍后再试"), icon: "none" });
     } finally {
       this.setData({ submitting: false });
     }
-  },
-  submitRecipeLocally() {
-    return {
-      status: "approved",
-      message: "已保存",
-      recipe: {
-        recipeName: this.data.recipeName,
-        description: this.data.description,
-        coverImage: this.data.selectedBaseDrink && this.data.selectedBaseDrink.image,
-        likeCount: 0
-      }
-    };
   },
   goRecipeDetail(e) {
     const index = e.currentTarget.dataset.index;

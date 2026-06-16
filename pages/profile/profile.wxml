@@ -1,6 +1,6 @@
 <view class="v3-page page-with-tab v3-profile profile-page">
   <view class="profile-hero">
-    <image class="avatar" src="/assets/ui-v3/profile-avatar.png" mode="aspectFill"></image>
+    <image class="avatar" src="/assets/ui-v3/icons/profile-avatar.svg" mode="aspectFit"></image>
     <view class="profile-copy">
       <text class="nickname">{{user ? user.nickname || '微醺的猫' : '微醺的猫'}}</text>
       <text class="bio">ID: drink_one_666</text>

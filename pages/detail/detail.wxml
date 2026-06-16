@@ -10,7 +10,7 @@
 
   <view class="bottle-stage">
     <text class="hot-badge">人气推荐</text>
-    <image class="big-bottle" src="{{drink.image || '/assets/ui-v3/detail-macallan.png'}}" mode="aspectFit"></image>
+    <image class="big-bottle" src="{{drink.image || '/assets/ui-v3/icons/bottle-hero.svg'}}" mode="aspectFit"></image>
   </view>
 
   <view class="v3-card info-panel">

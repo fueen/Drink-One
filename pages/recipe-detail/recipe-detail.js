@@ -8,7 +8,7 @@ Page({
       id: "recipe_mojito_programmer",
       name: "周五快乐水",
       author: "Drink One",
-      cover: "/assets/ui-v3/recipe-cocktail.png",
+      cover: "/assets/ui-v3/icons/recipe-citrus.svg",
       baseDrink: "角瓶威士忌",
       ingredients: ["苏打水", "青柠", "冰块"],
       description: "清爽明亮的轻饮配方，适合慢慢品尝。",

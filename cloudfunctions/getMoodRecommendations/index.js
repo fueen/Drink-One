@@ -29,7 +29,9 @@ exports.main = async (event) => {
   const result = await db
     .collection("drinks")
     .where({
-      statusTags: _.in([mood])
+      statusTags: _.in([mood]),
+      enabled: true,
+      status: _.neq("hidden")
     })
     .orderBy("favoriteCount", "desc")
     .limit(20)

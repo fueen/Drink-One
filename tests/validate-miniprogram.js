@@ -96,11 +96,21 @@ const requiredAssets = [
   "assets/drinks/beer-red.png",
   "assets/drinks/beer-green.png",
   "assets/drinks/beer-yellow.png",
-  "assets/ui-v3/home-random-cocktail.png",
-  "assets/ui-v3/modal-kakubin.png",
-  "assets/ui-v3/detail-macallan.png",
-  "assets/ui-v3/recipe-cocktail.png",
-  "assets/ui-v3/profile-avatar.png"
+  "assets/ui-v3/icons/random-cocktail.svg",
+  "assets/ui-v3/icons/bottle-whisky.svg",
+  "assets/ui-v3/icons/bottle-dark.svg",
+  "assets/ui-v3/icons/bottle-clear.svg",
+  "assets/ui-v3/icons/bottle-beer.svg",
+  "assets/ui-v3/icons/bottle-green.svg",
+  "assets/ui-v3/icons/bottle-cream.svg",
+  "assets/ui-v3/icons/bottle-hero.svg",
+  "assets/ui-v3/icons/profile-avatar.svg",
+  "assets/ui-v3/icons/mood-tipsy.svg",
+  "assets/ui-v3/icons/mood-sip.svg",
+  "assets/ui-v3/icons/mood-tasting.svg",
+  "assets/ui-v3/icons/mood-party.svg",
+  "assets/ui-v3/icons/recipe-citrus.svg",
+  "assets/ui-v3/icons/recipe-tea.svg"
 ];
 const requiredComponents = [
   "components/drink-card/drink-card",
@@ -128,10 +138,14 @@ const requiredSeedDataFiles = [
 ];
 const requiredCloudFunctions = [
   "cloudfunctions/login/index.js",
+  "cloudfunctions/adminCollectionCrud/index.js",
   "cloudfunctions/getHomeData/index.js",
   "cloudfunctions/getRandomDrink/index.js",
   "cloudfunctions/getMoodRecommendations/index.js",
   "cloudfunctions/getDrinkDetail/index.js",
+  "cloudfunctions/createDrink/index.js",
+  "cloudfunctions/updateDrink/index.js",
+  "cloudfunctions/deleteDrink/index.js",
   "cloudfunctions/saveDrinkRecord/index.js",
   "cloudfunctions/createRecipe/index.js",
   "cloudfunctions/getRanking/index.js",
@@ -190,6 +204,15 @@ for (const asset of requiredAssets) {
   const assetPath = path.join(root, asset);
   assert(fs.existsSync(assetPath), `${asset} should exist`);
   assert(fs.statSync(assetPath).size < 200 * 1024, `${asset} should be smaller than 200KB`);
+}
+for (const asset of requiredAssets.filter((file) => file.endsWith(".svg"))) {
+  const source = fs.readFileSync(path.join(root, asset), "utf8");
+  assert(source.includes("<svg"), `${asset} should be an SVG icon`);
+  assert(source.includes("#ff") || source.includes("#FF"), `${asset} should use Drink One warm brand colors`);
+}
+for (const file of jsFiles) {
+  const source = fs.readFileSync(path.join(root, file), "utf8");
+  assert(!/\/assets\/ui-v3\/[^"'`]+\.png/.test(source), `${file} should not reference cropped UI V3 PNG assets`);
 }
 
 for (const page of requiredPages) {
@@ -394,9 +417,21 @@ for (const page of requiredPages) {
 assert(homeWxml.includes("<random-drink-modal"), "home should render RandomDrinkModal component");
 assert(!homeWxml.includes("今日推荐"), "home should remove the Today Recommendation section");
 assert(homeWxml.includes('bindtap="goRecipeRanking"'), "home more recipes action should navigate to recipe ranking");
-for (const token of ["v3-home", "home-random-card", "assets/ui-v3/home-random-cocktail.png", "Tap to Discover"]) {
+for (const token of ["v3-home", "home-random-card", "assets/ui-v3/icons/random-cocktail.svg", "Tap to Discover"]) {
   assert(homeWxml.includes(token) || homeJs.includes(token), `home should include UI V3 marker ${token}`);
 }
+for (const token of [
+  "assets/ui-v3/icons/mood-tipsy.svg",
+  "assets/ui-v3/icons/mood-sip.svg",
+  "assets/ui-v3/icons/mood-tasting.svg",
+  "assets/ui-v3/icons/mood-party.svg",
+  "assets/ui-v3/icons/recipe-citrus.svg",
+  "assets/ui-v3/icons/recipe-tea.svg"
+]) {
+  assert(homeWxml.includes(token) || homeJs.includes(token), `home should use themed icon asset ${token}`);
+}
+assert(!homeWxml.includes("status-icon\">{{item.icon}}</text>"), "home mood icons should not render emoji text icons");
+assert(!homeJs.includes("馃槍") && !homeJs.includes("馃嵒") && !homeJs.includes("馃") && !homeJs.includes("馃帀"), "home fallback moods should not use emoji icons");
 assert(homeJs.includes("randomModalVisible"), "index page should track random modal visibility");
 assert(homeJs.includes("pendingRandomDrink"), "index page should stage random drink results until drawing finishes");
 assert(homeJs.includes("randomProgress"), "index page should expose random draw progress");
@@ -417,7 +452,7 @@ assert(randomDrinkModalWxml.includes("progress-fill"), "random modal should rend
 assert(randomDrinkModalWxml.includes("wx:else"), "random modal should hide result content until drawing completes");
 assert(randomDrinkModalJs.includes("drawing"), "random modal should accept drawing state");
 assert(randomDrinkModalJs.includes("progress"), "random modal should accept progress value");
-for (const token of ["modal-handle", "v3-modal-panel", "assets/ui-v3/modal-kakubin.png"]) {
+for (const token of ["modal-handle", "v3-modal-panel", "assets/ui-v3/icons/bottle-hero.svg"]) {
   assert(randomDrinkModalWxml.includes(token) || randomDrinkModalJs.includes(token), `random modal should include UI V3 marker ${token}`);
 }
 assert(randomDrinkModalJs.includes("resolveModalImage"), "random modal should normalize non-V3 drink images");
@@ -442,7 +477,7 @@ assert(diyJs.includes("myRecipes"), "DIY page should display created recipes by 
 assert(diyJs.includes("startCreateFlow"), "DIY page should enter create flow from the bottom DIY action");
 assert(diyJs.includes("finishCreateFlow"), "DIY page should return to list mode after submit");
 assert(diyJs.includes("submitting"), "DIY page should track submit loading state");
-assert(diyJs.includes("submitRecipeLocally"), "DIY page should provide local submit fallback when CloudBase is unavailable");
+assert(diyJs.includes("getFriendlyErrorMessage"), "DIY page should show friendly write failures instead of local submit fallback");
 
 const indexPageConfig = readJson("pages/index/index.json");
 assert(
@@ -469,7 +504,7 @@ const recipeDetailWxml = fs.readFileSync(path.join(root, "pages/recipe-detail/re
 for (const text of ["点赞", "收藏", "举报"]) {
   assert(recipeDetailWxml.includes(text), `recipe detail should render ${text}`);
 }
-for (const token of ["v3-recipe-detail", "assets/ui-v3/recipe-cocktail.png"]) {
+for (const token of ["v3-recipe-detail", "assets/ui-v3/icons/recipe-citrus.svg"]) {
   assert(recipeDetailWxml.includes(token), `recipe detail should include UI V3 marker ${token}`);
 }
 
@@ -483,7 +518,7 @@ const detailWxml = fs.readFileSync(path.join(root, "pages/detail/detail.wxml"), 
 for (const text of ["人气推荐", "酒品简介", "记录品鉴", "加入收藏"]) {
   assert(detailWxml.includes(text), `detail page should render ${text}`);
 }
-for (const token of ["v3-detail", "rating-block", "assets/ui-v3/detail-macallan.png", "收藏酒品"]) {
+for (const token of ["v3-detail", "rating-block", "assets/ui-v3/icons/bottle-hero.svg", "收藏酒品"]) {
   assert(detailWxml.includes(token), `detail page should include UI V3 marker ${token}`);
 }
 
@@ -500,6 +535,8 @@ assert(diyWxml.includes("'DIY'"), "DIY page bottom action should show DIY in lis
 assert(diyWxml.includes("提交中"), "DIY create page should show submitting button text");
 assert(!diyWxml.includes("提交审核"), "DIY create page should not mention submit review");
 assert(!diyWxml.includes("审核中"), "DIY create page should not mention reviewing state");
+assert(!diyJs.includes("submitRecipeLocally"), "DIY create page should not fake local recipe saves when CloudBase writes fail");
+assert(!diyJs.includes("local_recipe_"), "DIY create page should not create local recipe ids after write failures");
 const diyWxss = fs.readFileSync(path.join(root, "pages/diy/diy.wxss"), "utf8");
 assert(diyWxss.includes("repeat(2, 1fr)"), "DIY base drink grid should use two columns");
 
@@ -525,6 +562,8 @@ for (const token of ["v3-ranking", "podium-rank-badge"]) {
 const rankingJs = fs.readFileSync(path.join(root, "pages/ranking/ranking.js"), "utf8");
 assert(rankingJs.includes("initialType"), "ranking page should read initial ranking type from route options");
 assert(rankingJs.includes("recipe"), "ranking page should support recipe ranking entry from home");
+assert(rankingWxml.includes('catchtap="goRecipeDetail"'), "ranking recipe rows should isolate card taps from tab switching");
+assert(!rankingJs.includes('type === "recipe" ? "hot"'), "ranking page should keep recipe type instead of rewriting it to hot");
 
 const recordWxml = fs.readFileSync(path.join(root, "pages/record/record.wxml"), "utf8");
 for (const text of ["记录品鉴", "我的评分", "饮用场景", "口感标签", "个人笔记", "保存"]) {
@@ -562,7 +601,7 @@ for (const token of ["v3-achievements", "achievement-summary-card", "32 / 68"]) 
   assert(achievementsWxmlV3.includes(token), `achievement page should include UI V3 marker ${token}`);
 }
 const profileWxmlV3 = fs.readFileSync(path.join(root, "pages/profile/profile.wxml"), "utf8");
-for (const token of ["v3-profile", "assets/ui-v3/profile-avatar.png", "我的服务"]) {
+for (const token of ["v3-profile", "assets/ui-v3/icons/profile-avatar.svg", "我的服务"]) {
   assert(profileWxmlV3.includes(token), `profile page should include UI V3 marker ${token}`);
 }
 const testWxmlV3 = fs.readFileSync(path.join(root, "pages/test/test.wxml"), "utf8");
@@ -573,6 +612,8 @@ for (const token of ["v3-test", "history-link", "segmented-control"]) {
 const getHomeDataSource = fs.readFileSync(path.join(root, "cloudfunctions/getHomeData/index.js"), "utf8");
 assert(getHomeDataSource.includes("wx-server-sdk"), "getHomeData should use wx-server-sdk");
 assert(getHomeDataSource.includes('collection("drinks")'), "getHomeData should query drinks collection");
+assert(getHomeDataSource.includes("enabled") && getHomeDataSource.includes("hidden"), "getHomeData should exclude hidden or disabled drinks");
+assert(getHomeDataSource.includes("assets/ui-v3/icons/mood-tipsy.svg"), "getHomeData should return themed mood icon assets");
 assert(getHomeDataSource.includes('collection("drink_categories")'), "getHomeData should query drink_categories collection");
 assert(getHomeDataSource.includes('collection("recipes")'), "getHomeData should query approved recipes collection");
 assert(getHomeDataSource.includes('collection("ingredients")'), "getHomeData should query ingredients collection");
@@ -583,6 +624,7 @@ assert(getHomeDataSource.includes("ingredients"), "getHomeData should return ing
 const getRandomDrinkSource = fs.readFileSync(path.join(root, "cloudfunctions/getRandomDrink/index.js"), "utf8");
 assert(getRandomDrinkSource.includes("wx-server-sdk"), "getRandomDrink should use wx-server-sdk");
 assert(getRandomDrinkSource.includes('collection("drinks")'), "getRandomDrink should query drinks collection");
+assert(getRandomDrinkSource.includes("enabled") && getRandomDrinkSource.includes("hidden"), "getRandomDrink should exclude hidden or disabled drinks");
 assert(getRandomDrinkSource.includes("Math.random"), "getRandomDrink should pick a random drink");
 
 // — Phase 5: login and user creation —
@@ -597,6 +639,7 @@ const getMoodSource = fs.readFileSync(path.join(root, "cloudfunctions/getMoodRec
 assert(getMoodSource.includes("wx-server-sdk"), "getMoodRecommendations should use wx-server-sdk");
 assert(getMoodSource.includes('collection("drinks")'), "getMoodRecommendations should query drinks collection");
 assert(getMoodSource.includes("statusTags"), "getMoodRecommendations should filter by statusTags");
+assert(getMoodSource.includes("enabled") && getMoodSource.includes("hidden"), "getMoodRecommendations should exclude hidden or disabled drinks");
 
 // — Phase 4: drink detail —
 const getDrinkDetailSource = fs.readFileSync(path.join(root, "cloudfunctions/getDrinkDetail/index.js"), "utf8");
@@ -643,6 +686,28 @@ for (const collectionName of [
 ]) {
   assert(initSeedSource.includes(collectionName), `initSeedData should seed ${collectionName}`);
 }
+for (const collectionName of [
+  "users",
+  "drink_categories",
+  "drinks",
+  "drink_tags",
+  "ingredients",
+  "recipes",
+  "recipe_likes",
+  "recipe_favorites",
+  "drink_records",
+  "user_favorites",
+  "user_achievements",
+  "achievement_definitions",
+  "recommend_logs",
+  "system_configs",
+  "report_records"
+]) {
+  assert(initSeedSource.includes(collectionName), `initSeedData should know collection ${collectionName}`);
+}
+for (const token of ["createEmptyCollections", "verifyOnly", "verifyCollections", "missingCollections"]) {
+  assert(initSeedSource.includes(token), `initSeedData should support ${token}`);
+}
 
 // — Service files for phases 5-7 —
 const requiredLaterServices = [
@@ -678,6 +743,9 @@ assert(rankingServiceSource.includes("getRanking"), "ranking service should expo
 const drinksServiceSource = fs.readFileSync(path.join(root, "services/drinks.js"), "utf8");
 assert(drinksServiceSource.includes("toggleDrinkFavorite"), "drinks service should export toggleDrinkFavorite function");
 assert(drinksServiceSource.includes("getDrinkFavorites"), "drinks service should export getDrinkFavorites function");
+assert(drinksServiceSource.includes("createDrink"), "drinks service should export createDrink function");
+assert(drinksServiceSource.includes("updateDrink"), "drinks service should export updateDrink function");
+assert(drinksServiceSource.includes("deleteDrink"), "drinks service should export deleteDrink function");
 const profileServiceSource = fs.readFileSync(path.join(root, "services/user.js"), "utf8");
 assert(profileServiceSource.includes("getUserProfileData"), "user service should export getUserProfileData function");
 assert(profileServiceSource.includes("getAchievements"), "user service should export getAchievements function");
@@ -687,7 +755,24 @@ assert(cloudServiceSource.includes("DATABASE_COLLECTION_NOT_EXIST"), "cloud serv
 assert(cloudServiceSource.includes("云端数据暂不可用"), "cloud service should map infrastructure errors to short user copy");
 
 for (const [file, checks] of Object.entries({
+  "cloudfunctions/common/crud-utils.js": ["getCurrentUser", "filterAllowedFields", "normalizePagination", "safeInc", "handleCloudError"],
+  "cloudfunctions/adminCollectionCrud/index.js": [
+    "allowedCollections",
+    "fieldAllowlists",
+    "list",
+    "get",
+    "create",
+    "update",
+    "delete",
+    "count",
+    "filterAllowedFields",
+    "normalizePagination",
+    "getCurrentUser"
+  ],
   "cloudfunctions/getRecipeDetail/index.js": ['collection("recipes")', 'collection("ingredients")', 'recipeId'],
+  "cloudfunctions/createDrink/index.js": ['collection("drinks")', "filterAllowedFields", "getCurrentUser", "allowedFields", "name"],
+  "cloudfunctions/updateDrink/index.js": ['collection("drinks")', "filterAllowedFields", "getCurrentUser", "allowedFields", "drinkId"],
+  "cloudfunctions/deleteDrink/index.js": ['collection("drinks")', "getCurrentUser", "enabled", "status", "drinkId"],
   "cloudfunctions/getMyRecipes/index.js": ['collection("recipes")', "OPENID", "userId"],
   "cloudfunctions/updateRecipe/index.js": ['collection("recipes")', 'collection("ingredients")', "scanText", "status"],
   "cloudfunctions/deleteRecipe/index.js": ['collection("recipes")', 'collection("recipe_likes")', 'collection("recipe_favorites")'],

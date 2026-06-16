@@ -20,7 +20,7 @@
       <text class="progress-text">{{progress}}%</text>
     </view>
     <block wx:else>
-      <image class="modal-bottle" src="{{displayDrink.image || '/assets/ui-v3/modal-kakubin.png'}}" mode="aspectFit"></image>
+      <image class="modal-bottle" src="{{displayDrink.image || '/assets/ui-v3/icons/bottle-hero.svg'}}" mode="aspectFit"></image>
       <view class="modal-card">
       <view class="between">
         <view class="modal-copy">

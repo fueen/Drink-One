@@ -6,7 +6,7 @@
   </view>
 
   <view class="recipe-cover-hero">
-    <image class="recipe-cover-image" src="{{recipe.cover || '/assets/ui-v3/recipe-cocktail.png'}}" mode="aspectFit"></image>
+    <image class="recipe-cover-image" src="{{recipe.cover || '/assets/ui-v3/icons/recipe-citrus.svg'}}" mode="aspectFit"></image>
   </view>
 
   <view class="v3-card recipe-info">

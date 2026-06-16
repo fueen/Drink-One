@@ -11,7 +11,7 @@ const fallbackRecordData = {
     name: "角瓶威士忌",
     englishName: "Suntory Kakubin",
     abv: "40%vol",
-    image: "/assets/ui-v3/detail-macallan.png"
+    image: "/assets/ui-v3/icons/bottle-hero.svg"
   }
 };
 

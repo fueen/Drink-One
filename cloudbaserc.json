@@ -4,7 +4,31 @@
   "functionRoot": "cloudfunctions",
   "functions": [
     {
+      "name": "adminCollectionCrud",
+      "runtime": "Nodejs18.15",
+      "handler": "index.main",
+      "timeout": 15
+    },
+    {
       "name": "createRecipe",
+      "runtime": "Nodejs18.15",
+      "handler": "index.main",
+      "timeout": 15
+    },
+    {
+      "name": "createDrink",
+      "runtime": "Nodejs18.15",
+      "handler": "index.main",
+      "timeout": 15
+    },
+    {
+      "name": "updateDrink",
+      "runtime": "Nodejs18.15",
+      "handler": "index.main",
+      "timeout": 15
+    },
+    {
+      "name": "deleteDrink",
       "runtime": "Nodejs18.15",
       "handler": "index.main",
       "timeout": 15

@@ -14,6 +14,24 @@ const seedCollections = {
   system_configs: require("./seed-data/system-configs.json")
 };
 
+const allCollections = [
+  "users",
+  "drink_categories",
+  "drinks",
+  "drink_tags",
+  "ingredients",
+  "recipes",
+  "recipe_likes",
+  "recipe_favorites",
+  "drink_records",
+  "user_favorites",
+  "user_achievements",
+  "achievement_definitions",
+  "recommend_logs",
+  "system_configs",
+  "report_records"
+];
+
 const BATCH_SIZE = 10;
 
 function buildStableId(collectionName, item, index) {
@@ -59,6 +77,33 @@ async function ensureCollection(collectionName) {
   }
 }
 
+async function verifyCollections(collectionNames = allCollections) {
+  const missingCollections = [];
+
+  for (const collectionName of collectionNames) {
+    try {
+      await db.collection(collectionName).limit(1).get();
+    } catch (error) {
+      const message = (error && (error.message || error.errMsg || String(error))) || "";
+      if (
+        message.includes("DATABASE_COLLECTION_NOT_EXIST") ||
+        message.includes("collection not exists") ||
+        message.includes("Db or Table not exist") ||
+        message.includes("ResourceNotFound")
+      ) {
+        missingCollections.push(collectionName);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  return {
+    missingCollections,
+    complete: missingCollections.length === 0
+  };
+}
+
 async function upsertCollection(collectionName, items) {
   const ids = [];
 
@@ -75,6 +120,29 @@ async function upsertCollection(collectionName, items) {
 
 exports.main = async (event = {}) => {
   const targetCollection = event.collection;
+  const verifyOnly = event.verifyOnly || event.action === "verifyCollections";
+  const createEmptyCollections = Boolean(event.createEmptyCollections);
+
+  if (targetCollection && !allCollections.includes(targetCollection)) {
+    throw new Error(`unknown collection: ${targetCollection}`);
+  }
+
+  const targetCollections = targetCollection ? [targetCollection] : allCollections;
+
+  if (createEmptyCollections) {
+    for (const collectionName of targetCollections) {
+      await ensureCollection(collectionName);
+    }
+  }
+
+  if (verifyOnly) {
+    const verification = await verifyCollections(targetCollections);
+    return {
+      ok: true,
+      ...verification
+    };
+  }
+
   const entries = targetCollection
     ? [[targetCollection, seedCollections[targetCollection]]]
     : Object.entries(seedCollections);
@@ -83,6 +151,14 @@ exports.main = async (event = {}) => {
 
   for (const [collectionName, items] of entries) {
     if (!Array.isArray(items)) {
+      if (createEmptyCollections) {
+        summary[collectionName] = {
+          count: 0,
+          ids: []
+        };
+        continue;
+      }
+
       throw new Error(`unknown seed collection: ${collectionName}`);
     }
 

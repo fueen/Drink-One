@@ -15,12 +15,12 @@ const normalizeDrink = (drink = {}, index = 0) => ({
 const fallbackLibraryData = {
   categories: ["全部", "威士忌", "白酒", "葡萄酒", "鸡尾酒", "啤酒"],
   drinks: [
-    { _id: "drink_macallan_12", name: "角瓶威士忌", englishName: "Suntory Kakubin", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/library-bottle-1.png", favoriteCount: "2.3k", liked: true },
-    { _id: "drink_cognac", name: "黑方威士忌", englishName: "Johnnie Walker", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/library-bottle-2.png", favoriteCount: "1.8k" },
-    { _id: "drink_gin", name: "绝对伏特加", englishName: "Absolut Vodka", category: "鸡尾酒", abv: "40%vol", image: "/assets/ui-v3/library-bottle-3.png", favoriteCount: "1.2k" },
-    { _id: "drink_bud", name: "百威啤酒", englishName: "Budweiser", category: "啤酒", abv: "5.0%vol", image: "/assets/ui-v3/library-bottle-4.png", favoriteCount: "965" },
-    { _id: "drink_jager", name: "野格利口酒", englishName: "Jagermeister", category: "鸡尾酒", abv: "35%vol", image: "/assets/ui-v3/library-bottle-5.png", favoriteCount: "765" },
-    { _id: "drink_baileys", name: "贝礼诗奶酒", englishName: "Baileys", category: "鸡尾酒", abv: "17%vol", image: "/assets/ui-v3/library-bottle-6.png", favoriteCount: "632" }
+    { _id: "drink_macallan_12", name: "角瓶威士忌", englishName: "Suntory Kakubin", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/icons/bottle-whisky.svg", favoriteCount: "2.3k", liked: true },
+    { _id: "drink_cognac", name: "黑方威士忌", englishName: "Johnnie Walker", category: "威士忌", abv: "40%vol", image: "/assets/ui-v3/icons/bottle-dark.svg", favoriteCount: "1.8k" },
+    { _id: "drink_gin", name: "绝对伏特加", englishName: "Absolut Vodka", category: "鸡尾酒", abv: "40%vol", image: "/assets/ui-v3/icons/bottle-clear.svg", favoriteCount: "1.2k" },
+    { _id: "drink_bud", name: "百威啤酒", englishName: "Budweiser", category: "啤酒", abv: "5.0%vol", image: "/assets/ui-v3/icons/bottle-beer.svg", favoriteCount: "965" },
+    { _id: "drink_jager", name: "野格利口酒", englishName: "Jagermeister", category: "鸡尾酒", abv: "35%vol", image: "/assets/ui-v3/icons/bottle-green.svg", favoriteCount: "765" },
+    { _id: "drink_baileys", name: "贝礼诗奶酒", englishName: "Baileys", category: "鸡尾酒", abv: "17%vol", image: "/assets/ui-v3/icons/bottle-cream.svg", favoriteCount: "632" }
   ].map(normalizeDrink)
 };
 

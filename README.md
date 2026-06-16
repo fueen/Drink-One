@@ -306,3 +306,42 @@ develop
 ```powershell
 npx.cmd -y --package @cloudbase/cli tcb fn deploy initSeedData --dir "D:\workspace\Drink One\cloudfunctions\initSeedData" -e cloud1-d6gkgmp1a475bc9b5 --yes --deployMode cos
 ```
+---
+
+## Latest Update - 2026-06-16
+
+- Replaced cropped UI V3 bitmap references in business code with a self-designed SVG icon system under `assets/ui-v3/icons/`.
+- Added themed icons for bottles, cocktail cards, mood states, recipe covers, and profile avatars.
+- Added CloudBase management and CRUD utilities:
+  - `cloudfunctions/common/crud-utils.js`
+  - `cloudfunctions/adminCollectionCrud`
+  - `cloudfunctions/createDrink`
+  - `cloudfunctions/updateDrink`
+  - `cloudfunctions/deleteDrink`
+- Extended `initSeedData` so it can create and verify all 15 CloudBase collections with `createEmptyCollections`, `verifyOnly`, and `verifyCollections`.
+- Added frontend drink service wrappers: `createDrink`, `updateDrink`, and `deleteDrink`.
+- Drink write cloud functions now resolve the current user from `OPENID` via `getCurrentUser(db, { requireUser: true })`.
+- Drink deletion is implemented as a soft delete using `enabled=false` and `status=hidden`; home, random, and mood recommendation queries now exclude hidden or disabled drinks.
+- DIY recipe creation no longer fakes local save success when CloudBase writes fail.
+- Fixed recipe ranking navigation so `recipe` is no longer rewritten to `hot`, and ranking item taps are isolated with `catchtap`.
+- Added structural regression checks in `tests/validate-miniprogram.js`.
+
+Verification:
+
+```powershell
+npm.cmd test
+```
+
+Expected output:
+
+```text
+Mini program structure validated.
+```
+
+CloudBase deployment note:
+
+```powershell
+npm.cmd run deploy:functions -- -EnvId cloud1-d6gkgmp1a475bc9b5
+```
+
+The current local CloudBase CLI account returns `env not found in list: cloud1-d6gkgmp1a475bc9b5`. Re-login with an account that has access to this environment, then rerun the deploy command. After deployment, initialize and verify collections by invoking `initSeedData` with `{ "createEmptyCollections": true }` and then `{ "verifyOnly": true }`.

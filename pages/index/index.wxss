@@ -149,13 +149,10 @@
 }
 
 .status-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 52rpx;
   height: 52rpx;
   margin: 0 auto 8rpx;
-  font-size: 32rpx;
 }
 
 .status-name {
@@ -184,7 +181,7 @@
   width: 100%;
   height: 108rpx;
   border-radius: 14rpx;
-  background: #eef2f8;
+  background: linear-gradient(135deg, #fff7ec, #fff0f5);
 }
 
 .recipe-name {

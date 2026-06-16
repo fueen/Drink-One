@@ -5,6 +5,7 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
 
 const sortMap = {
+  recipe: "likeCount",
   hot: "likeCount",
   favorite: "favoriteCount",
   creative: "likeCount",
@@ -12,7 +13,7 @@ const sortMap = {
 };
 
 exports.main = async (event) => {
-  const type = event.type || "hot";
+  const type = event.type || "recipe";
   const sortField = sortMap[type] || "likeCount";
 
   const result = await db
